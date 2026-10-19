@@ -230,8 +230,8 @@ body.lock{overflow:hidden}
  </div>
  <div class="stage" id="stage">
   <div class="chip" id="chip"><em>MODEL</em><span>온결 커피 · 카페</span></div>
-  <div class="lap"><div class="scr" id="sL"><iframe title="전시 모델 PC 화면" tabindex="-1" loading="lazy"></iframe></div></div>
-  <div class="ph"><div class="scr" id="sM"><iframe title="전시 모델 모바일 화면" tabindex="-1" loading="lazy"></iframe></div></div>
+  <div class="lap"><div class="scr" id="sL"><iframe title="전시 모델 PC 화면" tabindex="-1"></iframe></div></div>
+  <div class="ph"><div class="scr" id="sM"><iframe title="전시 모델 모바일 화면" tabindex="-1"></iframe></div></div>
  </div>
 </div></section>
 
@@ -322,7 +322,7 @@ var MODELS=[
  {k:'academy',name:'산본글로벌어학원',en:'SANBON GLOBAL',kind:'학원',cat:'edu',tone:'수강신청·결제까지 되는 학원형',live:1,img:'img/sga_pc.jpg',url:'https://sanbonglobal.com',rec:['mem','rsv']},
  {k:'cafe',name:'온결 커피',en:'ONGYEOL COFFEE',kind:'카페',cat:'food',tone:'원목·따뜻한 사진 중심',img:IMG('1554118811-1e0d58224f24'),rec:['promo']},
  {k:'salon',name:'살롱 드 봄',en:'SALON DE BOM',kind:'미용실',cat:'beauty',tone:'핑크 톤 · 예약 버튼 강조',img:IMG('1521590832167-7bcbfaa6381f'),rec:['rsv']},
- {k:'pilates',name:'코어앤숨 필라테스',en:'CORE & SUM',kind:'필라테스',cat:'beauty',tone:'세이지 그린 · 시간표형',img:IMG('1599901860904-17e6ed7083a0'),rec:['rsv']},
+ {k:'pilates',name:'코어앤숨 필라테스',en:'CORE & SUM',kind:'필라테스',cat:'beauty',tone:'세이지 그린 · 시간표형',img:IMG('1571019613454-1cb2f99b2d8b'),rec:['rsv']},
  {k:'dining',name:'비스트로 미담',en:'BISTRO MIDAM',kind:'식당',cat:'food',tone:'코스 메뉴 · 자리 예약',img:IMG('1414235077428-338989a2e8c0'),rec:['rsv','promo']},
  {k:'factory',name:'누리정밀',en:'NURI PRECISION',kind:'제조·공장',cat:'biz',tone:'가공 범위 · 견적 요청형',img:IMG('1504917595217-d4dc5ebe6122'),rec:['lang']},
  {k:'photo',name:'빛담 스튜디오',en:'BITDAM STUDIO',kind:'사진관',cat:'photo',tone:'갤러리 · 촬영 예약',img:IMG('1511285560929-80b456fea0bc'),rec:['promo','rsv']},
@@ -378,7 +378,9 @@ function fit(box){var f=box.querySelector('iframe');if(!f)return;var w=box.clien
  var sc=w/vw;f.style.width=vw+'px';f.style.height=(h/sc)+'px';f.style.transform='scale('+sc+')';}
 var sL=document.getElementById('sL'),sM=document.getElementById('sM');sL.setAttribute('data-vw',1280);sM.setAttribute('data-vw',390);
 var heroList=MODELS.filter(function(m){return !m.live;}),hi=0;
+var heroFirst=1;
 function heroShow(){var m=heroList[hi],chip=document.getElementById('chip');
+ if(heroFirst){heroFirst=0;sL.querySelector('iframe').src=src(m);sM.querySelector('iframe').src=src(m);chip.querySelector('span').textContent=m.name+' · '+m.kind;fit(sL);fit(sM);return;}
  [sL,sM,chip].forEach(function(e){e.classList.add('fade');});
  setTimeout(function(){sL.querySelector('iframe').src=src(m);sM.querySelector('iframe').src=src(m);
   chip.querySelector('span').textContent=m.name+' · '+m.kind;fit(sL);fit(sM);
