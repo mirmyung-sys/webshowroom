@@ -2,462 +2,592 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>웹쇼룸 WEBSHOWROOM · 홈페이지, 차 고르듯 골라 사세요</title>
-<meta name="description" content="완성된 홈페이지 모델을 둘러보고 고르세요. 기본 490,000원 · 7일 오픈 · 필요한 옵션만 더하는 홈페이지 전시장, 웹쇼룸.">
-<meta property="og:title" content="웹쇼룸 — 홈페이지, 차 고르듯 골라 사세요">
-<meta property="og:description" content="기본 490,000원 · 7일 오픈 · 옵션은 필요한 것만">
-<meta property="og:image" content="img/og.jpg">
-<link rel="icon" href="img/logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<title>웹쇼룸 — 누르면 만들어지는 홈페이지</title>
+<meta name="description" content="업종을 고르고 블록을 누르면 홈페이지가 만들어집니다. 490,000원부터, 7일 오픈.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
-:root{--iv:#F7F3EC;--iv2:#EFE8DC;--ink:#17130F;--sub:#6B6157;--gold:#C9A15B;--gold2:#E9D9B6;--red:#E2483D;--card:#FFFDF9;--line:#E3D9C9;--yel:#FFC93C}
+:root{--bg:#F7F3EC;--bg2:#EFE7DA;--card:#FFFDF9;--ink:#1E1914;--ink2:#625849;--mute:#8E8271;--line:#E5DBCB;--gold:#C9A15B;--gold2:#A9823F;--rose:#E2483D;--yellow:#FFC93C;
+--serif:"Gowun Batang","Noto Serif CJK KR",serif;--sans:Pretendard,"Noto Sans KR","Noto Sans CJK KR",system-ui,sans-serif;--en:"Cormorant Garamond",serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--iv);color:var(--ink);font-family:'Noto Sans KR',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:72px}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer}
-.it{font-family:'Playfair Display',serif;font-style:italic;font-weight:700}
-.wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.w{max-width:1200px;margin:0 auto;padding:0 20px}
+.eye{font-family:var(--en);font-style:italic;font-size:19px;color:var(--gold2);letter-spacing:.02em}
+.h2{font-family:var(--serif);font-size:clamp(30px,4.2vw,50px);line-height:1.2;letter-spacing:-.02em;margin-top:8px}
+.lead{color:var(--ink2);font-size:16px;line-height:1.75}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-g{background:linear-gradient(135deg,#D7B26E,var(--gold2));color:#fff;box-shadow:0 14px 30px -14px rgba(169,130,63,.9)}
+.btn-g:hover{transform:translateY(-2px)}
+.btn-l{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-l:hover{border-color:var(--rose);color:var(--rose)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}.rv.on{opacity:1;transform:none}
+
 /* header */
-header{position:sticky;top:0;z-index:30;background:rgba(247,243,236,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;gap:18px;height:62px}
-.lg{display:flex;align-items:center;gap:10px}
-.lg img{width:34px;height:34px}
-.lg b{font-weight:900;font-size:16px;letter-spacing:.12em;display:block;line-height:1.1}
-.lg small{font-size:11px;color:var(--sub);letter-spacing:.04em}
-.hd nav{margin-left:auto;display:flex;gap:26px;font-size:14.5px;font-weight:500;color:var(--sub)}
-.hd nav a:hover{color:var(--ink)}
-.cta{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;border-radius:99px;padding:10px 18px;font-weight:700;font-size:14.5px;border:0;box-shadow:0 10px 22px -12px var(--red)}
-.cta.gh{background:transparent;color:var(--ink);border:1.5px solid var(--ink);box-shadow:none}
-@media(max-width:820px){.hd nav{display:none}.hd .cta{margin-left:auto;padding:9px 14px;font-size:13.5px}}
-/* hero v3 — 어워드 갤러리형 */
-.hero{position:relative;padding:40px 0 34px;overflow:hidden;background:radial-gradient(1200px 500px at 85% 10%,#FBF2DF 0,transparent 60%),var(--iv)}
-.hero:before{content:"";position:absolute;inset:14px;border:1px solid rgba(201,161,91,.45);border-radius:28px;pointer-events:none;z-index:4}
-@media(max-width:979px){.hero .wrap{padding:0 30px}.kick{letter-spacing:.24em;font-size:10.5px}.kick .kw{display:none}.wall{margin:0 -16px}}
-.hg{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;position:relative}
-@media(min-width:980px){.hg{grid-template-columns:1fr 1.05fr;min-height:640px}.hero{padding:30px 0 30px}}
-.kick{display:inline-flex;align-items:center;gap:10px;font:700 11.5px 'Noto Sans KR';letter-spacing:.32em;color:#8A6A2F}
-.kick i{width:26px;height:1px;background:var(--gold)}
-.hero h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(42px,7.6vw,84px);line-height:1.1;letter-spacing:-.04em;margin:20px 0 20px}
-.hero h1 em{font-style:normal;color:var(--red);position:relative;white-space:nowrap}
-.hero h1 em:after{content:"";position:absolute;left:2%;right:2%;bottom:.06em;height:.09em;background:var(--gold);opacity:.55;border-radius:9px}
-.hero .ld{font-size:clamp(16px,1.7vw,18.5px);color:var(--sub);max-width:30em}
-.pr{display:flex;align-items:baseline;gap:12px;margin:24px 0 26px;flex-wrap:wrap}
-.pr b{font-family:'Noto Serif KR',serif;font-size:clamp(34px,4.4vw,46px);font-weight:900;letter-spacing:-.02em}
-.pr b small{font-size:.5em;font-weight:800;margin-left:2px}
-.pr span{color:var(--sub);font-size:14px}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btns .cta{padding:15px 24px;font-size:16px}
-/* gallery wall */
-.wall{position:relative;height:340px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.wall .col{display:flex;gap:14px;width:max-content;animation:wx 48s linear infinite}
-.wall .col+.col{margin-top:14px;animation-direction:reverse;animation-duration:56s}
-@keyframes wx{to{transform:translateX(-50%)}}
-.wc{flex:none;width:210px;border-radius:14px;background:var(--card);border:1px solid var(--line);overflow:hidden;box-shadow:0 18px 30px -22px rgba(60,40,10,.55);cursor:pointer;text-align:left;padding:0;font-family:inherit}
-.wc .bz{display:flex;gap:4px;padding:7px 9px;border-bottom:1px solid var(--line)}
-.wc .bz i{width:6px;height:6px;border-radius:50%;background:var(--line)}
-.wc .bz i:first-child{background:var(--red)}
-.wc .ph{display:block;aspect-ratio:16/10;background:var(--iv2) center/cover no-repeat}
-.wc .cp{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;font-size:12px;font-weight:700}
-.wc .cp em{font-style:normal;color:#8A6A2F;font-size:10.5px;letter-spacing:.12em}
-.wc:hover{border-color:var(--gold)}
-@media(min-width:980px){
- .wall{height:640px;display:flex;gap:16px;justify-content:center;transform:rotate(-7deg) scale(1.08);-webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
- .wall .col{flex-direction:column;width:auto;animation-name:wy}
- .wall .col+.col{margin-top:0}
- .wall .col:nth-child(2){margin-top:-120px}
- @keyframes wy{to{transform:translateY(-50%)}}
- .wc{width:232px}
-}
-@media(prefers-reduced-motion:reduce){.wall .col{animation:none}}
-.otd{position:absolute;right:30px;bottom:30px;z-index:3;display:none;align-items:center;gap:10px;background:rgba(255,253,249,.94);border:1px solid var(--gold);border-radius:99px;padding:8px 16px 8px 8px;box-shadow:0 14px 28px -18px rgba(60,40,10,.5);font-size:13px;cursor:pointer}
-.otd span.d{width:30px;height:30px;border-radius:50%;background:center/cover no-repeat}
-.otd b{font-weight:900}.otd em{font-style:normal;color:#8A6A2F;font-weight:700;letter-spacing:.12em;font-size:11px}
-@media(min-width:980px){.otd{display:flex}}
-/* copy ticker */
-.tick{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#FFFBF2;overflow:hidden;padding:14px 0}
-.tk{display:flex;gap:46px;width:max-content;animation:wx 60s linear infinite;white-space:nowrap}
-.tk span{font-family:'Noto Serif KR',serif;font-weight:800;font-size:clamp(17px,2vw,22px);color:var(--ink)}
-.tk span:before{content:"✦";color:var(--gold);margin-right:46px;font-size:.8em;vertical-align:.12em}
-.scr{position:relative;width:100%;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:var(--iv2)}
-.scr iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#fff}
-/* section heads */
-.sec{padding:70px 0 10px}
-.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
-.sh h2{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.15}
-.sh h2 .it{color:var(--gold);font-size:.8em;display:block;letter-spacing:0}
-.sh p{color:var(--sub);font-size:15px}
-/* filters */
-.flt{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;scrollbar-width:none}
-.flt::-webkit-scrollbar{display:none}
-.flt button{flex:none;border:1.5px solid var(--line);background:var(--card);border-radius:99px;padding:9px 16px;font-size:14px;font-weight:700;color:var(--sub)}
-.flt button.on{background:var(--red);border-color:var(--red);color:#fff}
-/* showroom grid */
-.grid{display:grid;grid-template-columns:1fr;gap:18px}
-@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
-.car{position:relative;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;padding:0}
-.car:hover{transform:translateY(-4px);box-shadow:0 24px 40px -26px rgba(60,40,10,.45)}
-.car .im{position:relative;aspect-ratio:4/3;background:var(--iv2) center/cover no-repeat}
-.car .im:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(23,19,15,.45))}
-.car .no{position:absolute;left:12px;top:12px;z-index:2;background:rgba(255,253,249,.92);border-radius:99px;padding:4px 10px;font-size:11.5px;font-weight:900;letter-spacing:.12em}
-.car .live{position:absolute;right:12px;top:12px;z-index:2;background:var(--red);color:#fff;border-radius:99px;padding:4px 10px;font-size:11.5px;font-weight:900;letter-spacing:.1em}
-.car .en{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font-size:12px;font-weight:700;letter-spacing:.2em}
-.car .bd{padding:16px 16px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
-.car .bd small{color:#8A6A2F;font-weight:700;font-size:12.5px}
-.car .bd b{font-size:19px;font-weight:900;letter-spacing:-.02em}
-.car .bd span{color:var(--sub);font-size:13.5px}
-.car .go{margin-top:12px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;border-top:1px dashed var(--line);padding-top:12px}
-.car .go em{font-style:normal;color:var(--red)}
-.car.hide{display:none}
+.top{position:sticky;top:0;z-index:40;background:rgba(247,243,236,.88);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.on{border-color:var(--line)}
+.top .w{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--serif);font-size:22px;letter-spacing:-.01em}
+.logo small{font-family:var(--en);font-size:12px;letter-spacing:.32em;color:var(--gold2);margin-top:4px}
+.nav{display:flex;gap:30px;font-size:15px;color:var(--ink2)}
+.nav a:hover{color:var(--ink)}
+.top .btn{padding:11px 20px;font-size:14px}
+@media(max-width:860px){.nav{display:none}.top .btn{padding:10px 16px}}
+
+.btn-r{background:var(--rose);color:#fff;box-shadow:0 14px 30px -14px rgba(226,72,61,.85)}
+.btn-r:hover{transform:translateY(-2px);background:#CF3A30}
+
+/* 3D hero — Messenger · Igloo */
+section.h3{padding:0}
+.h3{position:relative;height:min(92vh,880px);min-height:620px;background:radial-gradient(120% 90% at 70% 40%,#FFF9EF 0,#F7F3EC 45%,#EEE2CE 100%);overflow:hidden}
+#h3d{position:absolute;inset:0}
+#h3d canvas{display:block;width:100%;height:100%}
+#h3dLabels{position:absolute;inset:0;pointer-events:none}
+.tag3{position:absolute;left:0;top:0;pointer-events:auto;font:700 13px var(--sans);background:rgba(255,253,249,.94);border:1px solid var(--line);color:var(--ink);padding:7px 12px;border-radius:99px;box-shadow:0 8px 18px -10px rgba(90,60,20,.5);transition:opacity .4s,background .2s,color .2s;white-space:nowrap;opacity:0}
+.tag3.on,.tag3:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+.h3 .copy{position:absolute;left:0;right:0;top:0;pointer-events:none}
+.h3 .copy .w{padding-top:56px}
+.h3 .copy h1{font-family:var(--serif);font-weight:700;font-size:clamp(40px,5.4vw,84px);line-height:1.02;letter-spacing:-.045em;max-width:9.5em}
+.h3 .copy h1 i{font-style:normal;color:var(--rose)}
+.h3 .copy p{margin-top:16px;max-width:400px;font-size:16px;color:var(--ink2);line-height:1.7}
+.h3 .copy .btns{margin-top:22px;pointer-events:auto}
+.h3 .hint{position:absolute;right:24px;bottom:22px;font-size:13px;color:var(--mute);background:rgba(255,253,249,.8);padding:8px 14px;border-radius:99px;border:1px solid var(--line)}
+.h3 .facts3{position:absolute;left:0;right:0;bottom:24px;pointer-events:none}
+.h3 .facts3 .w{display:flex;gap:26px;font-size:14px;color:var(--ink2)}
+.h3 .facts3 b{color:var(--ink);font-size:18px;margin-right:4px}
+@media(max-width:860px){.h3{height:auto;min-height:0;display:flex;flex-direction:column}.h3 .copy{position:relative;order:-1}.h3 .facts3{order:-1}.h3 .copy .w{padding-top:30px}#h3d{position:relative;height:430px;inset:auto}.h3 .hint{right:12px;bottom:12px;font-size:12px}.h3 .facts3{position:relative;bottom:auto;padding:0 0 22px}.h3 .facts3 .w{gap:16px;flex-wrap:wrap}}
+
+
+.h3{background:radial-gradient(70% 80% at 72% 48%,#FFFBF3 0,#F8F2E8 40%,#EFE4D2 100%)}
+.h3::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,236,200,.55) 0,rgba(255,236,200,0) 38%),radial-gradient(40% 30% at 70% 92%,rgba(201,161,91,.16),transparent 70%);pointer-events:none;z-index:1}
+#h3d{z-index:0}
+.h3 .copy,.h3 .facts3{z-index:2}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.cap3{position:absolute;right:28px;bottom:26px;z-index:3;font:600 13px var(--sans);letter-spacing:.04em;color:var(--ink2);background:rgba(255,253,249,.82);backdrop-filter:blur(8px);border:1px solid var(--line);padding:9px 16px 9px 28px;border-radius:99px;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s}
+.cap3::before{content:"";position:absolute;left:13px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--gold)}
+.cap3.on{opacity:1;transform:none}
+.h3 .copy .eye,.h3 .copy h1,.h3 .copy p,.h3 .copy .btns,.h3 .facts3 .w{opacity:0;transform:translateY(22px);filter:blur(8px);animation:rise 1.2s cubic-bezier(.2,.7,.2,1) forwards}
+.h3 .copy .eye{animation-delay:1.6s}.h3 .copy h1{animation-delay:1.9s}.h3 .copy p{animation-delay:2.4s}.h3 .copy .btns{animation-delay:2.7s}.h3 .facts3 .w{animation-delay:3s}
+@keyframes rise{to{opacity:1;transform:none;filter:none}}
+.h3 .copy h1 i{display:inline-block;animation:pulse 2.4s ease-in-out 3.4s infinite}
+@keyframes pulse{50%{transform:scale(1.35)}}
+@media(prefers-reduced-motion:reduce){.h3 .copy *,.h3 .facts3 .w{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}}
+@media(max-width:860px){.cap3{right:12px;bottom:12px;font-size:12px}}
+
+/* builder */
+#build{padding:90px 0 100px}
+.bsteps{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;font-size:14px;color:var(--ink2)}
+.bsteps span{padding:8px 14px;border-radius:99px;background:var(--card);border:1px solid var(--line)}
+.bsteps b{color:var(--rose);margin-right:6px}
+.bwrap{display:grid;grid-template-columns:380px 1fr;gap:22px;align-items:start}
+@media(max-width:980px){.bwrap{grid-template-columns:1fr}}
+.bpanel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px}
+.bpanel h5{font-size:13px;color:var(--mute);letter-spacing:.04em;margin:4px 0 10px;display:flex;justify-content:space-between;align-items:center}
+.bpanel h5 button{font-size:12px;color:var(--ink2);text-decoration:underline}
+#bInd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+#bInd button{display:flex;flex-direction:column;align-items:center;gap:7px;padding:6px 6px 10px;border-radius:14px;border:1px solid var(--line);background:var(--bg);font-size:12px;font-weight:600;color:var(--ink2);transition:all .2s;line-height:1.25;text-align:center}
+#bInd button i{width:100%;height:64px;border-radius:9px;background:linear-gradient(135deg,var(--s),var(--a));background-size:cover;background-position:center top;box-shadow:0 8px 16px -10px rgba(90,60,20,.6)}
+#bInd button.on{border-color:var(--ink);background:#fff;color:var(--ink);box-shadow:0 10px 20px -14px rgba(90,60,20,.6)}
+#bBlocks{display:grid;gap:6px}
+#bBlocks button{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);transition:all .2s}
+#bBlocks button b{display:block;font-size:14px}
+#bBlocks button small{font-size:12px;color:var(--mute)}
+#bBlocks button em{font-style:normal;font-size:12px;color:var(--ink2);white-space:nowrap}
+#bBlocks button::before{content:"+";width:24px;height:24px;flex:none;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);font-weight:800;color:var(--rose);order:-1}
+#bBlocks button span{flex:1}
+#bBlocks button.on{border-color:var(--rose);background:#FFF4F2}
+#bBlocks button.on::before{content:"✓";background:var(--rose);color:#fff;border-color:var(--rose)}
+#bBlocks button:hover{transform:translateX(3px)}
+.bauto{display:flex;gap:8px;margin-bottom:14px}
+.bauto .btn{flex:1;justify-content:center;padding:12px 10px;font-size:14px}
+.bprev{position:sticky;top:84px}
+@media(max-width:980px){.bprev{position:sticky;top:68px;z-index:20;order:-1;background:var(--bg);padding-bottom:8px}}
+.bfr{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 50px 90px -60px rgba(90,60,20,.6)}
+.bfr .bar{height:40px;display:flex;align-items:center;gap:6px;padding:0 14px;background:#F2EBE0;border-bottom:1px solid var(--line)}
+.bfr .bar i{width:10px;height:10px;border-radius:50%;background:#DCCDB6}
+.bfr .bar span{margin-left:8px;font-size:12px;color:var(--mute);background:#fff;padding:3px 14px;border-radius:7px;flex:1;max-width:260px}
+.bfr .seg{margin-left:auto}
+.bstage{background:var(--bg2);padding:0;display:flex;justify-content:center}
+#bScroll{height:min(64vh,620px);overflow:auto;width:100%;background:#fff;transition:width .45s cubic-bezier(.2,.7,.2,1),border-radius .45s,margin .45s;scrollbar-width:thin}
+#bFrame.mo .bstage{padding:18px 0}
+#bFrame.mo #bScroll{width:360px;max-width:92%;border-radius:28px;border:8px solid #EDE3D3;height:min(64vh,600px)}
+@media(max-width:980px){#bScroll{height:290px}#bFrame.mo #bScroll{height:290px;width:250px}#bFrame.mo .bstage{padding:8px 0}}
+.bsum{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.bsum .t{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.bsum small{display:block;font-size:12px;color:var(--mute)}
+.bsum #bDisc{color:var(--rose);font-weight:700}
+.bsum .sp{flex:1}
+.bsum .btn{padding:13px 20px;font-size:14px}
+@media(max-width:980px){.bsum{margin-top:8px;padding:10px 12px;gap:8px}.bsum .t{font-size:20px}.bsum .btn-l{display:none}.bsum .btn{padding:11px 16px}}
+
+/* 미리보기 속 사이트 */
+#bSite{--bg:#fff;--ink:#222;--acc:#C0622F;background:var(--bg);color:var(--ink);min-height:100%;font-family:var(--sans);position:relative;padding-bottom:10px}
+#bSite.swap{animation:swap .5s ease}
+@keyframes swap{from{opacity:.2}to{opacity:1}}
+#bSite small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:800;margin-bottom:8px}
+#bSite h4{font-family:var(--serif);font-size:22px;line-height:1.35}
+.empty{height:100%;min-height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#9A8E7C;border:2px dashed #E3D7C4;margin:18px;border-radius:16px;text-align:center;padding:20px}
+.empty b{font-family:var(--serif);font-size:24px;color:var(--ink)}
+.bk{padding:30px 28px;border-bottom:1px solid rgba(0,0,0,.05)}
+.bk.new{animation:drop .7s cubic-bezier(.2,.9,.25,1.25)}
+.bk.new::after{content:"";position:absolute}
+@keyframes drop{0%{opacity:0;transform:translateY(-60px) scale(.94)}60%{opacity:1}100%{transform:none}}
+.bk.new{box-shadow:inset 0 0 0 2px var(--acc);animation:drop .7s cubic-bezier(.2,.9,.25,1.25),glow 1.8s ease .7s forwards}
+@keyframes glow{to{box-shadow:inset 0 0 0 2px transparent}}
+.x-nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;font-size:12px;opacity:.9;border-bottom:1px solid rgba(0,0,0,.05)}
+.x-nav b{font-weight:900;letter-spacing:.06em;font-size:14px}
+.x-nav em{font-style:normal;border:1px solid currentColor;padding:1px 6px;border-radius:5px;margin-left:4px}
+.x-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;min-height:260px}
+.x-hero h3{font-family:var(--serif);font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-.03em;margin:4px 0 12px}
+.x-hero p{font-size:14px;opacity:.75;margin-bottom:16px}
+.x-hero a,.x-pay a,.x-con a:first-child{display:inline-block;color:#fff;padding:11px 18px;border-radius:99px;font-weight:800;font-size:13px}
+.ar{aspect-ratio:1;border-radius:50%;box-shadow:0 30px 50px -26px rgba(60,30,10,.5)}
+.ar.sq{border-radius:18px;transform:rotate(-6deg)}
+.bk.shot{padding:0}.x-shot{display:block;width:100%;height:auto}
+.x-video{height:180px;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:12px;color:#fff;font-weight:800}
+.x-video .pl{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:20px}
+.x-about h4{max-width:520px}
+.x-menu>div{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.x-menu>div>div{background:#fff;border-radius:14px;padding:14px;box-shadow:0 10px 24px -18px rgba(60,30,10,.5)}
+.x-menu i{display:block;height:56px;border-radius:10px;margin-bottom:10px}
+.x-menu b{display:block;font-size:14px}
+.x-menu span{font-size:13px;font-weight:800}
+.x-gal>div,.x-sns>div{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.x-sns>div{grid-template-columns:repeat(4,1fr)}
+.ph{aspect-ratio:1;border-radius:10px}
+.x-store>div{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.x-store b{display:block;font-size:13px;margin-top:8px}.x-store span{font-size:12px;opacity:.7;display:block}
+.x-store a{display:inline-block;margin-top:6px;font-size:12px;border:1.5px solid;padding:3px 10px;border-radius:99px;font-weight:700}
+.x-book .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:14px 0 10px;max-width:360px}
+.x-book .cal i,.x-book .tm i{font-style:normal;text-align:center;padding:8px 0;border-radius:9px;background:#fff;font-size:12px;font-weight:600}
+.x-book .tm{display:flex;gap:6px}.x-book .tm i{padding:7px 12px;border:1.5px solid #e6ddd0}
+.x-pay{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 10px 24px -18px rgba(60,30,10,.5)}
+.x-pay b{display:block}.x-pay span{font-size:12px;opacity:.6}
+.x-map{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+.x-map .mp{height:150px;border-radius:14px;background:repeating-linear-gradient(35deg,#efe8dc 0 14px,#f7f2ea 14px 28px);position:relative}
+.x-map .mp i{position:absolute;left:50%;top:45%;width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+.x-map p{font-size:13px;opacity:.7;margin-top:6px}
+.x-con{border-radius:16px;padding:22px;text-align:center}
+.x-con div{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.x-con a{padding:10px 16px;border-radius:99px;font-size:13px;font-weight:700;background:#fff}
+.x-foot{padding:16px 28px;font-size:11px;opacity:.55}
+.x-bot{position:sticky;bottom:12px;margin:-46px 14px 0 auto;width:max-content;color:#fff;font-size:12px;font-weight:800;padding:10px 14px;border-radius:99px;box-shadow:0 10px 20px -10px rgba(0,0,0,.4)}
+.x-bot i{font-style:normal;color:#BFF5C6;margin-left:4px}
+.x-bot.new{animation:drop .7s cubic-bezier(.2,.9,.25,1.25)}
+#bFrame.mo .x-hero,#bFrame.mo .x-map{grid-template-columns:1fr}
+#bFrame.mo .x-hero .ar{max-width:160px}
+#bFrame.mo .x-menu>div,#bFrame.mo .x-store>div{grid-template-columns:1fr 1fr}
+#bFrame.mo .bk{padding:24px 18px}
+@media(max-width:560px){.x-hero{grid-template-columns:1fr}.x-hero .ar{max-width:140px}.x-menu>div,.x-store>div{grid-template-columns:1fr 1fr}.x-map{grid-template-columns:1fr}.bk{padding:22px 16px}}
+
+/* hero — Floema 구도 + Drake 버튼 바 */
+.hero{padding:40px 0 30px}
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink2)}
+.hrow b{color:var(--ink)}
+.htop{display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:end;margin:34px 0 44px}
+@media(max-width:900px){.htop{grid-template-columns:1fr;gap:22px;margin:24px 0 30px}}
+.mega{font-family:var(--serif);font-weight:700;font-size:clamp(58px,10.5vw,168px);line-height:.98;letter-spacing:-.045em}
+.mega i{font-style:normal;color:var(--rose)}
+.htop .lead{font-size:17px}
+.htop .btns{margin-top:22px}
+.stage{position:relative}
+.browser{background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 60px 100px -60px rgba(90,60,20,.6),0 10px 30px -20px rgba(90,60,20,.3)}
+.browser .bar{height:36px;display:flex;align-items:center;gap:6px;padding:0 16px;background:#F2EBE0;border-bottom:1px solid var(--line)}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:#DCCDB6}
+.browser .bar span{margin-left:10px;font-size:12px;color:var(--mute);background:#fff;padding:3px 14px;border-radius:7px;min-width:34%}
+.screen{position:relative;aspect-ratio:16/10;overflow:hidden;background:#fff}
+.stage.big .screen{aspect-ratio:16/8.4}
+.screen .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.screen .slide.on{opacity:1}
+.fit{position:absolute;left:0;top:0;transform-origin:0 0;border:0;pointer-events:none;background:#fff}
+.fitimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.dock{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:6px;padding:7px;border-radius:99px;background:rgba(255,253,249,.94);backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:0 20px 40px -20px rgba(90,60,20,.55);white-space:nowrap}
+.dock button.c{font-size:14px;padding:10px 16px;border-radius:99px;color:var(--ink2);transition:all .25s}
+.dock button.c.on{background:var(--ink);color:var(--bg)}
+.dock .btn{padding:11px 20px;font-size:14px;margin-left:4px}
+@media(max-width:900px){.dock{position:static;transform:none;border-radius:0;border:0;border-top:1px solid var(--line);box-shadow:none;overflow-x:auto;padding:10px 12px;scrollbar-width:none}.dock::-webkit-scrollbar{display:none}.dock .btn{display:none}}
+.phone{position:absolute;right:-18px;top:14%;width:16%;border-radius:28px;padding:7px;background:#EDE3D3;box-shadow:0 30px 50px -24px rgba(90,60,20,.55);z-index:4}
+.phone .ps{position:relative;aspect-ratio:9/19.5;border-radius:21px;overflow:hidden;background:#fff}
+@media(max-width:900px){.phone{width:27%;right:-6px;top:auto;bottom:70px;border-radius:18px;padding:5px}.phone .ps{border-radius:14px}}
+
+/* red band — Outfit */
+.red{background:var(--rose);color:#fff;padding:90px 0}
+.red .w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+@media(max-width:860px){.red{padding:64px 0}.red .w{grid-template-columns:1fr}}
+.red h2{font-family:var(--serif);font-size:clamp(44px,6.4vw,96px);line-height:1.02;letter-spacing:-.04em}
+.red .g{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.45)}
+.red .g div{padding:20px 0 18px;border-bottom:1px solid rgba(255,255,255,.45);font-size:15px;font-weight:600}
+.red .g div:nth-child(odd){padding-right:16px;border-right:1px solid rgba(255,255,255,.45)}
+.red .g div:nth-child(even){padding-left:20px}
+.red .g b{display:block;font-family:var(--serif);font-size:clamp(26px,2.8vw,36px);margin-bottom:2px}
+
+section{padding:110px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.sh .lead{max-width:400px}
+
+/* gallery — Palmer 격자 진열 */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.tabs button{padding:9px 18px;border-radius:99px;border:1px solid var(--line);font-size:14px;background:var(--card)}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:44px 22px}
+@media(max-width:1100px){.gal{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gal{grid-template-columns:1fr;gap:34px}}
+.item{cursor:pointer}
+.item .thumb{position:relative;border-radius:12px;overflow:hidden;background:#fff;padding:8px;border:1px solid var(--line);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.item:hover .thumb{transform:translateY(-6px);box-shadow:0 40px 60px -40px rgba(90,60,20,.6)}
+.item .thumb .screen{aspect-ratio:4/5;border-radius:6px}
+.item .thumb .over{position:absolute;inset:8px;border-radius:6px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px;opacity:0;transition:opacity .35s}
+.item:hover .thumb .over{opacity:1}
+.over span{background:var(--rose);color:#fff;padding:11px 18px;border-radius:99px;font-weight:700;font-size:13px}
+.item .live{position:absolute;left:16px;top:16px;z-index:2;background:var(--rose);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 11px;border-radius:99px}
+.item .no{font-family:var(--en);font-style:italic;color:var(--gold2);font-size:16px;margin-top:16px;display:block}
+.item .meta b{font-family:var(--serif);font-size:21px;display:block;margin-top:2px}
+.item .meta em{font-style:normal;font-size:13px;color:var(--mute)}
+.item .meta span{display:block;font-size:14px;font-weight:700;margin-top:6px}
+.item.hide{display:none}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.cmp{grid-template-columns:1fr}}
+.cmp div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.cmp div.us{border:2px solid var(--rose)}
+.cmp h4{font-size:15px;color:var(--mute);font-weight:600}
+.cmp .p{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:10px 0 14px}
+.cmp .us .p{color:var(--rose)}
+.cmp ul{list-style:none;font-size:14px;line-height:2;color:var(--ink2)}
+.cmp li::before{content:"— ";color:var(--line)}
+.cmp .us li::before{content:"✓ ";color:var(--rose);font-weight:800}
+
+/* price — More 단색 + 가격 원 */
+.price{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px}
+@media(max-width:900px){.price{grid-template-columns:1fr}}
+.base{position:relative;border-radius:24px;padding:40px 36px;background:var(--gold);color:#fff;overflow:hidden}
+.base small{font-family:var(--en);font-style:italic;font-size:20px}
+.base .p{font-family:var(--serif);font-size:clamp(46px,5vw,64px);font-weight:700;letter-spacing:-.03em;margin:6px 0 2px}
+.base .s{font-size:14px;font-weight:600}
+.base ul{list-style:none;margin-top:26px;font-size:15px;line-height:2.1;font-weight:500}
+.base li::before{content:"✓  "}
+.base .stamp{position:absolute;right:24px;top:24px;width:96px;height:96px;border-radius:50%;background:var(--rose);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:13px;line-height:1.25;text-align:center;transform:rotate(-10deg)}
+.base .stamp b{font-family:var(--serif);font-size:28px}
+@media(max-width:560px){.base .stamp{top:auto;bottom:26px;right:20px;width:84px;height:84px}.base .stamp b{font-size:24px}}
+.opts{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
+.opts h5{font-size:13px;color:var(--mute);letter-spacing:.06em;margin:4px 0 10px}
+.opts h5+.row{border-top:1px solid var(--line)}
+.opts .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.opts .row small{display:block;color:var(--mute);font-size:12px;margin-top:2px}
+.opts .row b{white-space:nowrap}
+.opts .two{display:grid;grid-template-columns:1fr 1fr;column-gap:26px}
+@media(max-width:560px){.opts .two{grid-template-columns:1fr}}
+.opts .mg{margin-top:16px;background:#FDEDEA;border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;font-weight:700}
+
 /* steps */
-.steps{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
-.st{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
-.st .n{font-size:44px;line-height:1;color:var(--gold)}
-.st b{display:block;font-size:20px;font-weight:900;margin:12px 0 6px}
-.st p{color:var(--sub);font-size:15px}
-.st em{display:inline-block;margin-top:12px;font-style:normal;font-size:12.5px;font-weight:700;background:var(--iv2);border-radius:99px;padding:4px 10px}
-/* price */
-.base{display:grid;grid-template-columns:1fr;gap:18px;background:var(--ink);color:var(--iv);border-radius:26px;padding:30px}
-.base{background:linear-gradient(135deg,#F3E2BB,#E6CC94);color:var(--ink)}
-@media(min-width:860px){.base{grid-template-columns:1fr 1fr;align-items:center;padding:40px}}
-.base h3{font-size:15px;letter-spacing:.2em;color:#8A6A2F}
-.base .big{font-size:clamp(40px,6vw,60px);font-weight:900;letter-spacing:-.03em;margin:6px 0}
-.base .big small{font-size:16px;font-weight:500;color:#6B5A3E;margin-left:6px}
-.base ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-size:15px}
-.base li:before{content:"●";color:var(--red);font-size:9px;margin-right:8px;vertical-align:middle}
-.packs{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
-@media(min-width:860px){.packs{grid-template-columns:repeat(3,1fr)}}
-.pk{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;position:relative}
-.pk .tg{font-size:12px;font-weight:900;letter-spacing:.16em;color:#8A6A2F}
-.pk b{display:block;font-size:21px;font-weight:900;margin:6px 0 2px}
-.pk .pp{font-size:26px;font-weight:900}
-.pk .pp s{font-size:14px;color:var(--sub);font-weight:500;margin-left:6px}
-.pk .sv{position:absolute;right:18px;top:18px;background:var(--red);color:#fff;border-radius:99px;padding:3px 10px;font-size:12px;font-weight:700}
-.pk p{color:var(--sub);font-size:14.5px;margin-top:8px}
-.opts{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:8px 22px}
-.opts .r{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);font-size:15px}
-.opts .r:last-child{border:0}
-.opts .r b{font-weight:700;white-space:nowrap}
-.mon{margin-top:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--gold2);border-radius:22px;padding:20px 24px;font-size:15px}
-.mon b{font-size:24px;font-weight:900}
-/* case */
-.case{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:22px}
-@media(min-width:900px){.case{grid-template-columns:1.3fr 1fr;padding:34px}}
-.cv{position:relative}
-.cv .pcs{width:100%;border-radius:12px;border:1px solid var(--line);display:block}
-.cv .mbs{position:absolute;right:-6px;bottom:-14px;width:26%;border-radius:14px;border:4px solid #CFC6B8;box-shadow:0 20px 30px -16px rgba(0,0,0,.4)}
-.case h3{font-size:26px;font-weight:900;letter-spacing:-.02em;margin:6px 0 10px}
-.case .tg{font-size:12.5px;font-weight:700;color:#8A6A2F;letter-spacing:.1em}
-.case ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
-.case li{background:var(--iv2);border-radius:99px;padding:6px 12px;font-size:13.5px;font-weight:700}
-/* footer */
-footer{margin-top:80px;border-top:1px solid var(--line);padding:34px 0 40px;font-size:13px;color:var(--sub)}
-footer .fl{display:flex;gap:10px;align-items:center;margin-bottom:14px;color:var(--ink)}
-footer .fl img{width:28px}
-footer p{line-height:1.9}
-/* mobile bar */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:25;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(247,243,236,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-.mbar a{flex:1;text-align:center;border-radius:14px;padding:13px;font-weight:700;font-size:15px;border:1.5px solid var(--ink)}
-.mbar a.p{background:var(--red);color:#fff;border-color:var(--red)}
-@media(min-width:900px){.mbar{display:none}body{padding-bottom:0}}
-/* ===== detail sheet ===== */
-#dt{position:fixed;inset:0;z-index:60;background:var(--iv);display:none;flex-direction:column}
-#dt.on{display:flex}
-body.lock{overflow:hidden}
-.dh{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--card)}
-.dh b{font-size:18px;font-weight:900}
-.dh small{color:var(--sub);font-size:13px}
-.dbody{flex:1;overflow:auto;display:grid;grid-template-columns:1fr;align-content:start}
-@media(min-width:1000px){.dbody{grid-template-columns:1.25fr .75fr;overflow:hidden}.dbody>*{overflow:auto}}
-.pv{padding:16px 18px 20px;background:var(--iv2)}
-.tog{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px;margin-bottom:12px}
-.tog button{border:0;background:transparent;border-radius:99px;padding:8px 16px;font-weight:700;font-size:14px;color:var(--sub)}
-.tog button.on{background:var(--red);color:#fff}
-.pv .open{float:right;font-size:13.5px;font-weight:700;color:#8A6A2F;padding-top:10px}
-.pvbox{position:relative;margin:0 auto;background:linear-gradient(#D9D1C4,#C6BCAD);border-radius:14px;padding:8px;width:100%}
-.pvbox .scr{aspect-ratio:16/10}
-.pvbox.m{width:min(330px,100%);border-radius:30px;padding:8px}
-.pvbox.m .scr{aspect-ratio:9/19;border-radius:22px}
-.pvbox .scr iframe{pointer-events:auto}
-.pvbox .shot{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.cfg{padding:20px 18px 190px;background:var(--iv)}
-@media(min-width:1000px){.cfg{padding:24px 26px 190px;border-left:1px solid var(--line)}}
-.cfg h4{font-size:13px;letter-spacing:.18em;color:#8A6A2F;margin:22px 0 10px}
-.cfg h4:first-child{margin-top:0}
-.ck{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 14px;margin-bottom:8px;font-size:15px;transition:border-color .15s,background .15s}
-.ck .bx{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;color:#fff;font-weight:900}
-.ck.on{border-color:var(--red);background:#FFF6F2}
-.ck.on .bx{background:var(--red);border-color:var(--red)}
-.ck.on .bx:after{content:"✓"}
-.ck.inc{opacity:.55;pointer-events:none}
-.ck.inc .bx{background:var(--gold);border-color:var(--gold)}
-.ck.inc .bx:after{content:"✓"}
-.ck .tx{flex:1;min-width:0}
-.ck .tx b{display:block;font-weight:700}
-.ck .tx span{display:block;color:var(--sub);font-size:13px}
-.ck .pz{font-weight:900;white-space:nowrap}
-.ck .rec{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:2px}
-.ck.bs{pointer-events:none;border-color:var(--gold);background:#FFF8E8}
-.ck.bs .bx{background:var(--gold);border-color:var(--gold)}
-.ck.bs .bx:after{content:"✓"}
-.ck .tx span.rec{display:inline-block;color:#fff;font-size:11px}
-.qty{display:inline-flex;align-items:center;gap:6px;margin-left:8px}
-.qty .qb{width:30px;height:30px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);font-weight:900;font-size:16px;display:grid;place-items:center;cursor:pointer}
-.qty i{font-style:normal;min-width:18px;text-align:center;font-weight:900}
-/* summary bar */
-.sum{position:fixed;left:0;right:0;bottom:0;z-index:62;background:var(--card);border-top:1px solid var(--line);box-shadow:0 -14px 30px -20px rgba(0,0,0,.3);padding:12px 18px calc(12px + env(safe-area-inset-bottom))}
-.sum .in{max-width:1200px;margin:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.sum .tt small{display:block;color:var(--sub);font-size:12.5px}
-.sum .tt b{font-size:26px;font-weight:900;letter-spacing:-.02em}
-.sum .tt em{font-style:normal;color:var(--sub);font-size:13px;margin-left:6px}
-.sum .cta{margin-left:auto;padding:14px 22px;font-size:16px}
-@media(max-width:520px){.sum .cta{width:100%;justify-content:center}.sum .tt b{font-size:23px}}
-.xbtn{position:fixed;left:50%;transform:translateX(-50%);z-index:63;bottom:calc(var(--sumh,92px) + 12px);background:var(--yel);color:var(--ink);border:0;border-radius:99px;padding:12px 22px;font-weight:900;font-size:15px;box-shadow:0 10px 24px -8px rgba(160,110,0,.55)}
-/* contact form */
-#cf{position:fixed;inset:0;z-index:80;background:rgba(43,35,27,.45);display:none;align-items:flex-end;justify-content:center}
-#cf.on{display:flex}
-#cf .bx{background:var(--iv);width:min(520px,100%);border-radius:24px 24px 0 0;padding:24px 20px 110px;max-height:92vh;overflow:auto}
-@media(min-width:700px){#cf{align-items:center}#cf .bx{border-radius:24px;padding-bottom:100px}}
-#cf h3{font-size:22px;font-weight:900}
-#cf .sm{color:var(--sub);font-size:14px;margin:4px 0 14px}
-#cf pre{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;font:13.5px/1.6 'Noto Sans KR';margin-bottom:12px}
-#cf label{display:block;font-size:13.5px;font-weight:700;margin:10px 0 4px}
-#cf input,#cf textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px;font:15px 'Noto Sans KR';background:var(--card)}
-#cf textarea{min-height:76px}
-#cf .cta{width:100%;justify-content:center;margin-top:14px;padding:15px}
-#cf .nt{font-size:12.5px;color:var(--sub);margin-top:8px}
-#cf .xbtn{bottom:24px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.steps div{padding:28px 24px 0 0}
+.steps b{font-family:var(--en);font-size:44px;color:var(--rose)}
+.steps h4{font-family:var(--serif);font-size:22px;margin:6px 0 8px}
+.steps p{color:var(--ink2);font-size:15px;line-height:1.7}
+
+/* case — Lusano 화면 가득 사진 한 장 */
+.case{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:16/8.6;background:#fff;border:1px solid var(--line)}
+.case picture,.case img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.case .cap{position:absolute;left:24px;bottom:24px;max-width:400px;background:rgba(255,253,249,.95);backdrop-filter:blur(8px);border-radius:18px;padding:26px 26px 24px;box-shadow:0 30px 50px -30px rgba(90,60,20,.6)}
+.case .cap .h2{font-size:clamp(26px,3vw,36px)}
+@media(max-width:760px){.case{aspect-ratio:9/15}.case .cap{left:12px;right:12px;bottom:12px;max-width:none;padding:20px}}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:22px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;font-size:17px;font-weight:600}
+.faq summary::after{content:"+";font-size:22px;color:var(--rose);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--ink2);margin-top:12px;line-height:1.75}
+
+/* form */
+.ask{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:44px;display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+@media(max-width:860px){.ask{grid-template-columns:1fr;padding:28px 20px}}
+.f label{display:block;font-size:13px;color:var(--mute);margin:14px 0 6px}
+.f input,.f select,.f textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font:inherit;font-size:15px;color:var(--ink)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--gold);border-color:transparent}
+.f .agree{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ink2);margin:16px 0}
+.f .agree input{width:auto;margin-top:3px;accent-color:var(--rose)}
+.f .btn{width:100%;justify-content:center;margin-top:6px}
+
+footer{padding:40px 0 130px;border-top:1px solid var(--line);font-size:12px;color:var(--mute);line-height:1.9}
+footer b{color:var(--ink2)}
+
+/* 하단 고정 버튼 — Délice */
+.bbar{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));z-index:60;display:flex;gap:6px;padding:6px;border-radius:99px;background:rgba(255,253,249,.95);backdrop-filter:blur(12px);border:1px solid var(--line);box-shadow:0 20px 40px -18px rgba(90,60,20,.55);transform:translate(-50%,140%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.bbar.on{transform:translate(-50%,0)}
+.bbar a{padding:13px 22px;border-radius:99px;font-weight:700;font-size:15px;white-space:nowrap}
+.bbar a.r{background:var(--rose);color:#fff}
+body.mo .bbar,body.inb .bbar{transform:translate(-50%,140%)}
+@media(max-width:760px){body.inb .bbar{transform:translateY(140%)}}
+@media(max-width:760px){.bbar{left:12px;right:12px;transform:translateY(140%);border-radius:18px}.bbar.on{transform:none}.bbar a{flex:1;text-align:center;padding:14px 6px;border-radius:13px}}
+
+/* modal */
+.mod{position:fixed;inset:0;z-index:100;display:none;background:rgba(247,243,236,.8);backdrop-filter:blur(16px)}
+.mod.open{display:block}
+.mod .box{position:absolute;inset:10px;max-width:1240px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 40px 100px -40px rgba(90,60,20,.55);display:grid;grid-template-columns:1fr 360px;overflow:hidden;animation:up .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.mod .box{grid-template-columns:1fr;overflow:auto;display:block;padding-bottom:110px}}
+.mod .view{display:flex;flex-direction:column;min-height:0;background:var(--bg2)}
+.mod .vh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--card);border-bottom:1px solid var(--line);gap:10px;flex-wrap:wrap}
+.mod .vh b{font-family:var(--serif);font-size:20px}
+.seg{display:inline-flex;background:var(--bg2);border-radius:99px;padding:4px}
+.seg button{padding:7px 16px;border-radius:99px;font-size:13px}
+.seg button.on{background:var(--card);font-weight:700;box-shadow:0 2px 8px rgba(90,60,20,.15)}
+.mod .frame{flex:1;display:flex;justify-content:center;align-items:flex-start;padding:16px;overflow:hidden;min-height:440px}
+.mod .frame iframe{border:0;background:#fff;border-radius:10px;box-shadow:0 20px 50px -30px rgba(90,60,20,.6);width:100%;height:100%}
+.mod .frame.mo iframe{width:390px;max-width:100%;border-radius:26px;border:8px solid #EDE3D3}
+.mod .frame img{width:100%;border-radius:10px}
+.mod .frame.mo img{width:300px}
+@media(max-width:900px){.mod .frame{flex:none;height:62vh;min-height:0}.mod .side{border-left:0;border-top:1px solid var(--line)}.mod .sum{position:fixed;left:11px;right:11px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:115;border:1px solid var(--line);border-radius:18px;box-shadow:0 -10px 30px -16px rgba(90,60,20,.45)}.mod .side .sc{padding-bottom:300px}.mod .box{padding-bottom:0}}
+.mod .side{border-left:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+.mod .side .sc{flex:1;overflow:auto;padding:22px 20px}
+.mod .side h5{font-size:12px;color:var(--mute);letter-spacing:.06em;margin:16px 0 8px}
+.ck{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:6px;font-size:14px;cursor:pointer}
+.ck.on{border-color:var(--gold);background:#FFF8EC}
+.ck input{accent-color:var(--gold2)}
+.ck span{flex:1}.ck em{font-style:normal;color:var(--mute);font-size:13px;white-space:nowrap}
+.mod .sum{padding:16px 20px;border-top:1px solid var(--line);background:var(--card)}
+.mod .sum .r{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2);margin-bottom:4px}
+.mod .sum .t{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.mod .sum .btn{width:100%;justify-content:center;margin-top:10px}
+.closeY{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:120;width:56px;height:56px;border-radius:50%;background:var(--yellow);font-size:28px;font-weight:900;line-height:1;box-shadow:0 12px 26px -8px rgba(160,110,0,.6);display:none}
+.mod.open~.closeY{display:block}
+@media(min-width:901px){.mod .sum{padding-bottom:84px}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.screen .slide{transition:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap hd">
- <a class="lg" href="#top"><img src="img/logo.svg" alt=""><span><b>WEBSHOWROOM</b><small>웹쇼룸 · 홈페이지 전시장</small></span></a>
- <nav><a href="#show">전시장</a><a href="#price">가격</a><a href="#how">진행</a><a href="#case">제작 사례</a></nav>
- <a class="cta" href="#show">견적 내보기</a>
+<header class="top" id="top"><div class="w">
+  <a class="logo" href="#"><b>웹쇼룸</b><small>WEBSHOWROOM</small></a>
+  <nav class="nav"><a href="#build">직접 만들기</a><a href="#gallery">완성 모델</a><a href="#price">가격</a><a href="#how">진행 방식</a><a href="#case">제작 사례</a><a href="#faq">자주 묻는 질문</a></nav>
+  <a class="btn btn-r" href="#ask">무료 상담</a>
 </div></header>
 
-<main id="top">
-<section class="hero"><div class="wrap hg">
- <div class="hc">
-  <span class="kick"><i></i><span class="kw">WEBSHOWROOM · </span>HOMEPAGE GALLERY</span>
-  <h1>홈페이지,<br><em>차 고르듯</em><br>골라 사세요</h1>
-  <p class="ld">완성된 모델을 직접 눌러보고, 필요한 옵션만 더하면 끝.<br>견적은 화면에서 바로 나옵니다.</p>
-  <div class="pr"><b>490,000<small>원부터</small></b><span>부가세 포함 · 7일 오픈 · 월 관리 39,000원</span></div>
-  <div class="btns"><a class="cta" href="#show">전시장 둘러보기 →</a><a class="cta gh" href="#price">가격표 보기</a></div>
- </div>
- <div class="wall" id="wall" aria-label="전시 모델 미리보기"></div>
-</div>
-<div class="otd" id="otd"></div>
+<section class="h3" id="home">
+  <div id="h3d"><div class="grain"></div><div class="cap3" id="h3dCap"></div></div>
+  <div class="copy"><div class="w">
+    <div class="eye">Website Showroom</div>
+    <h1>누르면 만들어지는<br>우리 가게 홈페이지<i>.</i></h1>
+    <p>실제로 움직이는 홈페이지가 한 층씩 조립됩니다. 업종을 고르고 블록을 누르면 우리 가게 것으로 바로 만들어 볼 수 있습니다.</p>
+    <div class="btns"><a class="btn btn-r" href="#build">지금 만들어 보기</a><a class="btn btn-l" href="#price">가격 보기</a></div>
+  </div></div>
+  <div class="facts3"><div class="w"><span><b>490,000원</b>부가세 포함</span><span><b>7일</b>오픈</span><span><b>3회</b>무료 수정</span></div></div>
+  
 </section>
-<div class="tick" aria-hidden="true"><div class="tk" id="tk"></div></div>
 
-<section class="sec" id="show"><div class="wrap">
- <div class="sh"><h2><span class="it">Showroom</span>전시장</h2><p>눌러서 PC·모바일 화면을 직접 보고, 옵션을 골라 견적을 내 보세요.</p></div>
- <div class="flt" id="flt"></div>
- <div class="grid" id="grid"></div>
-</div></section>
-
-<section class="sec" id="how"><div class="wrap">
- <div class="sh"><h2><span class="it">How it works</span>이렇게 진행돼요</h2></div>
- <div class="steps">
-  <div class="st"><span class="n it">01</span><b>모델 고르고 견적 받기</b><p>전시장에서 마음에 드는 모델을 고르고 옵션을 체크하면 금액이 바로 나옵니다.</p><em>오늘</em></div>
-  <div class="st"><span class="n it">02</span><b>자료 보내기</b><p>상호·로고·사진·소개 문구를 보내 주세요. 없으면 같이 정리해 드립니다.</p><em>1~2일</em></div>
-  <div class="st"><span class="n it">03</span><b>확인하고 오픈</b><p>완성 화면을 폰으로 보고 고칠 곳을 말씀해 주시면 반영 후 오픈합니다.</p><em>7일 안에</em></div>
- </div>
-</div></section>
-
-<section class="sec" id="price"><div class="wrap">
- <div class="sh"><h2><span class="it">Price</span>가격표</h2><p>모든 가격은 부가세 포함입니다.</p></div>
- <div class="base">
-  <div><h3>BASIC · 기본</h3><div class="big">490,000원<small>1회</small></div><p style="color:#6B5A3E">어떤 모델을 골라도 기본값은 같습니다.</p></div>
-  <ul><li>5쪽 구성</li><li>모바일 화면</li><li>전화·지도 연결</li><li>문의 받기</li><li>검색 등록</li><li>7일 안에 오픈</li></ul>
- </div>
- <div class="packs" id="packs"></div>
- <div class="opts" id="opts"></div>
- <div class="mon"><span>월 관리</span><b>39,000원</b><span style="color:var(--sub)">서버·보안·백업 + 문구·사진 간단 수정</span></div>
-</div></section>
-
-<section class="sec" id="case"><div class="wrap">
- <div class="sh"><h2><span class="it">Case</span>제작 사례</h2></div>
- <div class="case">
-  <div class="cv"><img class="pcs" src="img/sga_pc.jpg" alt="산본글로벌어학원 홈페이지 PC 화면" loading="lazy"><img class="mbs" src="img/sga_m.jpg" alt="산본글로벌어학원 홈페이지 모바일 화면" loading="lazy"></div>
-  <div>
-   <span class="tg">LIVE · 실제 운영 중</span>
-   <h3>제작 사례: 산본글로벌어학원</h3>
-   <ul><li>수강신청</li><li>카드결제</li><li>회원가입·적립금</li><li>AI 강의실</li><li>후기 쓰기</li><li>모바일 우선</li></ul>
-   <a class="cta" href="https://sanbonglobal.com" target="_blank" rel="noopener">실제 사이트 열어보기 ↗</a>
+<section id="build"><div class="w">
+  <div class="sh"><div><div class="eye">Build it yourself</div><h2 class="h2">블록을 누르면<br>홈페이지가 쌓입니다</h2></div><p class="lead">업종을 고르고, 필요한 블록만 누르세요. 오른쪽에 실제 모양과 금액이 바로 나옵니다.</p></div>
+  <div class="bsteps"><span><b>1</b>업종 고르기</span><span><b>2</b>블록 쌓기</span><span><b>3</b>이 구성으로 상담</span></div>
+  <div class="bwrap">
+    <div class="bpanel">
+      <h5>1 · 업종</h5><div id="bInd"></div>
+      <h5>2 · 블록 <button type="button" id="bReset">처음부터</button></h5>
+      <div class="bauto"><button type="button" class="btn btn-l" id="bAuto">기본 5블록 자동으로 쌓기</button></div>
+      <div id="bBlocks"></div>
+    </div>
+    <div class="bprev">
+      <div class="bfr" id="bFrame"><div class="bar"><i></i><i></i><i></i><span id="bUrl">morningbrew.kr</span><div class="seg" id="bView"><button data-v="pc" class="on">PC</button><button data-v="mo">폰</button></div></div>
+        <div class="bstage"><div id="bScroll"><div id="bSite"></div></div></div></div>
+      <div class="bsum"><div><small>세팅비 (부가세 포함) · <span id="bCnt">블록 0개</span> · 월 관리 39,000원</small><div class="t" id="bTot">490,000원</div><small id="bDisc"></small></div><div class="sp"></div>
+        <button type="button" class="btn btn-l" id="bDemo">완성 모델 열어 보기</button><a class="btn btn-r" id="bGo" href="#ask">이 구성으로 상담</a></div>
+    </div>
   </div>
- </div>
 </div></section>
-</main>
 
-<footer><div class="wrap">
- <div class="fl"><img src="img/logo.svg" alt=""><b>웹쇼룸 WEBSHOWROOM</b></div>
- <p>상호 더주 · 대표 명충건 · 사업자등록번호 193-12-02977 · 통신판매업 신고 제2025-안양동안-1338호<br>
- 경기도 안양시 동안구 엘에스로 92 국제유통단지 7동 230호 · <a href="mailto:theju0911@gmail.com">theju0911@gmail.com</a> · <a href="tel:01021077215">010-2107-7215</a><br>
- 전시 모델은 가상 업체 샘플이며 사진은 Unsplash 이미지입니다.</p>
+<section class="red"><div class="w">
+  <h2>완성본을 보고<br>결정하세요.</h2>
+  <div class="g">
+    <div><b>PC·폰 동시</b>모든 모델 모바일 최적화</div>
+    <div><b>네이버·구글</b>검색 등록까지 기본</div>
+    <div><b>숨은 비용 0</b>가격표 그대로 결제</div>
+    <div><b>월 39,000원</b>호스팅·보안·수정 관리</div>
+  </div>
+</div></section>
+
+<section id="gallery"><div class="w">
+  <div class="sh rv"><div><div class="eye">The Collection</div><h2 class="h2">완성해 둔<br>모델 8가지</h2></div><p class="lead">사진이 아니라 실제로 움직이는 홈페이지입니다. 눌러서 PC와 폰으로 직접 써 보세요.</p></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="gal" id="gal"></div>
+</div></section>
+
+<section style="padding-top:20px"><div class="w">
+  <div class="sh rv"><div><div class="eye">Why us</div><h2 class="h2">같은 홈페이지,<br>다르게 만듭니다</h2></div></div>
+  <div class="cmp rv">
+    <div><h4>직접 만들기 (빌더)</h4><div class="p">월 구독 + 내 시간</div><ul><li>디자인·문구 모두 직접</li><li>모바일 화면 따로 손봐야 함</li><li>검색 등록은 혼자 공부</li></ul></div>
+    <div><h4>일반 외주 제작</h4><div class="p">평균 150만원대</div><ul><li>시안 보기 전에 계약</li><li>완성까지 2~4주</li><li>수정마다 추가 견적</li></ul></div>
+    <div class="us"><h4>웹쇼룸</h4><div class="p">490,000원부터</div><ul><li>완성본을 먼저 보고 결정</li><li>7일 오픈</li><li>수정 3회 · 검색 등록 포함</li></ul></div>
+  </div>
+</div></section>
+
+<section id="price" style="background:var(--bg2)"><div class="w">
+  <div class="sh rv"><div><div class="eye">Pricing</div><h2 class="h2">기본은 하나,<br>나머지는 필요한 만큼</h2></div><p class="lead">모든 금액은 부가세 포함입니다. 모델 창에서 체크하면 합계가 바로 나옵니다.</p></div>
+  <div class="price rv">
+    <div class="base"><div class="stamp"><b>7일</b>오픈</div><small>Basic</small><div class="p">490,000원</div><div class="s">부가세 포함</div>
+      <ul><li>반응형 5페이지 (PC·모바일)</li><li>전시 모델 디자인 적용</li><li>전화·카톡·지도 버튼</li><li>문의폼 + 메일 알림</li><li>네이버·구글 검색 등록</li><li>보안 주소 https</li><li>법정표시·개인정보처리방침</li><li>수정 3회</li></ul></div>
+    <div class="opts">
+      <h5>묶음 — 따로 고르는 것보다 저렴</h5>
+      <div class="row"><span>매장홍보팩<small>영상 · 사진 · SNS 연결</small></span><b>230,000원</b></div>
+      <div class="row"><span>예약매출팩<small>예약 접수 · 카드 결제</small></span><b>350,000원</b></div>
+      <div class="row"><span>회원팩<small>소셜 로그인 · 회원 관리</small></span><b>450,000원</b></div>
+      <h5 style="margin-top:22px">하나씩</h5>
+      <div class="two">
+        <div class="row"><span>페이지 추가 (1쪽)</span><b>70,000원</b></div><div class="row"><span>영상 제작</span><b>150,000원</b></div>
+        <div class="row"><span>사진 보정</span><b>80,000원</b></div><div class="row"><span>로고 제작</span><b>100,000원</b></div>
+        <div class="row"><span>SNS 연결</span><b>50,000원</b></div><div class="row"><span>예약 기능</span><b>150,000원</b></div>
+        <div class="row"><span>카드 결제</span><b>300,000원</b></div><div class="row"><span>네이버·구글·카카오 로그인</span><b>250,000원</b></div>
+        <div class="row"><span>회원 관리</span><b>300,000원</b></div><div class="row"><span>쇼핑몰</span><b>500,000원</b></div>
+        <div class="row"><span>외국어 (1개 언어)</span><b>100,000원</b></div><div class="row"><span>AI 상담봇</span><b>300,000원</b></div>
+        <div class="row"><span>움직이는 첫 화면</span><b>300,000원</b></div><div class="row"><span>빠른 제작</span><b>+30%</b></div>
+      </div>
+      <div class="mg"><span>월 관리 — 호스팅 · 보안 · 월 2회 수정</span><span>39,000원</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="how"><div class="w">
+  <div class="sh rv"><div><div class="eye">How it works</div><h2 class="h2">사장님이 하실 일은<br>세 가지뿐입니다</h2></div></div>
+  <div class="steps rv">
+    <div><b>01</b><h4>모델 고르기</h4><p>마음에 드는 모델을 열어 보고 옵션을 체크해 상담을 보냅니다.</p></div>
+    <div><b>02</b><h4>사진·메뉴 보내기</h4><p>가게 사진과 메뉴, 연락처만 보내 주세요. 글은 저희가 씁니다.</p></div>
+    <div><b>03</b><h4>확인하고 오픈</h4><p>7일 안에 PC·폰으로 먼저 보여 드리고, 고칠 곳을 반영해 엽니다.</p></div>
+  </div>
+</div></section>
+
+<section id="case" style="padding-top:20px"><div class="w">
+  <div class="case rv">
+    <picture><source media="(max-width:760px)" srcset="img/sga_m.jpg"><img src="img/sga_pc.jpg" alt="제작 사례 산본글로벌어학원 홈페이지 화면"></picture>
+    <div class="cap"><div class="eye">Case 01</div><h2 class="h2">지금 실제로<br>운영 중입니다</h2><p class="lead" style="margin:10px 0 18px">제작 사례: 산본글로벌어학원</p><a class="btn btn-l" href="https://sanbonglobal.com" target="_blank" rel="noopener">실제 사이트 열어 보기</a></div>
+  </div>
+</div></section>
+
+<section id="faq" style="padding-top:40px"><div class="w" style="max-width:860px">
+  <div class="sh rv"><div><div class="eye">FAQ</div><h2 class="h2">자주 묻는 질문</h2></div></div>
+  <div class="faq rv">
+    <details><summary>도메인(주소)은 따로 사야 하나요?</summary><p>원하시는 주소를 알려 주시면 등록 방법을 안내해 드립니다. 도메인 비용은 등록처에 직접 내시고, 연결은 기본 구성에 포함입니다.</p></details>
+    <details><summary>오픈한 뒤에 글이나 사진을 바꿀 수 있나요?</summary><p>월 관리(39,000원)에 월 2회 수정이 들어 있습니다. 메뉴·가격·사진 교체처럼 자주 바뀌는 것은 이걸로 충분합니다.</p></details>
+    <details><summary>전시된 모델과 똑같이 나오나요?</summary><p>구조와 디자인은 고르신 모델 그대로이고, 상호·사진·글·색 한 가지는 가게에 맞게 바꿔 드립니다.</p></details>
+    <details><summary>7일은 언제부터 세나요?</summary><p>결제와 함께 사진·메뉴·연락처 자료를 받은 날부터입니다. 빠른 제작(+30%)을 고르시면 더 앞당깁니다.</p></details>
+    <details><summary>네이버에서 검색되나요?</summary><p>네이버 서치어드바이저와 구글 서치콘솔 등록까지 기본으로 해 드립니다. 노출 순위는 보장하지 않습니다.</p></details>
+  </div>
+</div></section>
+
+<section id="ask" style="padding-top:40px"><div class="w">
+  <div class="ask rv">
+    <div><div class="eye">Contact</div><h2 class="h2">고른 모델이 있다면,<br>지금 알려 주세요</h2><p class="lead" style="margin-top:14px">업종과 원하는 모델만 적어 주시면 하루 안에 견적과 일정으로 답해 드립니다.</p></div>
+    <form class="f" id="askForm">
+      <label>상호</label><input name="shop" required placeholder="예) 모닝브루 커피">
+      <label>업종</label><select name="cat" id="askCat"></select>
+      <label>원하는 모델</label><select name="model" id="askModel"></select>
+      <label>연락처 (전화 또는 이메일)</label><input name="tel" required placeholder="010-0000-0000">
+      <label>하고 싶은 말 (선택)</label><textarea name="msg" rows="3" placeholder="예약 기능이 꼭 필요해요"></textarea>
+      <div class="agree"><input type="checkbox" required id="agree"><label for="agree" style="margin:0;color:inherit;font-size:13px">상담을 위해 상호·연락처를 수집·이용하는 데 동의합니다. 상담 후 1년간 보관 뒤 파기합니다.</label></div>
+      <button class="btn btn-r" type="submit">상담 신청 보내기</button>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="w">
+  <b>웹쇼룸 WEBSHOWROOM</b> · 운영 더주<br>
+  대표 명충건 · 사업자등록번호 193-12-02977 · 통신판매업신고 제2025-안양동안-1338호<br>
+  경기도 안양시 동안구 엘에스로 92 국제유통단지 7동 230호 · theju0911@gmail.com<br>
+  전시 모델 속 상호는 시안용 가상 상호입니다 (제작 사례 제외).
 </div></footer>
 
-<div class="mbar"><a href="#show">전시장</a><a class="p" href="#show">견적 내보기</a></div>
-
-<!-- 상세 · 견적 -->
-<div id="dt" role="dialog" aria-modal="true" aria-label="모델 상세와 견적">
- <div class="dh"><div><b id="dtN">모델</b> <small id="dtK"></small></div></div>
- <div class="dbody">
-  <div class="pv">
-   <div class="tog"><button type="button" class="on" data-v="pc">PC 화면</button><button type="button" data-v="m">모바일 화면</button></div>
-   <a class="open" id="dtO" href="#" target="_blank" rel="noopener">새 창으로 크게 ↗</a>
-   <div class="pvbox" id="pvb"><div class="scr" id="pvs"></div></div>
-  </div>
-  <div class="cfg" id="cfg"></div>
- </div>
- <div class="sum" id="sum"><div class="in">
-  <div class="tt"><small>세팅비 합계 (부가세 포함)</small><b id="tot">490,000원</b><em>+ 월 관리 39,000원</em></div>
-  <button type="button" class="cta" onclick="cfOpen()">이 구성으로 상담받기 →</button>
- </div></div>
- <button type="button" class="xbtn" onclick="dtClose()">✕ 닫기</button>
-</div>
-
-<div id="cf" role="dialog" aria-modal="true" aria-label="상담 요청" onclick="if(event.target===this)cfClose()">
- <div class="bx">
-  <h3>이 구성으로 상담받기</h3>
-  <p class="sm">아래 내용으로 메일이 써집니다. 보내기만 누르시면 영업일 하루 안에 연락드립니다.</p>
-  <pre id="cfS"></pre>
-  <label for="cfB">상호 · 업종</label><input id="cfB" placeholder="예) 산본 ○○카페">
-  <label for="cfP">연락처</label><input id="cfP" inputmode="tel" placeholder="010-0000-0000">
-  <label for="cfM">하고 싶은 말 (선택)</label><textarea id="cfM" placeholder="원하는 오픈 날짜, 참고하고 싶은 홈페이지 주소 등"></textarea>
-  <button type="button" class="cta" onclick="cfSend()">메일로 보내기 →</button>
-  <p class="nt">받은 내용은 견적 연락에만 씁니다.</p>
- </div>
- <button type="button" class="xbtn" onclick="cfClose()">✕ 닫기</button>
-</div>
+<nav class="bbar" id="bbar"><a href="#build">만들기</a><a href="#price">가격</a><a class="r" href="#ask">무료 상담</a></nav>
+<div class="mod" id="mod"><div class="box" id="box"></div></div>
+<button class="closeY" id="closeY" aria-label="닫기">×</button>
 
 <script>
-var IMG=function(i,w){return 'https://images.unsplash.com/photo-'+i+'?w='+(w||900)+'&q=70&auto=format&fit=crop';};
-var MODELS=[
- {k:'academy',name:'산본글로벌어학원',en:'SANBON GLOBAL',kind:'학원',cat:'edu',tone:'수강신청·결제까지 되는 학원형',live:1,img:'img/sga_pc.jpg',url:'https://sanbonglobal.com',rec:['mem','rsv']},
- {k:'cafe',name:'온결 커피',en:'ONGYEOL COFFEE',kind:'카페',cat:'food',tone:'원목·따뜻한 사진 중심',img:IMG('1554118811-1e0d58224f24'),rec:['promo']},
- {k:'salon',name:'살롱 드 봄',en:'SALON DE BOM',kind:'미용실',cat:'beauty',tone:'핑크 톤 · 예약 버튼 강조',img:IMG('1521590832167-7bcbfaa6381f'),rec:['rsv']},
- {k:'pilates',name:'코어앤숨 필라테스',en:'CORE & SUM',kind:'필라테스',cat:'beauty',tone:'세이지 그린 · 시간표형',img:IMG('1571019613454-1cb2f99b2d8b'),rec:['rsv']},
- {k:'dining',name:'비스트로 미담',en:'BISTRO MIDAM',kind:'식당',cat:'food',tone:'코스 메뉴 · 자리 예약',img:IMG('1414235077428-338989a2e8c0'),rec:['rsv','promo']},
- {k:'factory',name:'누리정밀',en:'NURI PRECISION',kind:'제조·공장',cat:'biz',tone:'가공 범위 · 견적 요청형',img:IMG('1504917595217-d4dc5ebe6122'),rec:['lang']},
- {k:'photo',name:'빛담 스튜디오',en:'BITDAM STUDIO',kind:'사진관',cat:'photo',tone:'갤러리 · 촬영 예약',img:IMG('1511285560929-80b456fea0bc'),rec:['promo','rsv']},
- {k:'shop',name:'데일리셀렉트',en:'DAILY SELECT',kind:'쇼핑몰',cat:'shop',tone:'상품 진열 · 장바구니',img:IMG('1441986300917-64674bd600d8'),rec:['shop','mem']}
+const M=[
+ {k:'cafe',cat:'음식점·카페',n:'카페·베이커리',s:'모닝브루 커피',u:'morningbrew.kr',src:'m/cafe.html'},
+ {k:'salon',cat:'뷰티',n:'헤어·뷰티',s:'라움 헤어',u:'raumhair.kr',src:'m/salon.html'},
+ {k:'dining',cat:'음식점·카페',n:'식당·한식',s:'한우 담',u:'hanwoodam.kr',src:'m/dining.html'},
+ {k:'pilates',cat:'운동·교육',n:'필라테스·요가',s:'코어온 필라테스',u:'coreon.kr',src:'m/pilates.html'},
+ {k:'academy',cat:'운동·교육',n:'학원·교육',s:'산본글로벌어학원',u:'sanbonglobal.com',img:'img/sga_pc.jpg',mimg:'img/sga_m.jpg',live:1,href:'https://sanbonglobal.com'},
+ {k:'photo',cat:'서비스',n:'사진관·스튜디오',s:'스튜디오 루멘',u:'studiolumen.kr',src:'m/photo.html'},
+ {k:'shop',cat:'쇼핑',n:'소품샵·쇼핑몰',s:'소소 소품샵',u:'soso-shop.kr',src:'m/shop.html'},
+ {k:'factory',cat:'기업·제조',n:'제조·부품',s:'B2B 부품몰',u:'parts-mall.kr',src:'m/factory.html'}
 ];
-var CATS=[['all','전체'],['edu','학원·교육'],['food','카페·식당'],['beauty','뷰티·운동'],['biz','제조·회사'],['photo','사진·스튜디오'],['shop','쇼핑몰']];
-var BASE=490000, MONTH=39000;
-var PACKS=[
- {k:'promo',tg:'PROMO',name:'매장홍보팩',p:230000,inc:['video','photo','sns'],d:'홍보 영상 · 사진 보정 · SNS 연결'},
- {k:'rsv',tg:'BOOKING',name:'예약매출팩',p:350000,inc:['book','pay'],d:'온라인 예약 · 카드결제'},
- {k:'mem',tg:'MEMBER',name:'회원팩',p:450000,inc:['login','member'],d:'네이버·구글·카카오 로그인 · 회원 관리'}
-];
-var OPTS=[
- {k:'page',name:'페이지 추가',p:70000,u:'쪽',q:1},
- {k:'video',name:'홍보 영상',p:150000,d:'메인 화면 영상 1편'},
- {k:'photo',name:'사진 보정',p:80000,d:'보내주신 사진 정리·보정'},
- {k:'logo',name:'로고 제작',p:100000},
- {k:'sns',name:'SNS 연결',p:50000,d:'인스타·블로그·유튜브'},
- {k:'book',name:'온라인 예약',p:150000},
- {k:'pay',name:'카드결제',p:300000,d:'PG 가입은 사업자 명의로'},
- {k:'login',name:'네이버·구글·카카오 로그인',p:250000},
- {k:'member',name:'회원 관리',p:300000,d:'가입·적립금·회원 목록'},
- {k:'shop',name:'쇼핑몰 기능',p:500000,d:'상품·장바구니·주문'},
- {k:'lang',name:'외국어 페이지',p:100000,u:'개 언어',q:1},
- {k:'bot',name:'AI 상담봇',p:300000},
- {k:'motion',name:'모션 효과',p:300000,d:'스크롤·전환 애니메이션'}
-];
-var FAST={k:'fast',name:'빠른 제작',d:'7일 → 3일 · 세팅비의 30% 추가'};
-function won(n){return n.toLocaleString('ko-KR')+'원';}
-function src(m,v){return m.k==='academy'?null:('m/'+m.k+'.html');}
+const won=n=>n.toLocaleString('ko-KR')+'원';
+/* scaled live preview */
+function preview(m,mob){
+  if(m.img)return `<img class="fitimg" src="${mob?m.mimg:m.img}" alt="${m.s} ${mob?'모바일':'PC'} 화면" loading="lazy">`;
+  const w=mob?390:1440,h=mob?844:900;
+  return `<iframe class="fit" data-w="${w}" src="${m.src}" width="${w}" height="${h}" loading="lazy" tabindex="-1" title="${m.s}"></iframe>`;
+}
+function fitAll(root=document){root.querySelectorAll('iframe.fit').forEach(f=>{const p=f.parentElement;const s=p.clientWidth/(+f.dataset.w);f.style.transform=`scale(${s})`;f.style.height=(p.clientHeight/s)+'px'})}
+new ResizeObserver(()=>fitAll()).observe(document.body);
 
-/* ---- 전시장 ---- */
-var flt=document.getElementById('flt'),grid=document.getElementById('grid');
-flt.innerHTML=CATS.map(function(c,i){return '<button type="button" data-c="'+c[0]+'"'+(i?'':' class="on"')+'>'+c[1]+'</button>';}).join('');
-grid.innerHTML=MODELS.map(function(m,i){
- return '<button type="button" class="car" data-c="'+m.cat+'" onclick="dtOpen(\''+m.k+'\')">'
-  +'<span class="im" style="background-image:url('+m.img+')"><span class="no">MODEL '+String(i+1).padStart(2,'0')+'</span>'+(m.live?'<span class="live">LIVE</span>':'')+'<span class="en">'+m.en+'</span></span>'
-  +'<span class="bd"><small>'+m.kind+'</small><b>'+m.name+'</b><span>'+m.tone+'</span>'
-  +'<span class="go">이 모델로 견적 <em>'+won(BASE)+'~</em></span></span></button>';
-}).join('');
-flt.onclick=function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(flt.children,function(x){x.classList.toggle('on',x===b);});
- var c=b.getAttribute('data-c');[].forEach.call(grid.children,function(x){x.classList.toggle('hide',c!=='all'&&x.getAttribute('data-c')!==c);});};
+/* gallery */
+const cats=['전체',...new Set(M.map(m=>m.cat))];
+const tabs=document.getElementById('tabs'),gal=document.getElementById('gal');
+tabs.innerHTML=cats.map((c,i)=>`<button class="${i?'':'on'}" data-c="${c}">${c}</button>`).join('');
+tabs.onclick=e=>{const b=e.target.closest('button');if(!b)return;[...tabs.children].forEach(x=>x.classList.toggle('on',x==b));gal.querySelectorAll('.item').forEach(x=>x.classList.toggle('hide',b.dataset.c!='전체'&&x.dataset.c!=b.dataset.c))};
+gal.innerHTML=M.map((m,i)=>`<div class="item rv" data-c="${m.cat}" data-i="${i}">
+ <div class="thumb">${m.live?'<span class="live">LIVE · 실제 운영</span>':''}<div class="screen">${preview(m,0,1)}</div><div class="over"><span>열어 보기 · 옵션 고르기</span></div></div>
+ <div class="meta"><span class="no">No. ${String(i+1).padStart(2,'0')}</span><b>${m.n}</b><em>${m.s}</em><span>${m.live?'제작 사례':'490,000원부터'}</span></div></div>`).join('');
+gal.onclick=e=>{const c=e.target.closest('.item');if(c)open(+c.dataset.i)};
 
-/* ---- 가격표 ---- */
-function packSum(p){return p.inc.reduce(function(s,k){return s+OPTS.filter(function(o){return o.k===k;})[0].p;},0);}
-document.getElementById('packs').innerHTML=PACKS.map(function(p){var s=packSum(p);
- return '<div class="pk"><span class="sv">'+won(s-p.p)+' 아낌</span><span class="tg">'+p.tg+'</span><b>'+p.name+'</b><div class="pp">'+won(p.p)+'<s>'+won(s)+'</s></div><p>'+p.d+'</p></div>';}).join('');
-document.getElementById('opts').innerHTML=OPTS.map(function(o){return '<div class="r"><span>'+o.name+(o.d?' <small style="color:var(--sub)">· '+o.d+'</small>':'')+'</span><b>'+won(o.p)+(o.u?' / '+o.u.replace('개 ',''):'')+'</b></div>';}).join('')
- +'<div class="r"><span>'+FAST.name+' <small style="color:var(--sub)">· 7일 → 3일</small></span><b>세팅비 +30%</b></div>';
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+const bb=document.getElementById('bbar');addEventListener('scroll',()=>{document.getElementById('top').classList.toggle('on',scrollY>10);bb.classList.toggle('on',scrollY>520)},{passive:true});
 
-/* ---- 히어로 기기 ---- */
-function fit(box){var f=box.querySelector('iframe');if(!f)return;var w=box.clientWidth,h=box.clientHeight,vw=+box.getAttribute('data-vw')||1280;
- var sc=w/vw;f.style.width=vw+'px';f.style.height=(h/sc)+'px';f.style.transform='scale('+sc+')';}
-/* 히어로 갤러리 벽 · 카피 띠 */
-var COPY=['홈페이지는 명함이 아닙니다, 매장입니다','첫 화면 3초가 손님을 좌우합니다','처음부터 완성처럼','또 하나의 매장, 24시간 문 여는','7일 뒤에 만나요, 당신의 홈페이지','고르는 순간, 이미 오픈입니다'];
-(function(){var ms=MODELS,w=document.getElementById('wall');
- function card(m,i){return '<button type="button" class="wc" onclick="dtOpen(\''+m.k+'\')"><span class="bz"><i></i><i></i><i></i></span><span class="ph" style="background-image:url('+m.img+')"></span><span class="cp">'+m.name+'<em>'+(m.live?'LIVE':'MODEL '+String(i+1).padStart(2,'0'))+'</em></span></button>';}
- var cols=window.innerWidth>=980?3:2,h='';
- for(var c=0;c<cols;c++){var arr=ms.map(function(m,i){return [m,i];});arr=arr.slice(c*3%arr.length).concat(arr.slice(0,c*3%arr.length));
-  var one=arr.map(function(x){return card(x[0],x[1]);}).join('');h+='<div class="col">'+one+one+'</div>';}
- w.innerHTML=h;
- var t=MODELS[1+new Date().getDate()%(MODELS.length-1)],o=document.getElementById('otd');
- o.innerHTML='<span class="d" style="background-image:url('+t.img+')"></span><span><em>오늘의 모델</em><br><b>'+t.name+'</b> · '+t.kind+'</span>';o.onclick=function(){dtOpen(t.k);};
- var tk=document.getElementById('tk'),one=COPY.map(function(x){return '<span>'+x+'</span>';}).join('');tk.innerHTML=one+one;
-})();
-window.addEventListener('resize',function(){var b=document.getElementById('pvs');if(b)fit(b);});
+/* modal */
+const PACK=[['매장홍보팩 (영상·사진·SNS)',230000],['예약매출팩 (예약·카드 결제)',350000],['회원팩 (소셜 로그인·회원)',450000]];
+const OPT=[['페이지 추가 1쪽',70000],['영상 제작',150000],['사진 보정',80000],['로고 제작',100000],['SNS 연결',50000],['예약 기능',150000],['카드 결제',300000],['네이버·구글·카카오 로그인',250000],['회원 관리',300000],['쇼핑몰',500000],['외국어 1개 언어',100000],['AI 상담봇',300000],['움직이는 첫 화면',300000]];
+const mod=document.getElementById('mod'),box=document.getElementById('box');
+let mi=0,mv='pc',sel=new Set(),rush=false;
+function open(i){mi=i;mv='pc';sel=new Set();rush=false;draw();mod.classList.add('open');document.body.classList.add('mo');document.body.style.overflow='hidden'}
+function close(){mod.classList.remove('open');document.body.classList.remove('mo');document.body.style.overflow=''}
+document.getElementById('closeY').onclick=close;addEventListener('keydown',e=>{if(e.key=='Escape')close()});
+function total(){let s=490000;sel.forEach(v=>s+=v[1]);if(rush)s=Math.round(s*1.3/1000)*1000;return s}
+function draw(){
+ const m=M[mi];
+ const view=m.img?`<img src="${mv=='pc'?m.img:m.mimg}" alt="${m.s}">`:`<iframe src="${m.src}" title="${m.s}"></iframe>`;
+ box.innerHTML=`<div class="view"><div class="vh"><div><b>${m.n}</b> <span style="color:var(--mute);font-size:13px;margin-left:6px">${m.s}</span></div>
+   <div class="seg"><button data-v="pc" class="${mv=='pc'?'on':''}">PC</button><button data-v="mo" class="${mv=='mo'?'on':''}">폰</button></div></div>
+   <div class="frame ${mv}">${view}</div></div>
+  <div class="side"><div class="sc">
+   ${m.live?`<p style="font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:6px">실제 운영 중인 제작 사례입니다. <a href="${m.href}" target="_blank" rel="noopener" style="color:var(--gold2);font-weight:700">사이트 열기 →</a></p>`:''}
+   <h5>기본</h5><label class="ck on"><input type="checkbox" checked disabled><span>베이직 5쪽 · 7일</span><em>490,000원</em></label>
+   <h5>묶음</h5>${PACK.map((p,j)=>`<label class="ck ${sel.has(p)?'on':''}"><input type="checkbox" data-k="p${j}" ${sel.has(p)?'checked':''}><span>${p[0]}</span><em>${won(p[1])}</em></label>`).join('')}
+   <h5>하나씩</h5>${OPT.map((p,j)=>`<label class="ck ${sel.has(p)?'on':''}"><input type="checkbox" data-k="o${j}" ${sel.has(p)?'checked':''}><span>${p[0]}</span><em>${won(p[1])}</em></label>`).join('')}
+   <label class="ck ${rush?'on':''}"><input type="checkbox" data-k="rush" ${rush?'checked':''}><span>빠른 제작</span><em>+30%</em></label>
+  </div>
+  <div class="sum"><div class="r"><span>세팅비 (부가세 포함)</span><span>월 관리 39,000원</span></div><div class="t" id="tot">${won(total())}</div>
+   <a class="btn btn-r" id="go" href="#ask">이 구성으로 상담 신청</a></div></div>`;
+ box.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{mv=b.dataset.v;draw()});
+ box.querySelectorAll('input[data-k]').forEach(c=>c.onchange=()=>{
+   const k=c.dataset.k;if(k=='rush')rush=c.checked;else{const it=k[0]=='p'?PACK[+k.slice(1)]:OPT[+k.slice(1)];c.checked?sel.add(it):sel.delete(it)}
+   c.parentNode.classList.toggle('on',c.checked);box.querySelector('#tot').textContent=won(total())});
+ box.querySelector('#go').onclick=()=>{close();document.getElementById('askModel').value=m.n;
+   const t=document.querySelector('#askForm textarea');t.value=[...sel].map(x=>x[0]).concat(rush?['빠른 제작']:[]).join(', ')+(sel.size||rush?' 포함 · 예상 세팅비 '+won(total()):'');};
+}
 
-/* ---- 상세·견적 ---- */
-var cur=null,sel={},qty={page:1,lang:1},fast=false,view='pc';
-function dtOpen(k){cur=MODELS.filter(function(m){return m.k===k;})[0];sel={};qty={page:1,lang:1};fast=false;view='pc';
- document.getElementById('dtN').textContent=cur.name;document.getElementById('dtK').textContent=cur.kind+' · '+cur.en;
- document.getElementById('dtO').href=cur.url||src(cur);
- renderPv();renderCfg();document.getElementById('dt').classList.add('on');document.body.classList.add('lock');
- try{history.pushState({dt:1},'','#model-'+k);}catch(e){}
- setTimeout(sumH,30);}
-function dtClose(){document.getElementById('dt').classList.remove('on');document.body.classList.remove('lock');document.getElementById('pvs').innerHTML='';
- if(location.hash.indexOf('#model-')===0){try{history.replaceState(null,'',location.pathname);}catch(e){}}}
-window.addEventListener('popstate',function(){if(document.getElementById('dt').classList.contains('on'))dtClose();});
-document.querySelector('.tog').onclick=function(e){var b=e.target.closest('button');if(!b)return;view=b.getAttribute('data-v');renderPv();};
-function renderPv(){[].forEach.call(document.querySelectorAll('.tog button'),function(b){b.classList.toggle('on',b.getAttribute('data-v')===view);});
- var box=document.getElementById('pvb'),s=document.getElementById('pvs');box.className='pvbox'+(view==='m'?' m':'');
- if(cur.live){s.innerHTML='<img class="shot" src="'+(view==='m'?'img/sga_m.jpg':'img/sga_pc.jpg')+'" alt="'+cur.name+' 화면">';s.removeAttribute('data-vw');}
- else{s.setAttribute('data-vw',view==='m'?390:1280);s.innerHTML='<iframe title="'+cur.name+' 미리보기" src="'+src(cur)+'"></iframe>';requestAnimationFrame(function(){fit(s);});}}
-function row(kind,o,on,inc,rec,price,extra){return '<button type="button" class="ck'+(on?' on':'')+(inc?' inc':'')+'" data-t="'+kind+'" data-k="'+o.k+'"><span class="bx"></span><span class="tx"><b>'+o.name+(rec?'<span class="rec">추천</span>':'')+'</b>'+(o.d?'<span>'+o.d+'</span>':'')+'</span>'+(extra||'')+'<span class="pz">'+(inc?'포함':price)+'</span></button>';}
-function included(){var s={};PACKS.forEach(function(p){if(sel['P'+p.k])p.inc.forEach(function(k){s[k]=1;});});return s;}
-function renderCfg(){var inc=included(),rec=cur.rec||[];
- var h='<h4>STEP 1 · 기본</h4><div class="ck bs"><span class="bx"></span><span class="tx"><b>기본 구성 · '+cur.kind+' 모델</b><span>5쪽 · 모바일 · 전화·지도 · 문의 · 7일 오픈</span></span><span class="pz">'+won(BASE)+'</span></div>';
- h+='<h4>STEP 2 · 묶음 (따로 고르는 것보다 저렴)</h4>'+PACKS.map(function(p){return row('P',{k:p.k,name:p.name,d:p.d},!!sel['P'+p.k],false,rec.indexOf(p.k)>=0,won(p.p));}).join('');
- h+='<h4>STEP 3 · 옵션</h4>'+OPTS.map(function(o){var on=!!sel['O'+o.k];var ex='';
-  if(o.q&&on&&!inc[o.k])ex='<span class="qty" onclick="event.stopPropagation()"><span class="qb" role="button" aria-label="빼기" onclick="q(\''+o.k+'\',-1)">−</span><i>'+qty[o.k]+'</i><span class="qb" role="button" aria-label="더하기" onclick="q(\''+o.k+'\',1)">+</span></span>';
-  return row('O',o,on,!!inc[o.k],rec.indexOf(o.k)>=0,won(o.p)+(o.u?'/'+o.u.replace('개 ',''):''),ex);}).join('');
- h+='<h4>STEP 4 · 일정</h4>'+row('F',FAST,fast,false,false,'+30%');
- document.getElementById('cfg').innerHTML=h;calc();}
-document.getElementById('cfg').onclick=function(e){var b=e.target.closest('.ck');if(!b||b.classList.contains('bs')||b.classList.contains('inc'))return;
- var t=b.getAttribute('data-t'),k=b.getAttribute('data-k');if(t==='F')fast=!fast;else sel[t+k]=!sel[t+k];renderCfg();};
-function q(k,d){qty[k]=Math.max(1,Math.min(20,qty[k]+d));renderCfg();}
-function calc(){var inc=included(),t=BASE,lines=['기본 구성 ('+cur.kind+' 모델) '+won(BASE)];
- PACKS.forEach(function(p){if(sel['P'+p.k]){t+=p.p;lines.push(p.name+' '+won(p.p));}});
- OPTS.forEach(function(o){if(sel['O'+o.k]&&!inc[o.k]){var n=o.q?qty[o.k]:1;t+=o.p*n;lines.push(o.name+(o.q?' ×'+n:'')+' '+won(o.p*n));}});
- if(fast){var f=Math.round(t*0.3);lines.push('빠른 제작 (+30%) '+won(f));t+=f;}
- document.getElementById('tot').textContent=won(t);window._q={t:t,lines:lines};return t;}
-function sumH(){var s=document.getElementById('sum');document.getElementById('dt').style.setProperty('--sumh',s.offsetHeight+'px');}
-window.addEventListener('resize',sumH);
-
-/* ---- 상담 ---- */
-function cfOpen(){var qd=window._q;document.getElementById('cfS').textContent='[웹쇼룸 견적] '+cur.name+' 모델\n'+qd.lines.join('\n')+'\n세팅비 합계 '+won(qd.t)+' (부가세 포함)\n월 관리 '+won(MONTH);document.getElementById('cf').classList.add('on');}
-function cfClose(){document.getElementById('cf').classList.remove('on');}
-function cfSend(){var b=document.getElementById('cfB').value.trim(),p=document.getElementById('cfP').value.trim(),m=document.getElementById('cfM').value.trim();
- if(!b){document.getElementById('cfB').focus();return;}
- if(!/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(p.replace(/\s/g,''))){document.getElementById('cfP').focus();return;}
- var body=document.getElementById('cfS').textContent+'\n\n상호·업종: '+b+'\n연락처: '+p+(m?'\n하고 싶은 말: '+m:'');
- location.href='mailto:theju0911@gmail.com?subject='+encodeURIComponent('[웹쇼룸 견적] '+b+' · '+cur.name)+'&body='+encodeURIComponent(body);}
-
-/* 주소로 바로 열기: #model-cafe */
-(function(){var m=location.hash.match(/^#model-(\w+)/);if(m&&MODELS.some(function(x){return x.k===m[1];}))dtOpen(m[1]);})();
+window.openModel=open;
+new IntersectionObserver(es=>document.body.classList.toggle('inb',es[0].isIntersecting),{rootMargin:'-20% 0px -20% 0px'}).observe(document.getElementById('build'));
+/* form */
+const ac=document.getElementById('askCat'),am=document.getElementById('askModel');
+ac.innerHTML=[...new Set(M.map(m=>m.cat)),'기타'].map(c=>`<option>${c}</option>`).join('');
+am.innerHTML=M.map(m=>`<option>${m.n}</option>`).join('')+'<option>아직 못 골랐어요</option>';
+document.getElementById('askForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
+ const body=`상호: ${f.get('shop')}\n업종: ${f.get('cat')}\n원하는 모델: ${f.get('model')}\n연락처: ${f.get('tel')}\n\n${f.get('msg')||''}`;
+ location.href='mailto:theju0911@gmail.com?subject='+encodeURIComponent('[웹쇼룸 상담] '+f.get('shop'))+'&body='+encodeURIComponent(body)};
+fitAll();
 </script>
+<script src="vendor/three.min.js"></script>
+<script src="vendor/three-extras.js"></script>
+<script src="vendor/tex.js"></script>
+<script src="hero3d.js"></script>
+<script src="builder.js"></script>
 </body>
 </html>
