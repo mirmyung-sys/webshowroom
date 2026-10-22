@@ -1,0 +1,33 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>코어온 필라테스</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Pretendard,'Noto Sans CJK KR',sans-serif;background:#EEF3EF;color:#1E2B25;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 6vw;background:rgba(238,243,239,.85);backdrop-filter:blur(10px)}
+.brand{font-weight:900;font-size:22px;letter-spacing:-.5px}.brand em{font-style:normal;color:#3F8E6E}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:600;font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#3F8E6E;color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:16px;box-shadow:0 10px 30px rgba(63,142,110,.35)}
+.btn.ghost{background:transparent;color:#1E2B25;border:2px solid #1E2B25;box-shadow:none}
+section{padding:90px 6vw}
+h1{font-size:clamp(44px,7vw,96px);line-height:1.02;letter-spacing:-2px;font-weight:900}
+h2{font-size:clamp(30px,4vw,52px);letter-spacing:-1px;font-weight:900;margin-bottom:28px}
+.eye{font-weight:800;letter-spacing:4px;font-size:13px;color:#3F8E6E;margin-bottom:18px;text-transform:uppercase}
+.rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.7,.2,1)}.rv.on{opacity:1;transform:none}
+.foot{padding:40px 6vw;font-size:13px;opacity:.7;border-top:1px solid #d3e0d8}
+@media(max-width:760px){.nav ul{display:none}section{padding:64px 6vw}}
+.hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px}
+.ring{aspect-ratio:1;border-radius:50%;border:28px solid #3F8E6E;position:relative;animation:br 5s ease-in-out infinite}
+.ring:before{content:"";position:absolute;inset:14%;border-radius:50%;border:16px solid #a9d3bf}
+.ring:after{content:"숨 들이쉬고";position:absolute;inset:0;display:grid;place-items:center;font-weight:900;font-size:clamp(20px,3vw,36px);animation:tx 10s steps(1) infinite}
+@keyframes br{50%{transform:scale(1.08)}}@keyframes tx{50%{content:"천천히 내쉬고"}}
+.cls{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.c{background:#fff;border-radius:28px;padding:32px}.c b{font-size:24px;display:block;margin-bottom:8px}.c p{opacity:.7;line-height:1.6}
+.tt{width:100%;border-collapse:separate;border-spacing:8px;font-size:16px}.tt td,.tt th{background:#fff;border-radius:14px;padding:14px;text-align:center}.tt th{background:#2F6B55;color:#EEF3EF}.tt td.on{background:#3F8E6E;color:#fff;font-weight:800}
+@media(max-width:760px){.hero,.cls{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="nav"><a class="brand" href="#">CORE<em>ON</em></a><ul><li><a href="#class">수업</a></li><li><a href="#time">시간표</a></li><li><a href="#trial">체험</a></li></ul><a class="btn" href="#cta">체험 신청</a></nav>
+<section class="hero"><div class="rv"><div class="eye">Pilates Studio</div><h1>허리가<br>먼저<br>알아요.</h1><p style="font-size:20px;margin:24px 0 32px;line-height:1.7;opacity:.8">정원 4명 소그룹. 첫 수업은 자세 측정부터.</p><a class="btn" href="#trial">체험 1회 신청 →</a></div><div class="rv" style="padding:6%"><div class="ring"></div></div></section>
+<section id="class"><div class="eye">Class</div><h2 class="rv">세 가지 수업</h2><div class="cls"><div class="c rv"><b>기구 그룹</b><p>리포머·체어 · 정원 4명</p></div><div class="c rv"><b>1:1 개인</b><p>통증·체형 교정 집중</p></div><div class="c rv"><b>매트 기초</b><p>처음 오시는 분</p></div></div></section>
+<section id="time"><div class="eye">Timetable</div><h2 class="rv">이번 주 시간표</h2><table class="tt rv"><tr><th></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr><tr><th>10:00</th><td class="on">그룹</td><td>매트</td><td class="on">그룹</td><td>매트</td><td class="on">그룹</td></tr><tr><th>19:00</th><td>매트</td><td class="on">그룹</td><td>1:1</td><td class="on">그룹</td><td>1:1</td></tr></table></section>
+<section id="trial" class="rv" style="text-align:center"><h2>오늘 저녁, 몸이 가벼워집니다</h2><a class="btn" href="#">체험 예약 →</a></section><footer class="foot">코어온 필라테스 · 이 화면은 웹쇼룸 전시용 시안입니다 (가상의 상호)</footer>
+<script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});document.querySelectorAll('.rv').forEach(e=>io.observe(e));</script></body></html>

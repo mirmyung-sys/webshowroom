@@ -1,0 +1,29 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>소소 소품샵</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Pretendard,'Noto Sans CJK KR',sans-serif;background:#FFF9F1;color:#2D2A26;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 6vw;background:rgba(255,249,241,.9);backdrop-filter:blur(10px)}
+.brand{font-weight:900;font-size:22px;letter-spacing:-.5px}.brand em{font-style:normal;color:#F07A5A}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:600;font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#F07A5A;color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:16px;box-shadow:0 10px 30px rgba(240,122,90,.35)}
+.btn.ghost{background:transparent;color:#2D2A26;border:2px solid #2D2A26;box-shadow:none}
+section{padding:90px 6vw}
+h1{font-size:clamp(44px,7vw,96px);line-height:1.02;letter-spacing:-2px;font-weight:900}
+h2{font-size:clamp(30px,4vw,52px);letter-spacing:-1px;font-weight:900;margin-bottom:28px}
+.eye{font-weight:800;letter-spacing:4px;font-size:13px;color:#F07A5A;margin-bottom:18px;text-transform:uppercase}
+.rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.7,.2,1)}.rv.on{opacity:1;transform:none}
+.foot{padding:40px 6vw;font-size:13px;opacity:.7;border-top:1px solid #f1e3d1}
+@media(max-width:760px){.nav ul{display:none}section{padding:64px 6vw}}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;min-height:80vh}
+.tile{aspect-ratio:1;border-radius:40px;display:grid;place-items:center;font-size:120px;animation:bob 4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-14px) rotate(-3deg)}}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.pd{background:#fff;border-radius:24px;padding:16px;transition:.3s}.pd:hover{transform:translateY(-6px);box-shadow:0 20px 40px #0001}
+.pd .im{aspect-ratio:1;border-radius:18px;display:grid;place-items:center;font-size:70px}.pd b{display:block;margin:12px 4px 4px}.pd span{font-weight:900;margin-left:4px}.pd button{float:right;border:0;background:#F07A5A;color:#fff;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.prods{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<nav class="nav"><a class="brand" href="#">so<em>so</em> shop</a><ul><li><a href="#new">신상</a></li><li><a href="#best">베스트</a></li></ul><a class="btn" href="#cta">🛒 장바구니 <b id=cc>0</b></a></nav>
+<section class="hero"><div class="rv"><div class="eye">Small Things Shop</div><h1>작은 물건이<br>하루를<br>바꿔요.</h1><p style="font-size:20px;margin:24px 0 32px">오늘 주문하면 내일 도착.</p><a class="btn" href="#new">신상 보기 →</a></div><div class="tile rv" style="background:#FFE2D6">🕯️</div></section>
+<section id="new"><div class="eye">New</div><h2 class="rv">이번 주 신상</h2><div class="prods">
+<div class="pd rv"><div class="im" style="background:#FDE7DC">🕯️</div><b>소이 캔들</b><span>18,000원</span><button>담기</button></div><div class="pd rv"><div class="im" style="background:#E3F0E6">🪴</div><b>미니 화분</b><span>12,000원</span><button>담기</button></div><div class="pd rv"><div class="im" style="background:#E6E8F6">☕</div><b>머그컵</b><span>15,000원</span><button>담기</button></div><div class="pd rv"><div class="im" style="background:#FBF0D6">🧺</div><b>라탄 바구니</b><span>22,000원</span><button>담기</button></div></div></section><footer class="foot">소소 소품샵 · 이 화면은 웹쇼룸 전시용 시안입니다 (가상의 상호)</footer>
+<script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});document.querySelectorAll('.rv').forEach(e=>io.observe(e));document.querySelectorAll(".pd button").forEach(b=>b.onclick=()=>{const c=document.getElementById("cc");c.textContent=+c.textContent+1});</script></body></html>

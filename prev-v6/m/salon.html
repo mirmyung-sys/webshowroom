@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>라움 헤어</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Pretendard,'Noto Sans CJK KR',sans-serif;background:#FBF4F3;color:#3A2530;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 6vw;background:rgba(251,244,243,.85);backdrop-filter:blur(10px)}
+.brand{font-weight:900;font-size:22px;letter-spacing:-.5px}.brand em{font-style:normal;color:#B25C7A}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:600;font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#B25C7A;color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:16px;box-shadow:0 10px 30px rgba(178,92,122,.35)}
+.btn.ghost{background:transparent;color:#3A2530;border:2px solid #3A2530;box-shadow:none}
+section{padding:90px 6vw}
+h1{font-size:clamp(44px,7vw,96px);line-height:1.02;letter-spacing:-2px;font-weight:900}
+h2{font-size:clamp(30px,4vw,52px);letter-spacing:-1px;font-weight:900;margin-bottom:28px}
+.eye{font-weight:800;letter-spacing:4px;font-size:13px;color:#B25C7A;margin-bottom:18px;text-transform:uppercase}
+.rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.7,.2,1)}.rv.on{opacity:1;transform:none}
+.foot{padding:40px 6vw;font-size:13px;opacity:.7;border-top:1px solid #ecd8dc}
+@media(max-width:760px){.nav ul{display:none}section{padding:64px 6vw}}
+.hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.7;animation:fl 12s ease-in-out infinite}
+@keyframes fl{50%{transform:translate(40px,-30px) scale(1.1)}}
+.hero h1{font-size:clamp(56px,10vw,150px);font-weight:900;letter-spacing:-4px;position:relative}
+.hero h1 i{font-style:normal;-webkit-text-stroke:2px #3A2530;color:transparent}
+.looks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.lk{aspect-ratio:3/4;border-radius:200px 200px 24px 24px;position:relative;overflow:hidden;transition:.5s}.lk:hover{transform:scale(1.03)}
+.lk span{position:absolute;bottom:18px;left:18px;color:#fff;font-weight:800;font-size:18px;text-shadow:0 2px 10px #0004}
+.pr{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;font-size:19px}.pr div{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #ecd8dc}.pr b{font-weight:900}
+.book{text-align:center;background:linear-gradient(120deg,#f3d6dd,#f9e9e2);border-radius:40px;margin:0 6vw}
+@media(max-width:760px){.looks{grid-template-columns:1fr 1fr}.pr{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="nav"><a class="brand" href="#">RAUM <em>HAIR</em></a><ul><li><a href="#look">스타일</a></li><li><a href="#price">가격</a></li><li><a href="#book">예약</a></li></ul><a class="btn" href="#cta">예약하기</a></nav>
+<section class="hero"><div class="blob" style="width:520px;height:520px;background:#f2c4d0;right:-80px;top:40px"></div><div class="blob" style="width:380px;height:380px;background:#f6dcc8;right:260px;bottom:20px;animation-delay:-5s"></div>
+<div class="eye rv">Hair Studio · 1:1 Private</div><h1 class="rv">LOOK<br><i>DIFFERENT</i></h1><p class="rv" style="font-size:20px;margin:24px 0 32px;max-width:460px;line-height:1.7">한 번에 한 분만. 상담부터 마무리까지 원장이 직접 합니다.</p><div class="rv"><a class="btn" href="#book">빈 시간 보기 →</a></div></section>
+<section id="look"><div class="eye">Style</div><h2 class="rv">이번 시즌 스타일</h2><div class="looks">
+<div class="lk rv" style="background:linear-gradient(160deg,#d9a3b2,#7a4a5c)"><span>레이어드 컷</span></div><div class="lk rv" style="background:linear-gradient(160deg,#e8c3a5,#a0694a)"><span>빌드 펌</span></div><div class="lk rv" style="background:linear-gradient(160deg,#c9b2d6,#6b5280)"><span>애쉬 염색</span></div><div class="lk rv" style="background:linear-gradient(160deg,#f0d3c4,#b1785d)"><span>클리닉</span></div></div></section>
+<section id="price"><div class="eye">Price</div><h2 class="rv">가격표</h2><div class="pr rv"><div><span>여성 컷</span><b>25,000</b></div><div><span>남성 컷</span><b>20,000</b></div><div><span>빌드 펌</span><b>90,000~</b></div><div><span>뿌리 염색</span><b>60,000~</b></div><div><span>클리닉</span><b>50,000~</b></div><div><span>드라이</span><b>20,000</b></div></div></section>
+<section class="book rv" id="book"><h2>원하는 시간을 고르세요</h2><a class="btn" href="#">네이버 예약 →</a></section><footer class="foot">라움 헤어 · 이 화면은 웹쇼룸 전시용 시안입니다 (가상의 상호)</footer>
+<script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});document.querySelectorAll('.rv').forEach(e=>io.observe(e));</script></body></html>

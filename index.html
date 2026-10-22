@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>웹쇼룸 — 누르면 만들어지는 홈페이지</title>
-<meta name="description" content="업종을 고르고 블록을 누르면 홈페이지가 만들어집니다. 490,000원부터, 7일 오픈.">
+<title>웹쇼룸 — 클릭하면 완성되는 홈페이지</title>
+<meta name="description" content="세계 1등 홈페이지처럼, 클릭하면 우리 가게 홈페이지가 완성됩니다. 490,000원부터, 7일 오픈.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
@@ -362,60 +362,92 @@ body.mo .bbar,body.inb .bbar{transform:translate(-50%,140%)}
 .mod.open~.closeY{display:block}
 @media(min-width:901px){.mod .sum{padding-bottom:84px}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.screen .slide{transition:none}}
+/* v7 — 클릭하면 완성되는 홈페이지 */
+section.hx{padding:46px 0 30px}
+.hx-top{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end;margin-bottom:28px}
+@media(max-width:860px){.hx-top{grid-template-columns:1fr;gap:12px;margin-bottom:18px}}
+.hx-h{font-family:var(--serif);font-weight:700;font-size:clamp(40px,6vw,92px);line-height:1.02;letter-spacing:-.045em;margin-top:8px}
+.hx-h i{font-style:normal;color:var(--rose)}
+.hx-top .lead b{color:var(--ink)}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 60px 110px -60px rgba(90,60,20,.6)}
+.sbar{height:44px;display:flex;align-items:center;gap:6px;padding:0 16px;background:#F2EBE0;border-bottom:1px solid var(--line)}
+.sbar>i{width:10px;height:10px;border-radius:50%;background:#DCCDB6}
+.sbar span{margin-left:10px;font-size:12px;color:var(--mute);background:#fff;padding:4px 14px;border-radius:7px;min-width:180px}
+.steps4{margin-left:auto;display:flex;gap:4px}
+.steps4 b{font-size:12px;font-weight:700;color:var(--mute);padding:6px 10px;border-radius:99px;transition:all .3s;white-space:nowrap}
+.steps4 b.on{background:var(--rose);color:#fff}
+.steps4 b.done{color:var(--ink)}
+@media(max-width:700px){.sbar span{display:none}.steps4{margin-left:0;width:100%;justify-content:space-between}.steps4 b{padding:5px 7px;font-size:11px}}
+.sscr{position:relative;aspect-ratio:1440/848;background:#F7F3EC;overflow:hidden}
+.grid{position:absolute;inset:0;pointer-events:none;z-index:3;transition:opacity .6s}
+.grid i{position:absolute;background:rgba(201,161,91,.55)}
+.grid i.v{top:0;bottom:0;width:1px;transform:scaleY(0);transform-origin:top}
+.grid i.h{left:0;right:0;height:1px;transform:scaleX(0);transform-origin:left}
+.grid.on i{transform:none;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.tiles{position:absolute;inset:0}
+.tiles div{position:absolute;background-repeat:no-repeat;opacity:0;transform:translateY(-18px) scale(.92);filter:blur(10px) saturate(.5);border-radius:3px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
+.tiles div.in{opacity:1;transform:none;transition:opacity .45s,transform .55s cubic-bezier(.2,.9,.25,1.3)}
+.tiles div.sharp{filter:none;transition:filter .5s,opacity .45s,transform .55s;}
+.tiles.done div{border-radius:0;box-shadow:none}
+.stamp{position:absolute;right:22px;bottom:22px;z-index:5;width:92px;height:92px;border-radius:50%;background:var(--rose);color:#fff;font-family:var(--serif);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;transform:scale(0) rotate(-20deg);transition:transform .5s cubic-bezier(.2,.9,.3,1.4);box-shadow:0 14px 30px -12px rgba(226,72,61,.8)}
+.stamp.on{transform:scale(1) rotate(-10deg)}
+@media(max-width:700px){.stamp{width:60px;height:60px;font-size:16px;right:12px;bottom:12px}}
+.replay{position:absolute;left:16px;bottom:16px;z-index:5;background:rgba(255,253,249,.92);border:1px solid var(--line);padding:9px 14px;border-radius:99px;font-size:13px;font-weight:700;opacity:0;transition:opacity .4s}
+.replay.on{opacity:1}
+.scap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;font-size:14px;color:var(--ink2);border-top:1px solid var(--line)}
+.scap b{color:var(--ink);font-family:var(--serif);font-size:18px}
+.scap .tag{font-size:11px;font-weight:800;letter-spacing:.06em;padding:4px 9px;border-radius:99px;background:#FFF1D6;color:var(--gold2)}
+.scap .tag.r{background:#FDEDEA;color:var(--rose)}
+.scap .sp{flex:1}
+.scap a.btn{padding:11px 18px;font-size:14px}
+.scap .note{font-size:12px;color:var(--mute)}
+#pick{padding:40px 0 90px}
+.prow{margin-bottom:38px}
+.prow h3{font-family:var(--serif);font-size:24px;margin-bottom:14px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prow h3 small{font-family:var(--sans);font-size:13px;color:var(--mute);font-weight:500}
+.pgrid{display:grid;gap:16px}
+.pgrid.g3{grid-template-columns:repeat(3,1fr)}
+.pgrid.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.pgrid.g3{grid-template-columns:repeat(3,1fr);gap:8px}.pgrid.g4{grid-template-columns:repeat(2,1fr);gap:10px}}
+.pc{text-align:left;cursor:pointer}
+.pc .th{position:relative;aspect-ratio:1440/848;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:transform .35s,box-shadow .35s}
+.pc .th img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.pc:hover .th{transform:translateY(-4px);box-shadow:0 26px 40px -26px rgba(90,60,20,.6)}
+.pc.on .th{outline:3px solid var(--rose);outline-offset:2px}
+.pc .no{position:absolute;left:8px;top:8px;font-size:11px;font-weight:800;background:rgba(255,253,249,.92);padding:3px 8px;border-radius:99px}
+.pc b{display:block;margin-top:9px;font-size:15px}
+.pc small{display:block;font-size:12px;color:var(--mute)}
+@media(max-width:600px){.pc b{font-size:13px}.pc small{font-size:11px}}
 </style>
 </head>
 <body>
 <header class="top" id="top"><div class="w">
   <a class="logo" href="#"><b>웹쇼룸</b><small>WEBSHOWROOM</small></a>
-  <nav class="nav"><a href="#build">직접 만들기</a><a href="#gallery">완성 모델</a><a href="#price">가격</a><a href="#how">진행 방식</a><a href="#case">제작 사례</a><a href="#faq">자주 묻는 질문</a></nav>
+  <nav class="nav"><a href="#home">완성 보기</a><a href="#pick">업종 고르기</a><a href="#price">가격</a><a href="#how">진행 방식</a><a href="#case">제작 사례</a><a href="#faq">자주 묻는 질문</a></nav>
   <a class="btn btn-r" href="#ask">무료 상담</a>
 </div></header>
 
-<section class="h3" id="home">
-  <div id="h3d"><div class="grain"></div><div class="cap3" id="h3dCap"></div></div>
-  <div class="copy"><div class="w">
-    <div class="eye">Website Showroom</div>
-    <h1>누르면 만들어지는<br>우리 가게 홈페이지<i>.</i></h1>
-    <p>실제로 움직이는 홈페이지가 한 층씩 조립됩니다. 업종을 고르고 블록을 누르면 우리 가게 것으로 바로 만들어 볼 수 있습니다.</p>
-    <div class="btns"><a class="btn btn-r" href="#build">지금 만들어 보기</a><a class="btn btn-l" href="#price">가격 보기</a></div>
-  </div></div>
-  <div class="facts3"><div class="w"><span><b>490,000원</b>부가세 포함</span><span><b>7일</b>오픈</span><span><b>3회</b>무료 수정</span></div></div>
-  
-</section>
-
-<section id="build"><div class="w">
-  <div class="sh"><div><div class="eye">Build it yourself</div><h2 class="h2">블록을 누르면<br>홈페이지가 쌓입니다</h2></div><p class="lead">업종을 고르고, 필요한 블록만 누르세요. 오른쪽에 실제 모양과 금액이 바로 나옵니다.</p></div>
-  <div class="bsteps"><span><b>1</b>업종 고르기</span><span><b>2</b>블록 쌓기</span><span><b>3</b>이 구성으로 상담</span></div>
-  <div class="bwrap">
-    <div class="bpanel">
-      <h5>1 · 업종</h5><div id="bInd"></div>
-      <h5>2 · 블록 <button type="button" id="bReset">처음부터</button></h5>
-      <div class="bauto"><button type="button" class="btn btn-l" id="bAuto">기본 5블록 자동으로 쌓기</button></div>
-      <div id="bBlocks"></div>
-    </div>
-    <div class="bprev">
-      <div class="bfr" id="bFrame"><div class="bar"><i></i><i></i><i></i><span id="bUrl">morningbrew.kr</span><div class="seg" id="bView"><button data-v="pc" class="on">PC</button><button data-v="mo">폰</button></div></div>
-        <div class="bstage"><div id="bScroll"><div id="bSite"></div></div></div></div>
-      <div class="bsum"><div><small>세팅비 (부가세 포함) · <span id="bCnt">블록 0개</span> · 월 관리 39,000원</small><div class="t" id="bTot">490,000원</div><small id="bDisc"></small></div><div class="sp"></div>
-        <button type="button" class="btn btn-l" id="bDemo">완성 모델 열어 보기</button><a class="btn btn-r" id="bGo" href="#ask">이 구성으로 상담</a></div>
-    </div>
+<section class="hx" id="home"><div class="w">
+  <div class="hx-top">
+    <div><div class="eye">World No.1 Websites · Awwwards Sites of the Year</div>
+      <h1 class="hx-h">클릭하면 완성되는<br>홈페이지<i>.</i></h1></div>
+    <p class="lead">세계 1등 홈페이지가 한 칸씩 완성되는 걸 보세요. 아래에서 업종을 누르면 <b>우리 가게 홈페이지</b>도 똑같이 완성됩니다.</p>
+  </div>
+  <div class="stage" id="stage">
+    <div class="sbar"><i></i><i></i><i></i><span id="sUrl">landonorris.com</span>
+      <div class="steps4" id="steps4"><b data-s="1">① 뼈대</b><b data-s="2">② 배치</b><b data-s="3">③ 채우기</b><b data-s="4">④ 완성</b></div></div>
+    <div class="sscr" id="sscr"><div class="grid" id="sgrid"></div><div class="tiles" id="stiles"></div>
+      <div class="stamp" id="stamp">완성</div>
+      <button class="replay" id="replay" type="button">↻ 다시 보기</button></div>
+    <div class="scap" id="scap"></div>
   </div>
 </div></section>
 
-<section class="red"><div class="w">
-  <h2>완성본을 보고<br>결정하세요.</h2>
-  <div class="g">
-    <div><b>PC·폰 동시</b>모든 모델 모바일 최적화</div>
-    <div><b>네이버·구글</b>검색 등록까지 기본</div>
-    <div><b>숨은 비용 0</b>가격표 그대로 결제</div>
-    <div><b>월 39,000원</b>호스팅·보안·수정 관리</div>
-  </div>
-</div></section>
-
-<section id="gallery"><div class="w">
-  <div class="sh rv"><div><div class="eye">The Collection</div><h2 class="h2">완성해 둔<br>모델 8가지</h2></div><p class="lead">사진이 아니라 실제로 움직이는 홈페이지입니다. 눌러서 PC와 폰으로 직접 써 보세요.</p></div>
-  <div class="tabs" id="tabs"></div>
-  <div class="gal" id="gal"></div>
+<section id="pick"><div class="w">
+  <div class="prow"><h3>세계 1등 홈페이지 <small>Awwwards 「올해의 사이트」 목록 맨 앞 3곳 · 누르면 위에서 완성됩니다</small></h3>
+    <div class="pgrid g3" id="pWin"></div></div>
+  <div class="prow"><h3>우리 가게 홈페이지 <small>업종을 누르면 같은 방식으로 완성됩니다 · 490,000원부터</small></h3>
+    <div class="pgrid g4" id="pOur"></div></div>
 </div></section>
 
 <section style="padding-top:20px"><div class="w">
@@ -501,7 +533,7 @@ body.mo .bbar,body.inb .bbar{transform:translate(-50%,140%)}
   전시 모델 속 상호는 시안용 가상 상호입니다 (제작 사례 제외).
 </div></footer>
 
-<nav class="bbar" id="bbar"><a href="#build">만들기</a><a href="#price">가격</a><a class="r" href="#ask">무료 상담</a></nav>
+<nav class="bbar" id="bbar"><a href="#pick">업종</a><a href="#price">가격</a><a class="r" href="#ask">무료 상담</a></nav>
 <div class="mod" id="mod"><div class="box" id="box"></div></div>
 <button class="closeY" id="closeY" aria-label="닫기">×</button>
 
@@ -525,16 +557,6 @@ function preview(m,mob){
 }
 function fitAll(root=document){root.querySelectorAll('iframe.fit').forEach(f=>{const p=f.parentElement;const s=p.clientWidth/(+f.dataset.w);f.style.transform=`scale(${s})`;f.style.height=(p.clientHeight/s)+'px'})}
 new ResizeObserver(()=>fitAll()).observe(document.body);
-
-/* gallery */
-const cats=['전체',...new Set(M.map(m=>m.cat))];
-const tabs=document.getElementById('tabs'),gal=document.getElementById('gal');
-tabs.innerHTML=cats.map((c,i)=>`<button class="${i?'':'on'}" data-c="${c}">${c}</button>`).join('');
-tabs.onclick=e=>{const b=e.target.closest('button');if(!b)return;[...tabs.children].forEach(x=>x.classList.toggle('on',x==b));gal.querySelectorAll('.item').forEach(x=>x.classList.toggle('hide',b.dataset.c!='전체'&&x.dataset.c!=b.dataset.c))};
-gal.innerHTML=M.map((m,i)=>`<div class="item rv" data-c="${m.cat}" data-i="${i}">
- <div class="thumb">${m.live?'<span class="live">LIVE · 실제 운영</span>':''}<div class="screen">${preview(m,0,1)}</div><div class="over"><span>열어 보기 · 옵션 고르기</span></div></div>
- <div class="meta"><span class="no">No. ${String(i+1).padStart(2,'0')}</span><b>${m.n}</b><em>${m.s}</em><span>${m.live?'제작 사례':'490,000원부터'}</span></div></div>`).join('');
-gal.onclick=e=>{const c=e.target.closest('.item');if(c)open(+c.dataset.i)};
 
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.08});
@@ -574,7 +596,6 @@ function draw(){
 }
 
 window.openModel=open;
-new IntersectionObserver(es=>document.body.classList.toggle('inb',es[0].isIntersecting),{rootMargin:'-20% 0px -20% 0px'}).observe(document.getElementById('build'));
 /* form */
 const ac=document.getElementById('askCat'),am=document.getElementById('askModel');
 ac.innerHTML=[...new Set(M.map(m=>m.cat)),'기타'].map(c=>`<option>${c}</option>`).join('');
@@ -583,11 +604,47 @@ document.getElementById('askForm').onsubmit=e=>{e.preventDefault();const f=new F
  const body=`상호: ${f.get('shop')}\n업종: ${f.get('cat')}\n원하는 모델: ${f.get('model')}\n연락처: ${f.get('tel')}\n\n${f.get('msg')||''}`;
  location.href='mailto:theju0911@gmail.com?subject='+encodeURIComponent('[웹쇼룸 상담] '+f.get('shop'))+'&body='+encodeURIComponent(body)};
 fitAll();
+/* v7 — 클릭하면 완성 */
+const WIN=[
+ {k:'lando',n:'Lando Norris',s:'F1 드라이버 공식 사이트',u:'landonorris.com',img:'img/win/lando.jpg',href:'https://landonorris.com/',aw:'https://www.awwwards.com/sites/lando-norris'},
+ {k:'igloo',n:'Igloo Inc.',s:'브랜드 회사 사이트',u:'igloo.inc',img:'img/win/igloo.jpg',href:'https://www.igloo.inc/',aw:'https://www.awwwards.com/sites/igloo-inc'},
+ {k:'messenger',n:'Messenger',s:'3D 웹 체험 사이트',u:'messenger.abeto.co',img:'img/win/messenger.jpg',href:'https://messenger.abeto.co/',aw:'https://www.awwwards.com/sites/messenger'}
+];
+const OUR=M.map((m,i)=>({...m,i,shot:`img/st/${m.k}.jpg`}));
+const pWin=document.getElementById('pWin'),pOur=document.getElementById('pOur');
+pWin.innerHTML=WIN.map((w,i)=>`<button class="pc" type="button" data-w="${i}"><div class="th"><img src="${w.img}" alt="${w.n} 첫 화면" loading="lazy"><span class="no">No.${i+1}</span></div><b>${w.n}</b><small>${w.s}</small></button>`).join('');
+pOur.innerHTML=OUR.map(o=>`<button class="pc" type="button" data-o="${o.i}"><div class="th"><img src="${o.shot}" alt="${o.s} 첫 화면" loading="lazy">${o.live?'<span class="no">실제 운영</span>':''}</div><b>${o.n}</b><small>${o.live?'제작 사례 · '+o.s:o.s+' (예시)'}</small></button>`).join('');
+const sgrid=document.getElementById('sgrid'),stiles=document.getElementById('stiles'),steps=[...document.querySelectorAll('#steps4 b')],stamp=document.getElementById('stamp'),replay=document.getElementById('replay'),scap=document.getElementById('scap'),sUrl=document.getElementById('sUrl');
+const small=()=>innerWidth<700;let timers=[],cur=null;
+function T(f,ms){timers.push(setTimeout(f,ms))}
+function step(n){steps.forEach((b,i)=>{b.classList.toggle('on',i+1==n);b.classList.toggle('done',i+1<n)})}
+function build(item){
+  timers.forEach(clearTimeout);timers=[];cur=item;
+  const C=small()?6:12,R=small()?4:8;
+  sUrl.textContent=item.u;stamp.classList.remove('on');replay.classList.remove('on');stiles.classList.remove('done');
+  sgrid.className='grid';sgrid.style.opacity=1;
+  sgrid.innerHTML=Array.from({length:C-1},(_,i)=>`<i class="v" style="left:${(i+1)/C*100}%;transition-delay:${i*35}ms"></i>`).join('')+Array.from({length:R-1},(_,i)=>`<i class="h" style="top:${(i+1)/R*100}%;transition-delay:${i*45}ms"></i>`).join('');
+  let h='';for(let r=0;r<R;r++)for(let c=0;c<C;c++){h+=`<div data-r="${r}" data-c="${c}" style="left:${c/C*100}%;top:${r/R*100}%;width:${100/C}%;height:${100/R}%;background-image:url(${item.img||item.shot});background-size:${C*100}% ${R*100}%;background-position:${C>1?c/(C-1)*100:0}% ${R>1?r/(R-1)*100:0}%"></div>`}
+  stiles.innerHTML=h;const tiles=[...stiles.children];
+  step(1);caption(item,false);
+  T(()=>sgrid.classList.add('on'),60);
+  T(()=>{step(2);tiles.forEach(t=>{const r=+t.dataset.r,c=+t.dataset.c;setTimeout(()=>t.classList.add('in'),(r*C+c)%7*55+r*70+Math.random()*120)})},900);
+  T(()=>{step(3);tiles.forEach(t=>{const r=+t.dataset.r,c=+t.dataset.c;setTimeout(()=>t.classList.add('sharp'),r*150+c*28)})},2300);
+  T(()=>{step(4);sgrid.style.opacity=0;stiles.classList.add('done');stamp.classList.add('on');replay.classList.add('on');caption(item,true)},2300+R*150+C*28+600);
+}
+function caption(it,done){
+  if(it.aw){scap.innerHTML=`<span class="tag">세계 1등 홈페이지</span><b>${it.n}</b><span>${it.s}</span><span class="sp"></span><span class="note">Awwwards 「올해의 사이트」 수상작 · 참고 작품(웹쇼룸 제작 아님)</span><a href="${it.aw}" target="_blank" rel="noopener" class="btn btn-l">수상 페이지</a><a href="${it.href}" target="_blank" rel="noopener" class="btn btn-l">원본 사이트 ↗</a>`}
+  else{scap.innerHTML=`<span class="tag r">우리 가게 홈페이지</span><b>${it.n}</b><span>${it.live?'제작 사례 · '+it.s:it.s+' (예시 상호)'}</span><span class="sp"></span>${done?`<button type="button" class="btn btn-l" id="tryIt">직접 써 보기</button><a href="#ask" class="btn btn-r" id="askIt">이 모양으로 상담</a>`:'<span class="note">완성되는 중…</span>'}`;
+   if(done){document.getElementById('tryIt').onclick=()=>open(it.i);document.getElementById('askIt').onclick=()=>{document.getElementById('askModel').value=it.n}}}
+}
+function pick(btn,item){document.querySelectorAll('.pc').forEach(b=>b.classList.toggle('on',b==btn));build(item);const st=document.getElementById('stage');if(st.getBoundingClientRect().top<0||st.getBoundingClientRect().top>innerHeight*.5)st.scrollIntoView({behavior:'smooth',block:'center'})}
+pWin.onclick=e=>{const b=e.target.closest('.pc');if(b)pick(b,WIN[+b.dataset.w])};
+pOur.onclick=e=>{const b=e.target.closest('.pc');if(b)pick(b,OUR[+b.dataset.o])};
+replay.onclick=()=>cur&&build(cur);
+document.querySelector('#pWin .pc').classList.add('on');
+const imgs=WIN.map(w=>{const im=new Image();im.src=w.img;return im});
+imgs[0].onload=()=>build(WIN[0]);if(imgs[0].complete)build(WIN[0]);
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(cur&&stiles.classList.contains('done'))build(cur)},400)});
 </script>
-<script src="vendor/three.min.js"></script>
-<script src="vendor/three-extras.js"></script>
-<script src="vendor/tex.js"></script>
-<script src="hero3d.js"></script>
-<script src="builder.js"></script>
 </body>
 </html>
