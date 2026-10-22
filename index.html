@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>웹쇼룸 — 세계 1등 스타일로 우리 가게 홈페이지</title>
+<title>웹쇼룸 — 클릭하면 완성되는 홈페이지</title>
 <meta name="description" content="세계 1등 홈페이지처럼, 클릭하면 우리 가게 홈페이지가 완성됩니다. 490,000원부터, 7일 오픈.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -479,35 +479,90 @@ section.hx{padding:46px 0 30px}
 .pla .tag{position:absolute;left:3%;bottom:6%;font-size:1.1cqw;font-weight:700;color:#fff;max-width:22%}
 /* steps */
 .steps4 b{display:inline-block}
+/* v9 — 2/3 화면에서 업종별 홈페이지가 자동으로 완성 */
+section.hx9{padding:22px 0 40px}
+.w9{max-width:1520px;margin:0 auto;padding:0 20px}
+.h9{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.h9>*{min-width:0}
+section.hx9{overflow-x:hidden}
+@media(max-width:980px){.h9{grid-template-columns:minmax(0,1fr);gap:18px}}
+.s9{align-self:start}
+.s9 .sscr{aspect-ratio:1440/860}
+.side9{display:flex;flex-direction:column;gap:16px;padding:6px 0}
+.h9t{font-family:var(--serif);font-weight:700;font-size:clamp(40px,4.6vw,76px);line-height:1.02;letter-spacing:-.04em}
+.h9t i{font-style:normal;color:var(--rose)}
+@media(max-width:980px){.h9t br{display:none}.h9t{font-size:clamp(34px,8vw,52px)}}
+.now9{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.now9 small{display:block;font-size:12px;color:var(--mute);font-weight:700}
+.now9 b{display:block;font-family:var(--serif);font-size:22px;margin:2px 0}
+.now9 span{font-size:12px;color:var(--ink2)}
+.ind9{display:flex;flex-wrap:wrap;gap:6px}
+.ind9 button{padding:8px 13px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-size:13px;font-weight:600;color:var(--ink2);position:relative;overflow:hidden}
+.ind9 button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ind9 button.done::after{content:"✓";margin-left:5px;color:var(--rose);font-weight:900}
+.bar9{margin-top:auto}
+.bar9 .bt{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--ink2);margin-bottom:8px}
+.bar9 .bt b{font-family:var(--serif);font-size:22px;color:var(--ink)}
+.bar9 .track{height:14px;border-radius:99px;background:#EADFCD;overflow:hidden;box-shadow:inset 0 1px 3px rgba(90,60,20,.18)}
+.bar9 .track i{display:block;height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,var(--rose),#F07A5E);transform-origin:left;}
+.cta9{display:flex;gap:8px;flex-wrap:wrap}
+.cta9 .btn{flex:1;justify-content:center;padding:13px 14px;font-size:14px}
+@media(max-width:980px){.bar9{order:-1;margin-top:0}.side9{gap:12px}}
+/* BOLD — Outfit 스타일 */
+.bold{position:absolute;inset:0;font-family:var(--sans);color:#fff;overflow:hidden}
+.bold .bgc{position:absolute;inset:0}
+.bold .nav{position:absolute;left:3%;right:3%;top:4%;display:flex;justify-content:space-between;font-weight:800;font-size:1.3cqw}
+.bold .nav span{display:flex;gap:1.6cqw}
+.bold .big{position:absolute;left:3%;right:3%;top:12%;font-weight:900;font-size:14cqw;line-height:.86;letter-spacing:-.05em;white-space:nowrap;overflow:hidden}
+.bold .big span{display:inline-block;transform:translateY(110%);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.bold .big.on span{transform:none}
+.bold .cards{position:absolute;left:3%;right:3%;bottom:15%;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw}
+.bold .card{background:#fff;color:#222;border-radius:.8cqw;padding:1cqw;opacity:0;transform:translateY(3cqw);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.bold .card.on{opacity:1;transform:none}
+.bold .card .pic{aspect-ratio:4/3;border-radius:.5cqw;margin-bottom:.8cqw}
+.bold .card b{display:block;font-size:1.25cqw}.bold .card em{font-style:normal;font-size:1.1cqw;font-weight:800}
+.bold .sub{position:absolute;left:3%;bottom:5%;font-size:1.3cqw;font-weight:700}
+.bold .btnb{position:absolute;right:3%;bottom:4%;background:#fff;font-weight:900;font-size:1.3cqw;padding:1cqw 2cqw;border-radius:99px}
+/* SERIF — Délice 스타일 */
+.serif{position:absolute;inset:0;font-family:var(--sans);overflow:hidden}
+.serif .bgc{position:absolute;inset:0}
+.serif .nav{position:absolute;left:4%;right:4%;top:5%;display:flex;justify-content:space-between;align-items:center;font-size:1.25cqw;font-weight:700}
+.serif .nav b{font-family:var(--serif);font-size:2cqw}
+.serif .nav span{display:flex;gap:1.8cqw}
+.serif .ttl{position:absolute;left:4%;top:24%;width:50%;font-family:var(--serif);font-weight:700;font-size:6.4cqw;line-height:1.05;letter-spacing:-.03em}
+.serif .ttl small{display:block;font-family:var(--sans);font-size:1.3cqw;font-weight:800;letter-spacing:.2em;margin-bottom:1.4cqw}
+.serif .ttl p{font-family:var(--sans);font-weight:500;font-size:1.4cqw;line-height:1.6;margin-top:1.6cqw;opacity:.8}
+.serif .hero{position:absolute;right:6%;top:15%;width:36cqw;height:36cqw}
+.serif .hero .ring{position:absolute;inset:-6%;border-radius:50%;border:.3cqw dashed currentColor;opacity:.35;animation:spin9 30s linear infinite}
+@keyframes spin9{to{transform:rotate(360deg)}}
+.serif .hero .ar{width:100%;height:100%;box-shadow:0 3cqw 5cqw -2cqw rgba(60,30,10,.45)}
+.serif .barb{position:absolute;left:4%;right:4%;bottom:4%;display:grid;grid-template-columns:repeat(3,1fr);gap:.8cqw}
+.serif .barb a{text-align:center;font-weight:800;font-size:1.35cqw;padding:1.3cqw;border-radius:.8cqw;background:#fff}
+.serif .barb a:first-child{color:#fff}
 </style>
 </head>
 <body>
 <header class="top" id="top"><div class="w">
   <a class="logo" href="#"><b>웹쇼룸</b><small>WEBSHOWROOM</small></a>
-  <nav class="nav"><a href="#home">1등 스타일로 만들기</a><a href="#price">가격</a><a href="#how">진행 방식</a><a href="#case">제작 사례</a><a href="#faq">자주 묻는 질문</a></nav>
+  <nav class="nav"><a href="#home">완성 보기</a><a href="#price">가격</a><a href="#how">진행 방식</a><a href="#case">제작 사례</a><a href="#faq">자주 묻는 질문</a></nav>
   <a class="btn btn-r" href="#ask">무료 상담</a>
 </div></header>
 
-<section class="hx" id="home"><div class="w">
-  <div class="hx-top">
-    <div><div class="eye">World No.1 Style × Your Shop</div>
-      <h1 class="hx-h">세계 1등 스타일로,<br>우리 가게 홈페이지<i>.</i></h1></div>
-    <p class="lead">세계 1등 홈페이지를 고르고 업종을 누르세요. 그 1등 스타일 그대로 <b>우리 가게 홈페이지가 생성</b>됩니다.</p>
-  </div>
-  <div class="ctrl">
-    <div class="cg"><span class="cl">① 1등 스타일</span><div class="chips" id="cStyle"></div></div>
-    <div class="cg"><span class="cl">② 우리 업종</span><div class="chips" id="cInd"></div></div>
-  </div>
-  <div class="stage" id="stage">
-    <div class="sbar"><i></i><i></i><i></i><span id="sUrl">morningbrew.kr</span>
-      <div class="steps4" id="steps"></div></div>
-    <div class="sscr" id="sscr">
-      <div class="gen" id="gen"></div>
-      <div class="pip" id="pip"><img id="pipImg" alt=""><span id="pipTxt"></span></div>
-      <div class="stamp" id="stamp">완성</div>
-      <button class="replay" id="replay" type="button">↻ 다시 생성</button>
+<section class="hx9" id="home"><div class="w9">
+  <div class="h9">
+    <div class="stage s9" id="stage">
+      <div class="sbar"><i></i><i></i><i></i><span id="sUrl">morningbrew.kr</span><div class="steps4" id="steps"></div></div>
+      <div class="sscr" id="sscr"><div class="gen" id="gen"></div></div>
     </div>
-    <div class="scap" id="scap"></div>
+    <aside class="side9">
+      <div class="eye">Website Showroom</div>
+      <h1 class="h9t">클릭하면 <br>완성되는 <br>홈페이지<i>.</i></h1>
+      <p class="lead">세계 1등 홈페이지 스타일로, 업종마다 홈페이지가 지금 만들어지고 있습니다. 마음에 드는 업종을 누르세요.</p>
+      <div class="now9"><small>지금 만드는 중</small><b id="nowName">카페 · 모닝브루 커피</b><span id="nowStyle">스타일: Igloo Inc. (Awwwards 올해의 사이트)</span></div>
+      <div class="ind9" id="ind9"></div>
+      <div class="bar9"><div class="bt"><span id="barTxt">완성까지</span><b id="barSec">7초</b></div><div class="track"><i id="barFill"></i></div></div>
+      <div class="cta9"><a class="btn btn-r" href="#ask" id="ctaAsk">이 홈페이지로 상담</a><button class="btn btn-l" type="button" id="ctaTry">실제 데모 써 보기</button></div>
+    </aside>
   </div>
 </div></section>
 
@@ -709,37 +764,50 @@ function tplPla(t){
  <div class="planet el" data-s="3">${trees}${houses}</div>
  <div class="word" data-s="4">${rows.map(r=>`<div class="row">${r.map(c=>`<span class="blk">${c}</span>`).join('')}</div>`).join('')}</div>
  <div class="tag el" data-s="5">${t.t}</div><div class="btn3 el" data-s="5">${t.cta}</div></div>`}
+function tplBold(t){
+ return `<div class="bold"><div class="bgc bgl" data-s="1" style="background:${t.acc}"></div>
+ <div class="nav el" data-s="2"><b>${t.en}</b><span>${t.it.slice(0,3).map(i=>`<em style="font-style:normal">${i[0]}</em>`).join('')}<em style="font-style:normal">🛒 0</em></span></div>
+ <div class="cards" data-s="3">${t.it.map((i,j)=>`<div class="card"><div class="pic" style="background:linear-gradient(${120+j*40}deg,${t.soft},${t.acc}66)"></div><b>${i[0]}</b><em style="color:${t.acc}">${i[1]}</em></div>`).join('')}</div>
+ <div class="big" data-s="4"><span>${t.s.replace(/\s/g,'')}</span></div>
+ <div class="sub el" data-s="5">${t.t}</div><div class="btnb el" data-s="5" style="color:${t.acc}">${t.cta} →</div></div>`}
+function tplSerif(t){
+ return `<div class="serif" style="color:${t.ink}"><div class="bgc bgl" data-s="1" style="background:linear-gradient(160deg,#FFFDF9,${t.soft})"></div>
+ <div class="nav el" data-s="2"><b style="color:${t.acc}">${t.s}</b><span>${t.it.slice(0,3).map(i=>`<em style="font-style:normal">${i[0]}</em>`).join('')}</span></div>
+ <div class="hero el" data-s="3" style="color:${t.acc}"><div class="ring"></div>${art(t)}</div>
+ <div class="ttl el" data-s="4"><small style="color:${t.acc}">${t.sub}</small>${t.t}<p>${t.it.map(i=>i[0]).join(' · ')}</p></div>
+ <div class="barb el" data-s="5"><a style="background:${t.acc}">${t.cta}</a><a>오시는 길</a><a>전화 문의</a></div></div>`}
+const STYLE={ice:{n:'Igloo Inc.',w:'Awwwards 올해의 사이트',f:tplIce},pla:{n:'Messenger',w:'Awwwards 올해의 사이트',f:tplPla},bold:{n:'Outfit',w:'Awwwards 오늘의 사이트',f:tplBold},serif:{n:'Délice',w:'Awwwards 우수상',f:tplSerif}};
+const ORDER=[['cafe','ice'],['salon','bold'],['dining','serif'],['pilates','pla'],['academy','bold'],['photo','ice'],['shop','pla'],['factory','serif']];
 const STEPS=['배경','로고·메뉴','주인공','제목','버튼'];
-let si=0,ik='cafe',timers=[];
+const DUR=7000;let qi=0,timers=[],raf=0;
 const $=id=>document.getElementById(id);
-$('cStyle').innerHTML=STY.map((s,i)=>`<button type="button" data-i="${i}" class="${i?'':'on'}"><img src="${s.img}" alt="">${s.n}</button>`).join('');
-$('cInd').innerHTML=Object.entries(IND).map(([k,t])=>`<button type="button" class="t ${k==ik?'on':''}" data-k="${k}">${t.n}</button>`).join('');
 $('steps').innerHTML=STEPS.map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
-function gen(){
- timers.forEach(clearTimeout);timers=[];
- const s=STY[si],t=IND[ik];$('sUrl').textContent=t.en.toLowerCase().replace(/\s/g,'')+'.kr';
- const g=$('gen');g.innerHTML=s.k=='ice'?tplIce(t):tplPla(t);
- $('pipImg').src=s.img;$('pipTxt').textContent='원본: '+s.n+' (세계 1등)';
- const pip=$('pip');pip.classList.add('big');$('stamp').classList.remove('on');$('replay').classList.remove('on');
+$('ind9').innerHTML=ORDER.map(([k],i)=>`<button type="button" data-i="${i}">${IND[k].n}</button>`).join('');
+function run(i){
+ timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);qi=i;
+ const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk];
+ $('sUrl').textContent=t.en.toLowerCase().replace(/\s/g,'')+'.kr';
+ $('gen').innerHTML=st.f(t);
+ $('nowName').textContent=`${t.n} · ${t.s}`;$('nowStyle').textContent=`스타일: ${st.n} (${st.w}) 참고`;
+ [...$('ind9').children].forEach((b,j)=>{b.classList.toggle('on',j==i)});
+ $('ctaTry').style.display=t.demo>=0?'':'none';
  const sb=[...$('steps').children];sb.forEach(b=>b.classList.remove('on','done'));
- cap(false);
- const T=(f,ms)=>timers.push(setTimeout(f,ms));
- T(()=>pip.classList.remove('big'),1100);
- for(let n=1;n<=5;n++){
-  T(()=>{sb.forEach((b,i)=>{b.classList.toggle('on',i==n-1);b.classList.toggle('done',i<n-1)});
+ const g=$('gen'),T=(f,ms)=>timers.push(setTimeout(f,ms));const step=(DUR-600)/5;
+ for(let n=1;n<=5;n++)T(()=>{sb.forEach((b,j)=>{b.classList.toggle('on',j==n-1);b.classList.toggle('done',j<n-1)});
    g.querySelectorAll('[data-s="'+n+'"]').forEach(e=>{e.classList.add('on','hl');setTimeout(()=>e.classList.remove('hl'),650)});
-   if(n==4)g.querySelectorAll('.blk').forEach((b,i)=>setTimeout(()=>b.classList.add('on'),i*110));
-  },1500+(n-1)*900);
- }
- T(()=>{sb.forEach((b,i)=>{b.classList.toggle('on',i==5);b.classList.toggle('done',i<5)});$('stamp').classList.add('on');$('replay').classList.add('on');cap(true)},1500+5*900+300);
+   g.querySelectorAll('[data-s="'+n+'"] .blk,[data-s="'+n+'"] .card').forEach((b,j)=>setTimeout(()=>b.classList.add('on'),j*120));
+ },300+(n-1)*step);
+ const t0=performance.now(),fill=$('barFill');
+ (function tick(){const p=Math.min(1,(performance.now()-t0)/DUR);fill.style.transform=`scaleX(${1-p})`;$('barSec').textContent=p<1?Math.ceil((DUR-(performance.now()-t0))/1000)+'초':'완성!';$('barTxt').textContent=p<1?'완성까지':'홈페이지 완성';if(p<1)raf=requestAnimationFrame(tick)})();
+ T(()=>{sb.forEach((b,j)=>{b.classList.toggle('on',j==5);b.classList.toggle('done',j<5)});$('ind9').children[i].classList.add('done')},DUR);
+ T(()=>run((i+1)%ORDER.length),DUR+2200);
 }
-function cap(done){const s=STY[si],t=IND[ik];
- $('scap').innerHTML=`<span class="tag">세계 1등 스타일 · ${s.n}</span><b>${t.s}</b><span>${s.d}</span><span class="sp"></span>${done?`<button type="button" class="btn btn-l" id="regen">↻ 다시 생성</button>${t.demo>=0?'<button type="button" class="btn btn-l" id="tryIt">실제 데모 보기</button>':''}<a href="#ask" class="btn btn-r" id="askIt">이 스타일로 상담</a>`:'<span class="note">생성 중…</span>'}<span class="note" style="width:100%">원본 화면은 Awwwards 「올해의 사이트」 수상작으로 참고용입니다(웹쇼룸 제작 아님) · <a href="${s.aw}" target="_blank" rel="noopener" style="text-decoration:underline">수상 페이지</a></span>`;
- if(done){$('regen').onclick=gen;const ti=$('tryIt');if(ti)ti.onclick=()=>open(t.demo);$('askIt').onclick=()=>{const am=$('askModel');[...am.options].forEach(o=>{if(o.text.startsWith(t.n.slice(0,2)))am.value=o.text});const tx=document.querySelector('#askForm textarea');tx.value=`[${s.n} 스타일] ${t.n} 홈페이지 상담 원합니다`}}}
-$('cStyle').onclick=e=>{const b=e.target.closest('button');if(!b)return;si=+b.dataset.i;[...$('cStyle').children].forEach(x=>x.classList.toggle('on',x==b));gen()};
-$('cInd').onclick=e=>{const b=e.target.closest('button');if(!b)return;ik=b.dataset.k;[...$('cInd').children].forEach(x=>x.classList.toggle('on',x==b));gen()};
-$('replay').onclick=gen;
-gen();
+$('ind9').onclick=e=>{const b=e.target.closest('button');if(b)run(+b.dataset.i)};
+$('ctaTry').onclick=()=>{const t=IND[ORDER[qi][0]];if(t.demo>=0)open(t.demo)};
+$('ctaAsk').onclick=()=>{const t=IND[ORDER[qi][0]],am=$('askModel');[...am.options].forEach(o=>{if(o.text.startsWith(t.n.slice(0,2)))am.value=o.text});document.querySelector('#askForm textarea').value=`[${STYLE[ORDER[qi][1]].n} 스타일] ${t.n} 홈페이지 상담 원합니다`};
+new IntersectionObserver(es=>{if(!es[0].isIntersecting){timers.forEach(clearTimeout);cancelAnimationFrame(raf);paused=true}else if(window.paused){paused=false;run(qi)}}).observe($('stage'));
+var paused=false;
+run(0);
 </script>
 </body>
 </html>
