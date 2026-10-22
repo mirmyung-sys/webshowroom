@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>웹쇼룸 — 클릭하면 완성되는 홈페이지</title>
+<title>웹쇼룸 — 세계 1등 스타일로 우리 가게 홈페이지</title>
 <meta name="description" content="세계 1등 홈페이지처럼, 클릭하면 우리 가게 홈페이지가 완성됩니다. 490,000원부터, 7일 오픈.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -418,36 +418,97 @@ section.hx{padding:46px 0 30px}
 .pc b{display:block;margin-top:9px;font-size:15px}
 .pc small{display:block;font-size:12px;color:var(--mute)}
 @media(max-width:600px){.pc b{font-size:13px}.pc small{font-size:11px}}
+/* v8 — 1등 스타일 × 우리 가게 */
+#stage .stamp,#stage .replay{display:none}
+.ctrl{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:center;margin-bottom:14px}
+.ctrl .cg{display:contents}
+.cl{font-size:13px;font-weight:800;color:var(--ink2);white-space:nowrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{display:flex;align-items:center;gap:8px;padding:7px 14px 7px 7px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-size:14px;font-weight:600;color:var(--ink2);transition:all .2s}
+.chips button img{width:44px;height:28px;object-fit:cover;border-radius:6px}
+.chips button.t{padding:9px 15px}
+.chips button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+@media(max-width:700px){.ctrl{grid-template-columns:1fr;gap:6px}.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chips button{white-space:nowrap;flex:none}}
+.gen{position:absolute;inset:0;overflow:hidden;container-type:inline-size}
+.pip{position:absolute;left:16px;bottom:16px;z-index:6;width:22%;border-radius:10px;overflow:hidden;background:#fff;border:2px solid #fff;box-shadow:0 14px 30px -12px rgba(40,30,20,.5);transition:transform .5s,opacity .5s}
+.pip img{display:block;width:100%;aspect-ratio:1440/848;object-fit:cover}
+.pip span{display:block;font-size:11px;font-weight:700;padding:5px 8px;color:var(--ink2);background:#fff}
+.pip.big{width:100%;left:0;bottom:0;border:0;border-radius:0;height:100%}
+.pip.big img{height:100%;aspect-ratio:auto}
+.pip.big span{position:absolute;left:16px;top:16px;border-radius:99px;padding:7px 12px;font-size:13px}
+@media(max-width:700px){.pip{width:30%;left:8px;bottom:8px}.pip span{font-size:9px;padding:3px 5px}}
+.replay{left:auto;right:130px}
+@media(max-width:700px){.replay{right:84px;bottom:12px;padding:6px 10px;font-size:11px}}
+/* 생성 요소 공통 */
+.gen .el{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.gen .el.on{opacity:1;transform:none}
+.gen .bgl{position:absolute;inset:0;opacity:0;transition:opacity .9s}
+.gen .bgl.on{opacity:1}
+.gen .hl{outline:2px dashed rgba(226,72,61,.9);outline-offset:4px}
+/* ICE — Igloo 스타일 */
+.ice{position:absolute;inset:0;background:linear-gradient(180deg,#c9ccd3 0%,#dfe1e6 45%,#eceef1 100%);font-family:"JetBrains Mono","SFMono-Regular",Menlo,Consolas,monospace;color:#fff}
+.gen .ice svg.mnt{position:absolute;inset:auto 0 0 0;width:100%;height:62%}
+.ice .logo{position:absolute;left:4%;top:6%;font-family:var(--sans);font-weight:900;font-size:4.6cqw;letter-spacing:-.02em;line-height:1;text-shadow:0 2px 14px rgba(80,90,110,.35)}
+.ice .meta{position:absolute;left:4%;top:16%;font-size:1.05cqw;line-height:1.6;text-shadow:0 1px 6px rgba(60,70,90,.4)}
+.ice .menu{position:absolute;right:4%;top:6%;text-align:right;font-size:1.05cqw;line-height:1.7;text-shadow:0 1px 6px rgba(60,70,90,.4)}
+.ice .menu b{display:block;font-size:1.25cqw;margin-bottom:.6cqw}
+.ice .obj{position:absolute;left:50%;top:50%;width:30cqw;height:30cqw;translate:-50% -46%}
+.ice .obj .glass{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.95),rgba(232,236,242,.55) 45%,rgba(190,198,210,.35) 70%);box-shadow:0 3cqw 6cqw -2cqw rgba(70,80,100,.45),inset 0 0 3cqw rgba(255,255,255,.9);backdrop-filter:blur(4px)}
+.ice .obj .art{position:absolute;inset:22%;}
+.ice .obj .art .ar{width:100%;height:100%}
+.ice .node{position:absolute;font-size:.95cqw;font-weight:700;color:#fff;text-shadow:0 1px 5px rgba(50,60,80,.6);white-space:nowrap}
+.ice .node::before{content:"";position:absolute;left:-1.1cqw;top:50%;width:.55cqw;height:.55cqw;margin-top:-.27cqw;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff}
+.ice svg.lines{position:absolute;inset:0;width:100%;height:100%}
+.ice .title{position:absolute;left:50%;bottom:9%;translate:-50% 0;text-align:center;font-family:var(--serif);font-weight:700;font-size:3.4cqw;color:#fff;text-shadow:0 2px 18px rgba(60,70,90,.45);white-space:nowrap}
+.ice .scroll{position:absolute;left:4%;bottom:6%;font-size:1cqw;line-height:1.5}
+.ice .cta{position:absolute;right:4%;bottom:6%;font-family:var(--sans);font-size:1.2cqw;font-weight:800;color:#3b4250;background:rgba(255,255,255,.85);padding:.9cqw 1.6cqw;border-radius:99px;box-shadow:0 8px 20px -10px rgba(50,60,80,.6)}
+/* PLANET — Messenger 스타일 */
+.pla{position:absolute;inset:0;background:#62c3be;overflow:hidden;font-family:var(--sans)}
+.pla .sp{position:absolute;border-radius:50%;background:rgba(255,255,255,.45)}
+.pla .logo{position:absolute;left:3%;top:5%;font-weight:900;font-size:1.6cqw;color:#fff;letter-spacing:.02em}
+.pla .menu{position:absolute;right:3%;top:5%;display:flex;gap:1.6cqw;font-size:1.15cqw;font-weight:800;color:#fff}
+.pla .planet{position:absolute;left:50%;top:47%;width:40cqw;height:40cqw;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#8fd17a,#4f9e55 55%,#3d8447 75%);box-shadow:inset -2cqw -2cqw 4cqw rgba(30,70,40,.35),0 0 0 1.2cqw rgba(255,255,255,.18)}
+.pla .planet i{position:absolute;border-radius:50%;background:#3f8a49;box-shadow:inset .4cqw .4cqw 0 rgba(255,255,255,.18)}
+.pla .planet .house{position:absolute;width:3.2cqw;height:2.6cqw;background:#f4efe2;border:.25cqw solid #6b5b4a;border-radius:.3cqw}
+.pla .planet .house::before{content:"";position:absolute;left:-.5cqw;right:-.5cqw;top:-1.3cqw;height:1.3cqw;background:var(--roof,#e2483d);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.pla .word{position:absolute;left:50%;top:46%;translate:-50% -50%;display:grid;gap:.8cqw;justify-items:center}
+.pla .row{display:flex;gap:.8cqw}
+.pla .blk{min-width:8.6cqw;height:8.6cqw;padding:0 .6cqw;display:flex;align-items:center;justify-content:center;background:#f6f3ea;color:#2f3a35;font-weight:900;font-size:6cqw;line-height:1;border:.35cqw solid #2f3a35;border-radius:.6cqw;box-shadow:.7cqw .7cqw 0 #2f3a35;opacity:0;transform:translateY(-6cqw) rotate(-8deg);transition:opacity .35s,transform .6s cubic-bezier(.2,1.2,.3,1)}
+.pla .blk.on{opacity:1;transform:none}
+.pla .btn3{position:absolute;left:50%;bottom:8%;translate:-50% 0;background:#f2c94c;color:#5a4410;font-weight:900;font-size:1.5cqw;padding:1cqw 2.6cqw;border:.25cqw solid #8a6a1c;border-radius:.4cqw;box-shadow:0 .6cqw 0 #b98d22;white-space:nowrap}
+.pla .tag{position:absolute;left:3%;bottom:6%;font-size:1.1cqw;font-weight:700;color:#fff;max-width:22%}
+/* steps */
+.steps4 b{display:inline-block}
 </style>
 </head>
 <body>
 <header class="top" id="top"><div class="w">
   <a class="logo" href="#"><b>웹쇼룸</b><small>WEBSHOWROOM</small></a>
-  <nav class="nav"><a href="#home">완성 보기</a><a href="#pick">업종 고르기</a><a href="#price">가격</a><a href="#how">진행 방식</a><a href="#case">제작 사례</a><a href="#faq">자주 묻는 질문</a></nav>
+  <nav class="nav"><a href="#home">1등 스타일로 만들기</a><a href="#price">가격</a><a href="#how">진행 방식</a><a href="#case">제작 사례</a><a href="#faq">자주 묻는 질문</a></nav>
   <a class="btn btn-r" href="#ask">무료 상담</a>
 </div></header>
 
 <section class="hx" id="home"><div class="w">
   <div class="hx-top">
-    <div><div class="eye">World No.1 Websites · Awwwards Sites of the Year</div>
-      <h1 class="hx-h">클릭하면 완성되는<br>홈페이지<i>.</i></h1></div>
-    <p class="lead">세계 1등 홈페이지가 한 칸씩 완성되는 걸 보세요. 아래에서 업종을 누르면 <b>우리 가게 홈페이지</b>도 똑같이 완성됩니다.</p>
+    <div><div class="eye">World No.1 Style × Your Shop</div>
+      <h1 class="hx-h">세계 1등 스타일로,<br>우리 가게 홈페이지<i>.</i></h1></div>
+    <p class="lead">세계 1등 홈페이지를 고르고 업종을 누르세요. 그 1등 스타일 그대로 <b>우리 가게 홈페이지가 생성</b>됩니다.</p>
+  </div>
+  <div class="ctrl">
+    <div class="cg"><span class="cl">① 1등 스타일</span><div class="chips" id="cStyle"></div></div>
+    <div class="cg"><span class="cl">② 우리 업종</span><div class="chips" id="cInd"></div></div>
   </div>
   <div class="stage" id="stage">
-    <div class="sbar"><i></i><i></i><i></i><span id="sUrl">igloo.inc</span>
-      <div class="steps4" id="steps4"><b data-s="1">① 뼈대</b><b data-s="2">② 배치</b><b data-s="3">③ 채우기</b><b data-s="4">④ 완성</b></div></div>
-    <div class="sscr" id="sscr"><div class="grid" id="sgrid"></div><div class="tiles" id="stiles"></div>
+    <div class="sbar"><i></i><i></i><i></i><span id="sUrl">morningbrew.kr</span>
+      <div class="steps4" id="steps"></div></div>
+    <div class="sscr" id="sscr">
+      <div class="gen" id="gen"></div>
+      <div class="pip" id="pip"><img id="pipImg" alt=""><span id="pipTxt"></span></div>
       <div class="stamp" id="stamp">완성</div>
-      <button class="replay" id="replay" type="button">↻ 다시 보기</button></div>
+      <button class="replay" id="replay" type="button">↻ 다시 생성</button>
+    </div>
     <div class="scap" id="scap"></div>
   </div>
-</div></section>
-
-<section id="pick"><div class="w">
-  <div class="prow"><h3>세계 1등 홈페이지 <small>Awwwards 「올해의 사이트」 수상작 · 누르면 위에서 완성됩니다</small></h3>
-    <div class="pgrid g3" id="pWin"></div></div>
-  <div class="prow"><h3>우리 가게 홈페이지 <small>업종을 누르면 같은 방식으로 완성됩니다 · 490,000원부터</small></h3>
-    <div class="pgrid g4" id="pOur"></div></div>
 </div></section>
 
 <section style="padding-top:20px"><div class="w">
@@ -533,7 +594,7 @@ section.hx{padding:46px 0 30px}
   전시 모델 속 상호는 시안용 가상 상호입니다 (제작 사례 제외).
 </div></footer>
 
-<nav class="bbar" id="bbar"><a href="#pick">업종</a><a href="#price">가격</a><a class="r" href="#ask">무료 상담</a></nav>
+<nav class="bbar" id="bbar"><a href="#home">만들기</a><a href="#price">가격</a><a class="r" href="#ask">무료 상담</a></nav>
 <div class="mod" id="mod"><div class="box" id="box"></div></div>
 <button class="closeY" id="closeY" aria-label="닫기">×</button>
 
@@ -604,46 +665,81 @@ document.getElementById('askForm').onsubmit=e=>{e.preventDefault();const f=new F
  const body=`상호: ${f.get('shop')}\n업종: ${f.get('cat')}\n원하는 모델: ${f.get('model')}\n연락처: ${f.get('tel')}\n\n${f.get('msg')||''}`;
  location.href='mailto:theju0911@gmail.com?subject='+encodeURIComponent('[웹쇼룸 상담] '+f.get('shop'))+'&body='+encodeURIComponent(body)};
 fitAll();
-/* v7 — 클릭하면 완성 */
-const WIN=[
- {k:'igloo',n:'Igloo Inc.',s:'브랜드 회사 사이트',u:'igloo.inc',img:'img/win/igloo.jpg',href:'https://www.igloo.inc/',aw:'https://www.awwwards.com/sites/igloo-inc'},
- {k:'messenger',n:'Messenger',s:'3D 웹 체험 사이트',u:'messenger.abeto.co',img:'img/win/messenger.jpg',href:'https://messenger.abeto.co/',aw:'https://www.awwwards.com/sites/messenger'}
+/* v8 — 1등 스타일 × 우리 가게 생성 */
+const STY=[
+ {k:'ice',n:'Igloo Inc.',u:'igloo.inc',img:'img/win/igloo.jpg',aw:'https://www.awwwards.com/sites/igloo-inc',href:'https://www.igloo.inc/',d:'안개 낀 설산 · 가운데 주인공 오브제 · 모서리 작은 코드 글씨'},
+ {k:'pla',n:'Messenger',u:'messenger.abeto.co',img:'img/win/messenger.jpg',aw:'https://www.awwwards.com/sites/messenger',href:'https://messenger.abeto.co/',d:'청록 바탕 · 둥근 행성 · 블록 글자 제목 · 노란 버튼'}
 ];
-const OUR=M.map((m,i)=>({...m,i,shot:`img/st/${m.k}.jpg`}));
-const pWin=document.getElementById('pWin'),pOur=document.getElementById('pOur');
-pWin.innerHTML=WIN.map((w,i)=>`<button class="pc" type="button" data-w="${i}"><div class="th"><img src="${w.img}" alt="${w.n} 첫 화면" loading="lazy"><span class="no">No.${i+1}</span></div><b>${w.n}</b><small>${w.s}</small></button>`).join('');
-pOur.innerHTML=OUR.map(o=>`<button class="pc" type="button" data-o="${o.i}"><div class="th"><img src="${o.shot}" alt="${o.s} 첫 화면" loading="lazy">${o.live?'<span class="no">실제 운영</span>':''}</div><b>${o.n}</b><small>${o.live?'제작 사례 · '+o.s:o.s+' (예시)'}</small></button>`).join('');
-const sgrid=document.getElementById('sgrid'),stiles=document.getElementById('stiles'),steps=[...document.querySelectorAll('#steps4 b')],stamp=document.getElementById('stamp'),replay=document.getElementById('replay'),scap=document.getElementById('scap'),sUrl=document.getElementById('sUrl');
-const small=()=>innerWidth<700;let timers=[],cur=null;
-function T(f,ms){timers.push(setTimeout(f,ms))}
-function step(n){steps.forEach((b,i)=>{b.classList.toggle('on',i+1==n);b.classList.toggle('done',i+1<n)})}
-function build(item){
-  timers.forEach(clearTimeout);timers=[];cur=item;
-  const C=small()?6:12,R=small()?4:8;
-  sUrl.textContent=item.u;stamp.classList.remove('on');replay.classList.remove('on');stiles.classList.remove('done');
-  sgrid.className='grid';sgrid.style.opacity=1;
-  sgrid.innerHTML=Array.from({length:C-1},(_,i)=>`<i class="v" style="left:${(i+1)/C*100}%;transition-delay:${i*35}ms"></i>`).join('')+Array.from({length:R-1},(_,i)=>`<i class="h" style="top:${(i+1)/R*100}%;transition-delay:${i*45}ms"></i>`).join('');
-  let h='';for(let r=0;r<R;r++)for(let c=0;c<C;c++){h+=`<div data-r="${r}" data-c="${c}" style="left:${c/C*100}%;top:${r/R*100}%;width:${100/C}%;height:${100/R}%;background-image:url(${item.img||item.shot});background-size:${C*100}% ${R*100}%;background-position:${C>1?c/(C-1)*100:0}% ${R>1?r/(R-1)*100:0}%"></div>`}
-  stiles.innerHTML=h;const tiles=[...stiles.children];
-  step(1);caption(item,false);
-  T(()=>sgrid.classList.add('on'),60);
-  T(()=>{step(2);tiles.forEach(t=>{const r=+t.dataset.r,c=+t.dataset.c;setTimeout(()=>t.classList.add('in'),(r*C+c)%7*55+r*70+Math.random()*120)})},900);
-  T(()=>{step(3);tiles.forEach(t=>{const r=+t.dataset.r,c=+t.dataset.c;setTimeout(()=>t.classList.add('sharp'),r*150+c*28)})},2300);
-  T(()=>{step(4);sgrid.style.opacity=0;stiles.classList.add('done');stamp.classList.add('on');replay.classList.add('on');caption(item,true)},2300+R*150+C*28+600);
+const IND={
+ cafe:{n:'카페',s:'모닝브루 커피',en:'MORNINGBREW',t:'아침이 달라지는 한 잔',cta:'오늘의 메뉴',sub:'Specialty Coffee',it:[['모닝 라떼','5,500'],['흑당 크림','6,000'],['휘낭시에','3,200'],['핸드드립','6,500']],acc:'#C0622F',soft:'#EAD6BF',ink:'#2B1D14',art:'cup',roof:'#C0622F',demo:0},
+ salon:{n:'헤어',s:'라움 헤어',en:'RAUM HAIR',t:'한 번에 한 분만',cta:'빈 시간 보기',sub:'1:1 Private Salon',it:[['여성 컷','25,000'],['남성 컷','20,000'],['빌드 펌','90,000~'],['클리닉','50,000~']],acc:'#C9636F',soft:'#F2D6D5',ink:'#3B2A2D',art:'blob',roof:'#C9636F',demo:1},
+ dining:{n:'한식',s:'한우 담',en:'HANWOO DAM',t:'1++ 한우를, 조용한 룸에서',cta:'룸 예약',sub:'Korean Beef Dining',it:[['점심 정식','39,000'],['저녁 코스','89,000'],['담 코스','129,000'],['룸 예약','상견례']],acc:'#A8382C',soft:'#EBD3C6',ink:'#3A1F18',art:'plate',roof:'#A8382C',demo:2},
+ pilates:{n:'필라테스',s:'코어온 필라테스',en:'CORE ON',t:'허리가 먼저 알아요',cta:'체험 신청',sub:'Pilates Studio',it:[['기구 그룹','정원 4명'],['1:1 개인','교정'],['매트 기초','입문'],['체험 1회','측정']],acc:'#2F6B55',soft:'#D3E6D8',ink:'#1F3A2B',art:'ring',roof:'#2F6B55',demo:3},
+ academy:{n:'학원',s:'브릿지 영어학원',en:'BRIDGE',t:'말이 먼저 트이는 수업',cta:'레벨 테스트',sub:'English Academy',it:[['초등 회화','주 2회'],['중등 내신','주 3회'],['성인 회화','새벽·저녁'],['1:1 과외','맞춤']],acc:'#B8873A',soft:'#EEDFC2',ink:'#2E2416',art:'book',roof:'#B8873A',demo:-1},
+ photo:{n:'사진관',s:'스튜디오 루멘',en:'LUMEN',t:'빛이 머무는 사진',cta:'촬영 문의',sub:'Portrait Studio',it:[['프로필','1인'],['가족사진','4인'],['웨딩 스냅','야외'],['브랜드','제품']],acc:'#8C6276',soft:'#E6D6DD',ink:'#33262C',art:'lens',roof:'#8C6276',demo:5},
+ shop:{n:'소품샵',s:'소소 소품샵',en:'SOSO SHOP',t:'작은 물건이 하루를 바꿔요',cta:'신상 보기',sub:'Small Things Shop',it:[['소이 캔들','18,000'],['미니 화분','12,000'],['머그컵','15,000'],['라탄 바구니','22,000']],acc:'#D49A1E',soft:'#F3E3B8',ink:'#3A2E14',art:'bag',roof:'#D49A1E',demo:6},
+ factory:{n:'부품몰',s:'B2B 부품몰',en:'PARTS MALL',t:'멈춘 라인, 부품부터',cta:'부품 찾기',sub:'Hot Melt Parts',it:[['노즐','규격별'],['히팅호스','길이별'],['펌프','모델별'],['컨트롤러','센서']],acc:'#B4541E',soft:'#E6E1CC',ink:'#2A2B1C',art:'gear',roof:'#B4541E',demo:7}
+};
+function art(t){const a=t.acc,s=t.soft;return {cup:`<div class="ar" style="border-radius:50%;background:radial-gradient(circle,${t.ink} 0 30%,${a} 31% 37%,#fff 38% 56%,${s} 57%)"></div>`,
+ plate:`<div class="ar" style="border-radius:50%;background:radial-gradient(circle,${a} 0 22%,#fff 23% 58%,${s} 59%)"></div>`,
+ blob:`<div class="ar" style="border-radius:42% 58% 63% 37%/45% 40% 60% 55%;background:linear-gradient(140deg,${s},${a})"></div>`,
+ ring:`<div class="ar" style="border-radius:50%;background:radial-gradient(circle,transparent 0 46%,${a} 47% 55%,${s} 56% 66%,transparent 67%)"></div>`,
+ book:`<div class="ar" style="border-radius:8%;transform:rotate(-8deg);background:linear-gradient(90deg,${a} 0 48%,#fff 48% 52%,${s} 52%)"></div>`,
+ lens:`<div class="ar" style="border-radius:50%;background:radial-gradient(circle,${t.ink} 0 20%,${a} 21% 34%,${s} 35% 60%,#fff 61%)"></div>`,
+ bag:`<div class="ar" style="border-radius:14% 14% 22% 22%;background:linear-gradient(180deg,${s},${a})"></div>`,
+ gear:`<div class="ar" style="border-radius:50%;background:repeating-conic-gradient(${a} 0 15deg,${s} 15deg 30deg);-webkit-mask:radial-gradient(circle,transparent 0 22%,#000 23% 70%,transparent 71%);mask:radial-gradient(circle,transparent 0 22%,#000 23% 70%,transparent 71%)"></div>`}[t.art]}
+function tplIce(t){
+ const nodes=[[18,30],[70,24],[20,72],[76,70]];
+ return `<div class="ice"><div class="bgl" data-s="1"></div>
+ <svg class="mnt bgl" data-s="1" viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M0 40 L14 22 L26 32 L40 12 L55 30 L68 18 L84 30 L100 20 V60 H0Z" fill="#b9bdc6"/><path d="M0 48 L18 36 L34 44 L50 30 L66 42 L82 34 L100 42 V60 H0Z" fill="#a9aeb8"/><path d="M0 54 L22 48 L46 54 L70 47 L100 53 V60 H0Z" fill="#9ca1ac"/></svg>
+ <div class="logo el" data-s="2">${t.en}</div><div class="meta el" data-s="2">// ${t.sub}<br>${t.s}<br>산본로 00</div>
+ <div class="menu el" data-s="2"><b>////// Menu</b>${t.it.map(i=>i[0]).join('<br>')}</div>
+ <div class="obj el" data-s="3"><div class="glass"></div><div class="art">${art(t)}</div></div>
+ <svg class="lines el" data-s="3" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="${nodes.map(n=>n.join(',')).join(' ')}" fill="none" stroke="rgba(255,255,255,.7)" stroke-width=".15"/></svg>
+ ${t.it.map((i,j)=>`<div class="node el" data-s="3" style="left:${nodes[j][0]}%;top:${nodes[j][1]}%">${i[0]} · ${i[1]}</div>`).join('')}
+ <div class="title el" data-s="4">${t.t}</div>
+ <div class="scroll el" data-s="5">아래로 내려<br>더 보기</div><div class="cta el" data-s="5">${t.cta} →</div></div>`}
+function tplPla(t){
+ const chars=[...t.s.replace(/\s/g,'')];const rows=chars.length<=4?[chars]:chars.length<=6?[chars.slice(0,3),chars.slice(3)]:[chars.slice(0,3),chars.slice(3,6),chars.slice(6)];
+ let sp='';for(let i=0;i<40;i++)sp+=`<i class="sp" style="left:${(i*37)%100}%;top:${(i*53)%100}%;width:${.3+(i%4)*.25}cqw;height:${.3+(i%4)*.25}cqw"></i>`;
+ const trees=[[12,30,8],[70,20,10],[78,62,9],[20,70,10],[48,82,8],[40,10,7]].map(p=>`<i style="left:${p[0]}%;top:${p[1]}%;width:${p[2]}cqw;height:${p[2]}cqw"></i>`).join('');
+ const houses=[[30,18],[62,40],[24,52],[66,74]].map(p=>`<span class="house" style="left:${p[0]}%;top:${p[1]}%;--roof:${t.roof}"></span>`).join('');
+ return `<div class="pla"><div class="bgl" data-s="1">${sp}</div>
+ <div class="logo el" data-s="2">${t.en}</div><div class="menu el" data-s="2">${t.it.slice(0,3).map(i=>`<span>${i[0]}</span>`).join('')}</div>
+ <div class="planet el" data-s="3">${trees}${houses}</div>
+ <div class="word" data-s="4">${rows.map(r=>`<div class="row">${r.map(c=>`<span class="blk">${c}</span>`).join('')}</div>`).join('')}</div>
+ <div class="tag el" data-s="5">${t.t}</div><div class="btn3 el" data-s="5">${t.cta}</div></div>`}
+const STEPS=['배경','로고·메뉴','주인공','제목','버튼'];
+let si=0,ik='cafe',timers=[];
+const $=id=>document.getElementById(id);
+$('cStyle').innerHTML=STY.map((s,i)=>`<button type="button" data-i="${i}" class="${i?'':'on'}"><img src="${s.img}" alt="">${s.n}</button>`).join('');
+$('cInd').innerHTML=Object.entries(IND).map(([k,t])=>`<button type="button" class="t ${k==ik?'on':''}" data-k="${k}">${t.n}</button>`).join('');
+$('steps').innerHTML=STEPS.map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
+function gen(){
+ timers.forEach(clearTimeout);timers=[];
+ const s=STY[si],t=IND[ik];$('sUrl').textContent=t.en.toLowerCase().replace(/\s/g,'')+'.kr';
+ const g=$('gen');g.innerHTML=s.k=='ice'?tplIce(t):tplPla(t);
+ $('pipImg').src=s.img;$('pipTxt').textContent='원본: '+s.n+' (세계 1등)';
+ const pip=$('pip');pip.classList.add('big');$('stamp').classList.remove('on');$('replay').classList.remove('on');
+ const sb=[...$('steps').children];sb.forEach(b=>b.classList.remove('on','done'));
+ cap(false);
+ const T=(f,ms)=>timers.push(setTimeout(f,ms));
+ T(()=>pip.classList.remove('big'),1100);
+ for(let n=1;n<=5;n++){
+  T(()=>{sb.forEach((b,i)=>{b.classList.toggle('on',i==n-1);b.classList.toggle('done',i<n-1)});
+   g.querySelectorAll('[data-s="'+n+'"]').forEach(e=>{e.classList.add('on','hl');setTimeout(()=>e.classList.remove('hl'),650)});
+   if(n==4)g.querySelectorAll('.blk').forEach((b,i)=>setTimeout(()=>b.classList.add('on'),i*110));
+  },1500+(n-1)*900);
+ }
+ T(()=>{sb.forEach((b,i)=>{b.classList.toggle('on',i==5);b.classList.toggle('done',i<5)});$('stamp').classList.add('on');$('replay').classList.add('on');cap(true)},1500+5*900+300);
 }
-function caption(it,done){
-  if(it.aw){scap.innerHTML=`<span class="tag">세계 1등 홈페이지</span><b>${it.n}</b><span>${it.s}</span><span class="sp"></span><span class="note">Awwwards 「올해의 사이트」 수상작 · 참고 작품(웹쇼룸 제작 아님)</span><a href="${it.aw}" target="_blank" rel="noopener" class="btn btn-l">수상 페이지</a><a href="${it.href}" target="_blank" rel="noopener" class="btn btn-l">원본 사이트 ↗</a>`}
-  else{scap.innerHTML=`<span class="tag r">우리 가게 홈페이지</span><b>${it.n}</b><span>${it.live?'제작 사례 · '+it.s:it.s+' (예시 상호)'}</span><span class="sp"></span>${done?`<button type="button" class="btn btn-l" id="tryIt">직접 써 보기</button><a href="#ask" class="btn btn-r" id="askIt">이 모양으로 상담</a>`:'<span class="note">완성되는 중…</span>'}`;
-   if(done){document.getElementById('tryIt').onclick=()=>open(it.i);document.getElementById('askIt').onclick=()=>{document.getElementById('askModel').value=it.n}}}
-}
-function pick(btn,item){document.querySelectorAll('.pc').forEach(b=>b.classList.toggle('on',b==btn));build(item);const st=document.getElementById('stage');if(st.getBoundingClientRect().top<0||st.getBoundingClientRect().top>innerHeight*.5)st.scrollIntoView({behavior:'smooth',block:'center'})}
-pWin.onclick=e=>{const b=e.target.closest('.pc');if(b)pick(b,WIN[+b.dataset.w])};
-pOur.onclick=e=>{const b=e.target.closest('.pc');if(b)pick(b,OUR[+b.dataset.o])};
-replay.onclick=()=>cur&&build(cur);
-document.querySelector('#pWin .pc').classList.add('on');
-const imgs=WIN.map(w=>{const im=new Image();im.src=w.img;return im});
-imgs[0].onload=()=>build(WIN[0]);if(imgs[0].complete)build(WIN[0]);
-let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(cur&&stiles.classList.contains('done'))build(cur)},400)});
+function cap(done){const s=STY[si],t=IND[ik];
+ $('scap').innerHTML=`<span class="tag">세계 1등 스타일 · ${s.n}</span><b>${t.s}</b><span>${s.d}</span><span class="sp"></span>${done?`<button type="button" class="btn btn-l" id="regen">↻ 다시 생성</button>${t.demo>=0?'<button type="button" class="btn btn-l" id="tryIt">실제 데모 보기</button>':''}<a href="#ask" class="btn btn-r" id="askIt">이 스타일로 상담</a>`:'<span class="note">생성 중…</span>'}<span class="note" style="width:100%">원본 화면은 Awwwards 「올해의 사이트」 수상작으로 참고용입니다(웹쇼룸 제작 아님) · <a href="${s.aw}" target="_blank" rel="noopener" style="text-decoration:underline">수상 페이지</a></span>`;
+ if(done){$('regen').onclick=gen;const ti=$('tryIt');if(ti)ti.onclick=()=>open(t.demo);$('askIt').onclick=()=>{const am=$('askModel');[...am.options].forEach(o=>{if(o.text.startsWith(t.n.slice(0,2)))am.value=o.text});const tx=document.querySelector('#askForm textarea');tx.value=`[${s.n} 스타일] ${t.n} 홈페이지 상담 원합니다`}}}
+$('cStyle').onclick=e=>{const b=e.target.closest('button');if(!b)return;si=+b.dataset.i;[...$('cStyle').children].forEach(x=>x.classList.toggle('on',x==b));gen()};
+$('cInd').onclick=e=>{const b=e.target.closest('button');if(!b)return;ik=b.dataset.k;[...$('cInd').children].forEach(x=>x.classList.toggle('on',x==b));gen()};
+$('replay').onclick=gen;
+gen();
 </script>
 </body>
 </html>
