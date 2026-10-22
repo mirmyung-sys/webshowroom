@@ -406,9 +406,9 @@ section.hx{padding:46px 0 30px}
 .prow h3{font-family:var(--serif);font-size:24px;margin-bottom:14px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .prow h3 small{font-family:var(--sans);font-size:13px;color:var(--mute);font-weight:500}
 .pgrid{display:grid;gap:16px}
-.pgrid.g3{grid-template-columns:repeat(3,1fr)}
+.pgrid.g3{grid-template-columns:repeat(2,1fr)}
 .pgrid.g4{grid-template-columns:repeat(4,1fr)}
-@media(max-width:900px){.pgrid.g3{grid-template-columns:repeat(3,1fr);gap:8px}.pgrid.g4{grid-template-columns:repeat(2,1fr);gap:10px}}
+@media(max-width:900px){.pgrid.g3{grid-template-columns:repeat(2,1fr);gap:10px}.pgrid.g4{grid-template-columns:repeat(2,1fr);gap:10px}}
 .pc{text-align:left;cursor:pointer}
 .pc .th{position:relative;aspect-ratio:1440/848;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:transform .35s,box-shadow .35s}
 .pc .th img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
@@ -434,7 +434,7 @@ section.hx{padding:46px 0 30px}
     <p class="lead">세계 1등 홈페이지가 한 칸씩 완성되는 걸 보세요. 아래에서 업종을 누르면 <b>우리 가게 홈페이지</b>도 똑같이 완성됩니다.</p>
   </div>
   <div class="stage" id="stage">
-    <div class="sbar"><i></i><i></i><i></i><span id="sUrl">landonorris.com</span>
+    <div class="sbar"><i></i><i></i><i></i><span id="sUrl">igloo.inc</span>
       <div class="steps4" id="steps4"><b data-s="1">① 뼈대</b><b data-s="2">② 배치</b><b data-s="3">③ 채우기</b><b data-s="4">④ 완성</b></div></div>
     <div class="sscr" id="sscr"><div class="grid" id="sgrid"></div><div class="tiles" id="stiles"></div>
       <div class="stamp" id="stamp">완성</div>
@@ -444,7 +444,7 @@ section.hx{padding:46px 0 30px}
 </div></section>
 
 <section id="pick"><div class="w">
-  <div class="prow"><h3>세계 1등 홈페이지 <small>Awwwards 「올해의 사이트」 목록 맨 앞 3곳 · 누르면 위에서 완성됩니다</small></h3>
+  <div class="prow"><h3>세계 1등 홈페이지 <small>Awwwards 「올해의 사이트」 수상작 · 누르면 위에서 완성됩니다</small></h3>
     <div class="pgrid g3" id="pWin"></div></div>
   <div class="prow"><h3>우리 가게 홈페이지 <small>업종을 누르면 같은 방식으로 완성됩니다 · 490,000원부터</small></h3>
     <div class="pgrid g4" id="pOur"></div></div>
@@ -606,7 +606,6 @@ document.getElementById('askForm').onsubmit=e=>{e.preventDefault();const f=new F
 fitAll();
 /* v7 — 클릭하면 완성 */
 const WIN=[
- {k:'lando',n:'Lando Norris',s:'F1 드라이버 공식 사이트',u:'landonorris.com',img:'img/win/lando.jpg',href:'https://landonorris.com/',aw:'https://www.awwwards.com/sites/lando-norris'},
  {k:'igloo',n:'Igloo Inc.',s:'브랜드 회사 사이트',u:'igloo.inc',img:'img/win/igloo.jpg',href:'https://www.igloo.inc/',aw:'https://www.awwwards.com/sites/igloo-inc'},
  {k:'messenger',n:'Messenger',s:'3D 웹 체험 사이트',u:'messenger.abeto.co',img:'img/win/messenger.jpg',href:'https://messenger.abeto.co/',aw:'https://www.awwwards.com/sites/messenger'}
 ];
