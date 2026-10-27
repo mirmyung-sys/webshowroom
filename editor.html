@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>웹쇼룸 디자인 스튜디오 — 명함·리플렛 직접 만들기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Gowun+Batang:wght@400;700&family=Black+Han+Sans&family=Gowun+Dodum&family=Nanum+Myeongjo:wght@400;800&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F3EC;--bg2:#EFE7DA;--card:#FFFDF9;--ink:#1E1914;--ink2:#625849;--mute:#8E8271;--line:#E5DBCB;--gold:#C9A15B;--gold2:#A9823F;--rose:#E2483D;--yellow:#FFC93C}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif}
+button,select,input{font-family:inherit}
+.top{height:58px;display:flex;align-items:center;gap:10px;padding:0 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.brand{font-family:"Gowun Batang",serif;font-weight:700;font-size:19px;white-space:nowrap}
+.brand small{display:block;font-family:"Cormorant Garamond",serif;letter-spacing:.2em;font-size:10px;color:var(--gold2)}
+.prod{display:flex;gap:6px;margin-left:12px}
+.prod button,.sidebtn{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink2)}
+.prod button.on,.sidebtn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sp{flex:1}
+.tb{border:0;background:var(--bg2);border-radius:10px;padding:9px 12px;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink)}
+.tb:disabled{opacity:.4}
+.tb.go{background:var(--rose);color:#fff}
+.wrap{display:grid;grid-template-columns:300px 1fr 280px;height:calc(100% - 58px)}
+.pane{background:var(--card);overflow-y:auto;padding:16px;border-right:1px solid var(--line)}
+.pane.r{border-right:0;border-left:1px solid var(--line)}
+.pane h3{font-size:13px;color:var(--mute);margin:18px 0 8px;font-weight:700}
+.pane h3:first-child{margin-top:0}
+.tpls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tpl{border:2px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;background:#fff;padding:0}
+.tpl.on{border-color:var(--gold)}
+.tpl img{display:block;width:100%}
+.tpl span{display:block;font-size:12px;font-weight:700;padding:6px;color:var(--ink2)}
+.fld{margin-bottom:9px}
+.fld label{display:block;font-size:12px;color:var(--mute);font-weight:700;margin-bottom:3px}
+.fld input,.fld select{width:100%;border:1.5px solid var(--line);border-radius:9px;padding:9px 10px;font-size:14px;background:#fff}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.tools button{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:11px 4px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink)}
+.sw{display:flex;flex-wrap:wrap;gap:6px}
+.sw i{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.stage{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:22px 16px;overflow:auto}
+.sides{display:flex;gap:6px;margin-bottom:14px}
+.canvas-container{box-shadow:0 18px 40px rgba(60,40,20,.18);background:#fff}
+.hint{font-size:12.5px;color:var(--mute);margin-top:12px;text-align:center;line-height:1.6}
+.props .row{display:flex;gap:6px;align-items:center;margin-bottom:8px}
+.props .row>*{flex:1}
+.props button{border:1.5px solid var(--line);background:#fff;border-radius:8px;padding:8px 0;font-weight:800;cursor:pointer}
+.props button.on{background:var(--ink);color:#fff}
+.props input[type=color]{height:38px;border:1.5px solid var(--line);border-radius:8px;padding:2px;background:#fff}
+.props input[type=range]{width:100%}
+.empty{font-size:13px;color:var(--mute);line-height:1.6;background:var(--bg);border-radius:10px;padding:12px}
+.price{background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-top:18px}
+.price b{font-size:24px;font-family:"Gowun Batang",serif}
+.price p{margin:6px 0 0;font-size:12px;color:var(--mute);line-height:1.6}
+.order{display:block;width:100%;margin-top:10px;border:0;border-radius:12px;padding:14px;font-size:16px;font-weight:900;background:var(--rose);color:#fff;cursor:pointer}
+.modal{position:fixed;inset:0;background:rgba(30,25,20,.45);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.on{display:flex}
+.mbox{background:var(--card);border-radius:18px;padding:22px;width:min(440px,100%);max-height:90vh;overflow:auto}
+.mbox h2{font-family:"Gowun Batang",serif;margin:0 0 6px}
+.mx{display:block;margin:14px auto 0;border:2px solid #fff;border-radius:999px;padding:12px 26px;font-size:17px;font-weight:900;background:linear-gradient(135deg,#F7CF5B,#E2A413);cursor:pointer}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+@media(max-width:980px){
+ .wrap{grid-template-columns:1fr;height:auto}
+ .pane{border:0;border-bottom:1px solid var(--line)}
+ .stage{order:-1;padding:14px 8px}
+ .top{flex-wrap:wrap;height:auto;padding:10px 12px}
+ .prod{margin-left:0}
+}
+</style>
+</head>
+<body>
+<div class="top">
+ <div class="brand">웹쇼룸 디자인 스튜디오<small>WEBSHOWROOM STUDIO</small></div>
+ <div class="prod" id="prod">
+  <button data-p="card" class="on">명함</button>
+  <button data-p="leaflet">리플렛</button>
+ </div>
+ <div class="sp"></div>
+ <button class="tb" id="undo" title="되돌리기">↶ 되돌리기</button>
+ <button class="tb" id="redo" title="다시하기">↷ 다시</button>
+ <button class="tb" id="png">미리보기 그림</button>
+ <button class="tb go" id="pdf">인쇄용 PDF</button>
+</div>
+
+<div class="wrap">
+ <aside class="pane">
+  <h3>디자인 고르기</h3>
+  <div class="tpls" id="tpls"></div>
+  <h3>내 정보 넣기 (넣는 즉시 디자인에 반영)</h3>
+  <div class="fld"><label>업종</label><select id="f_ind"></select></div>
+  <div class="fld"><label>상호</label><input id="f_biz"></div>
+  <div class="fld"><label>이름 · 직함</label><input id="f_name"></div>
+  <div class="fld"><label>전화</label><input id="f_tel"></div>
+  <div class="fld"><label>주소</label><input id="f_addr"></div>
+  <div class="fld"><label>홈페이지 · SNS</label><input id="f_web"></div>
+  <div class="fld"><label>한 줄 소개</label><input id="f_slogan"></div>
+  <h3>더 꾸미기</h3>
+  <div class="tools">
+   <button id="addText">글자</button>
+   <button id="addImg">사진·로고</button>
+   <button id="addRect">네모</button>
+   <button id="addCircle">동그라미</button>
+   <button id="addLine">선</button>
+   <button id="addQR">QR 자리</button>
+  </div>
+  <input type="file" id="imgIn" accept="image/*" hidden>
+  <h3>배경색</h3>
+  <div class="sw" id="bgsw"></div>
+ </aside>
+
+ <main class="stage">
+  <div class="sides" id="sides"><button class="sidebtn on" data-s="0">앞면</button><button class="sidebtn" data-s="1">뒷면</button></div>
+  <canvas id="cv" class="cv"></canvas>
+  <div class="hint">글자를 두 번 누르면 바로 고칠 수 있어요 · 끌어서 옮기고, 모서리로 크기를 바꿉니다<br>점선 = 재단선(잘리는 선) · 바깥 2mm는 인쇄 여유분</div>
+ </main>
+
+ <aside class="pane r">
+  <h3>선택한 요소</h3>
+  <div id="props" class="props"><div class="empty">디자인 안의 글자·사진·도형을 누르면 여기서 글꼴, 크기, 색을 바꿀 수 있어요.</div></div>
+  <div class="price">
+   <div style="font-size:13px;font-weight:700;color:var(--ink2)" id="pName">명함 디자인 (90×50mm 양면)</div>
+   <b id="pVal">44,000원</b>
+   <p id="pNote">숨고 명함 디자인 평균가 기준 시험 가격<br>인쇄 수량·용지는 상담 후 확정</p>
+   <button class="order" id="orderBtn">이 디자인으로 주문·상담</button>
+  </div>
+ </aside>
+</div>
+
+<div class="modal" id="mOrder"><div class="mbox">
+ <h2>주문 · 상담 신청</h2>
+ <p style="font-size:14px;color:var(--ink2);line-height:1.6;margin:0 0 12px">만든 디자인이 그대로 함께 접수됩니다. 확인 전화를 드린 뒤 인쇄에 들어갑니다.</p>
+ <div class="fld"><label>성함</label><input id="o_name"></div>
+ <div class="fld"><label>연락처</label><input id="o_tel" inputmode="tel"></div>
+ <div class="fld"><label>수량</label><select id="o_qty"></select></div>
+ <button class="order" id="oSend">접수하기</button>
+ <button class="mx" id="oClose">✕ 닫기</button>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script src="fabric.min.js"></script>
+<script src="jspdf.umd.min.js"></script>
+<script>
+(function(){
+const BLEED=2;
+const PRODUCTS={
+ card:{name:'명함 디자인 (90×50mm 양면)',w:90,h:50,k:6.4,price:44000,note:'숨고 명함 디자인 평균가 기준 시험 가격<br>인쇄 수량·용지는 상담 후 확정',qty:['200매','500매','1,000매']},
+ leaflet:{name:'리플렛 디자인 (A4 양면)',w:210,h:297,k:2.3,price:250000,note:'숨고 인쇄물 디자인 평균가 기준 시험 가격<br>접지(2단·3단)·수량은 상담 후 확정',qty:['100부','500부','1,000부']}
+};
+const IND={
+ '카페':{biz:'모닝브루 커피',name:'김하늘 · 대표 바리스타',tel:'031-000-0000',addr:'경기 군포시 산본로 ○○',web:'@morningbrew.cafe',slogan:'아침이 달라지는 한 잔'},
+ '헤어':{biz:'라움 헤어',name:'박서윤 · 원장',tel:'031-000-0000',addr:'경기 군포시 산본로 ○○ 2층',web:'@raum.hair',slogan:'당신에게 꼭 맞는 스타일'},
+ '학원':{biz:'산본글로벌어학원',name:'명충건 · 대표',tel:'031-466-6969',addr:'군포시 산본로 ○○ 롯데프라자 7층',web:'sanbonglobal.com',slogan:'우린 실패하지 않습니다'},
+ '필라테스':{biz:'코어온 필라테스',name:'이지은 · 대표 강사',tel:'031-000-0000',addr:'경기 군포시 ○○로 3층',web:'@coreon.pilates',slogan:'바른 몸, 가벼운 하루'},
+ '한식':{biz:'한우 담',name:'최민수 · 대표',tel:'031-000-0000',addr:'경기 군포시 ○○로 1층',web:'@hanwoo.dam',slogan:'1++ 한우를, 조용한 룸에서'},
+ '부품몰':{biz:'더주 핫멜트 부품',name:'명충건 · 대표',tel:'010-0000-0000',addr:'경기 안양시 ○○로',web:'theju.co.kr',slogan:'멈춘 라인, 부품부터'}
+};
+const BG=['#FFFDF9','#F7F3EC','#EFE7DA','#F6E1DD','#E2483D','#7B1733','#C9A15B','#2F4A3A','#F3D9A4','#FFFFFF'];
+const C={ivory:'#FFFDF9',ink:'#1E1914',ink2:'#625849',gold:'#C9A15B',gold2:'#A9823F',rose:'#E2483D',wine:'#7B1733'};
+
+/* 템플릿: 좌표는 mm 단위 (재단선 기준 0,0) */
+function T(type,o){return Object.assign({type},o);}
+const TPL={
+ card:[
+  {id:'classic',name:'클래식 골드',bg:['#FFFDF9','#1E1914'],sides:[
+    [T('rect',{x:6,y:6,w:1.2,h:38,fill:C.gold}),T('text',{k:'biz',x:11,y:7,size:5.2,font:'Gowun Batang',weight:'700',fill:C.ink}),T('text',{k:'slogan',x:11,y:14.5,size:2.5,fill:C.gold2}),T('text',{k:'name',x:11,y:27,size:3.2,weight:'700',fill:C.ink}),T('text',{k:'tel',x:11,y:33,size:2.6,fill:C.ink2}),T('text',{k:'addr',x:11,y:37.2,size:2.4,fill:C.ink2}),T('text',{k:'web',x:11,y:41.4,size:2.4,fill:C.gold2})],
+    [T('circle',{x:45,y:19,r:7,fill:'',stroke:C.gold,sw:0.5}),T('text',{k:'biz',x:45,y:31,size:4.4,font:'Gowun Batang',weight:'700',fill:'#F3D9A4',align:'center'}),T('text',{k:'web',x:45,y:38,size:2.4,fill:C.gold,align:'center'})]
+  ]},
+  {id:'red',name:'모던 레드',bg:['#FFFFFF','#E2483D'],sides:[
+    [T('rect',{x:-2,y:-2,w:28,h:54,fill:C.rose}),T('text',{k:'biz',x:2,y:16,size:4.2,font:'Black Han Sans',fill:'#FFFFFF',w:22}),T('text',{k:'name',x:31,y:8,size:3.6,weight:'900',fill:C.ink}),T('text',{k:'slogan',x:31,y:14,size:2.5,fill:C.rose}),T('rect',{x:31,y:22,w:52,h:0.35,fill:C.ink}),T('text',{k:'tel',x:31,y:26,size:2.7,weight:'700',fill:C.ink}),T('text',{k:'addr',x:31,y:31.5,size:2.4,fill:C.ink2}),T('text',{k:'web',x:31,y:36,size:2.4,fill:C.ink2})],
+    [T('text',{k:'biz',x:45,y:19,size:6.2,font:'Black Han Sans',fill:'#FFFFFF',align:'center'}),T('text',{k:'slogan',x:45,y:30,size:2.8,fill:'#FFFFFF',align:'center'})]
+  ]},
+  {id:'soft',name:'소프트 로즈',bg:['#F6E1DD','#FFFDF9'],sides:[
+    [T('circle',{x:72,y:12,r:13,fill:'#FFFDF9'}),T('text',{k:'biz',x:8,y:8,size:4.6,font:'Nanum Myeongjo',weight:'800',fill:C.wine}),T('text',{k:'slogan',x:8,y:15,size:2.5,fill:C.ink2}),T('text',{k:'name',x:8,y:28,size:3.2,weight:'700',fill:C.ink}),T('text',{k:'tel',x:8,y:34,size:2.6,fill:C.ink}),T('text',{k:'addr',x:8,y:38.5,size:2.3,fill:C.ink2}),T('text',{k:'web',x:8,y:42.6,size:2.3,fill:C.wine})],
+    [T('rect',{x:37,y:12,w:16,h:16,fill:'',stroke:C.wine,sw:0.4,dash:true}),T('text',{v:'QR',x:45,y:18,size:3,fill:C.wine,align:'center'}),T('text',{k:'web',x:45,y:34,size:2.6,fill:C.wine,align:'center'})]
+  ]},
+  {id:'mono',name:'미니멀',bg:['#FFFFFF','#EFE7DA'],sides:[
+    [T('text',{k:'name',x:45,y:14,size:4,weight:'900',fill:C.ink,align:'center'}),T('text',{k:'biz',x:45,y:21,size:2.7,fill:C.ink2,align:'center'}),T('rect',{x:40,y:27,w:10,h:0.4,fill:C.gold}),T('text',{k:'tel',x:45,y:31,size:2.6,fill:C.ink,align:'center'}),T('text',{k:'web',x:45,y:36,size:2.4,fill:C.ink2,align:'center'})],
+    [T('text',{k:'biz',x:45,y:20,size:5,font:'Gowun Batang',weight:'700',fill:C.ink,align:'center'}),T('text',{k:'addr',x:45,y:29,size:2.4,fill:C.ink2,align:'center'})]
+  ]}
+ ],
+ leaflet:[
+  {id:'lclassic',name:'클래식 리플렛',bg:['#FFFDF9','#F7F3EC'],sides:[
+    [T('rect',{x:-2,y:-2,w:214,h:110,fill:'#EFE7DA'}),T('img',{x:20,y:20,w:170,h:70,ph:'대표 사진을 넣어 주세요'}),T('text',{k:'biz',x:105,y:122,size:15,font:'Gowun Batang',weight:'700',fill:C.ink,align:'center'}),T('text',{k:'slogan',x:105,y:146,size:7,fill:C.gold2,align:'center'}),T('rect',{x:85,y:162,w:40,h:0.8,fill:C.gold}),T('text',{v:'· 우리 가게 대표 메뉴·서비스 1\n· 대표 메뉴·서비스 2\n· 대표 메뉴·서비스 3',x:40,y:176,size:6,fill:C.ink,w:130,lh:1.6}),T('text',{k:'tel',x:105,y:250,size:8,weight:'900',fill:C.rose,align:'center'}),T('text',{k:'addr',x:105,y:265,size:5,fill:C.ink2,align:'center'}),T('text',{k:'web',x:105,y:275,size:5,fill:C.gold2,align:'center'})],
+    [T('text',{v:'이용 안내',x:20,y:20,size:11,font:'Gowun Batang',weight:'700',fill:C.ink}),T('text',{v:'가격·이용 방법·이벤트 내용을 여기에 적어 주세요.\n두 번 누르면 바로 고칠 수 있습니다.',x:20,y:42,size:6,fill:C.ink2,w:170,lh:1.7}),T('img',{x:20,y:80,w:80,h:80,ph:'사진'}),T('img',{x:110,y:80,w:80,h:80,ph:'사진'}),T('rect',{x:20,y:185,w:170,h:70,fill:'#F6E1DD'}),T('text',{k:'slogan',x:105,y:200,size:8,weight:'900',fill:C.wine,align:'center'}),T('text',{k:'tel',x:105,y:225,size:9,weight:'900',fill:C.ink,align:'center'})]
+  ]},
+  {id:'lred',name:'이벤트 레드',bg:['#E2483D','#FFFDF9'],sides:[
+    [T('text',{k:'slogan',x:105,y:30,size:14,font:'Black Han Sans',fill:'#FFFFFF',align:'center',w:180}),T('img',{x:25,y:70,w:160,h:130,ph:'행사·대표 사진'}),T('text',{k:'biz',x:105,y:215,size:12,weight:'900',fill:'#FFFFFF',align:'center'}),T('rect',{x:35,y:240,w:140,h:22,fill:'#FFC93C'}),T('text',{k:'tel',x:105,y:245,size:9,weight:'900',fill:C.ink,align:'center'}),T('text',{k:'addr',x:105,y:274,size:5,fill:'#FFFFFF',align:'center'})],
+    [T('text',{v:'이벤트 안내',x:20,y:22,size:11,weight:'900',fill:C.rose}),T('text',{v:'1. 기간: 0월 0일 ~ 0월 0일\n2. 대상: 처음 오시는 분\n3. 혜택: 내용을 적어 주세요',x:20,y:46,size:6.5,fill:C.ink,w:170,lh:1.8}),T('img',{x:20,y:110,w:170,h:100,ph:'사진'}),T('text',{k:'web',x:105,y:235,size:6,fill:C.rose,align:'center'})]
+  ]}
+ ]
+};
+
+let prod='card', tplId='classic', side=0;
+let data=Object.assign({ind:'학원'},IND['학원']);
+const docs={}; // prod -> {tpl, sides:[json,json], bg:[..]}
+const hist=[[],[]], fut=[[],[]];
+const cv=new fabric.Canvas('cv',{preserveObjectStacking:true,backgroundColor:'#fff'});
+fabric.Object.prototype.set({cornerColor:'#C9A15B',cornerStrokeColor:'#fff',borderColor:'#C9A15B',transparentCorners:false,cornerSize:10});
+let loading=false;
+
+function P(){return PRODUCTS[prod];}
+function K(){return P().k;}
+function mm(v){return (v+BLEED)*K();}
+function fitView(){
+ const p=P(), Wd=(p.w+BLEED*2)*p.k, Hd=(p.h+BLEED*2)*p.k;
+ const mob=window.innerWidth<980; const availW=mob?window.innerWidth-24:Math.min(window.innerWidth-640,900); const availH=mob?window.innerHeight*0.55:window.innerHeight-190;
+ const z=Math.min(1.6,availW/Wd,availH/Hd);
+ cv.setZoom(z); cv.setWidth(Wd*z); cv.setHeight(Hd*z);
+}
+function guides(){
+ const p=P(),k=p.k;
+ const trim=new fabric.Rect({left:BLEED*k,top:BLEED*k,width:p.w*k,height:p.h*k,fill:'',stroke:'#E2483D',strokeDashArray:[6,4],strokeWidth:1,selectable:false,evented:false,excludeFromExport:true,guide:1});
+ const safe=new fabric.Rect({left:(BLEED+3)*k,top:(BLEED+3)*k,width:(p.w-6)*k,height:(p.h-6)*k,fill:'',stroke:'rgba(201,161,91,.55)',strokeDashArray:[2,4],strokeWidth:1,selectable:false,evented:false,excludeFromExport:true,guide:1});
+ cv.add(trim,safe);
+}
+function fit(o){if(!o.fitW)return;o.set('fontSize',o.baseSize||o.fontSize);o.initDimensions();let g=0;while(o._textLines&&o._textLines.some((l,i)=>o.getLineWidth(i)>o.width+1)&&o.fontSize>6&&g++<80){o.set('fontSize',o.fontSize-1);o.initDimensions();}}
+function txt(e){return e.v!=null?e.v:(data[e.k]||'');}
+function build(t,s){
+ const k=K(), objs=[];
+ t.sides[s].forEach(e=>{
+  if(e.type==='text'){
+   const o=new fabric.Textbox(txt(e),{left:mm(e.x),top:mm(e.y),fontSize:e.size*k*1.3,fontFamily:e.font||'Noto Sans KR',fontWeight:e.weight||'400',fill:e.fill,width:(e.w||P().w*(e.align==='center'?0.9:0.8))*k,textAlign:e.align||'left',lineHeight:e.lh||1.16,splitByGrapheme:false});
+   if(e.align==='center'){o.set({originX:'center'});}
+   o.bind=e.k||null; if(e.w&&e.k){o.fitW=1;o.baseSize=o.fontSize;fit(o);} objs.push(o);
+  }else if(e.type==='rect'){
+   objs.push(new fabric.Rect({left:mm(e.x),top:mm(e.y),width:e.w*k,height:e.h*k,fill:e.fill||'',stroke:e.stroke||null,strokeWidth:(e.sw||0)*k,strokeDashArray:e.dash?[4,4]:null}));
+  }else if(e.type==='circle'){
+   objs.push(new fabric.Circle({left:mm(e.x),top:mm(e.y),radius:e.r*k,originX:'center',originY:'center',fill:e.fill||'',stroke:e.stroke||null,strokeWidth:(e.sw||0)*k}));
+  }else if(e.type==='img'){
+   const g=new fabric.Group([new fabric.Rect({width:e.w*k,height:e.h*k,fill:'#EFE7DA',stroke:'#C9A15B',strokeDashArray:[6,5],strokeWidth:1.5}),new fabric.Text('＋ '+e.ph,{fontSize:Math.max(12,e.h*k*0.09),fill:'#A9823F',fontFamily:'Noto Sans KR',fontWeight:'700',originX:'center',originY:'center',left:e.w*k/2,top:e.h*k/2})],{left:mm(e.x),top:mm(e.y)});
+   g.ph=true; objs.push(g);
+  }
+ });
+ return objs;
+}
+function render(fromDoc){
+ loading=true; cv.clear(); fitView();
+ const d=docs[prod];
+ cv.backgroundColor=d.bg[side];
+ if(d.sides[side]){
+  cv.loadFromJSON(d.sides[side],()=>{guides();cv.renderAll();loading=false;});
+ }else{
+  build(TPL[prod].find(t=>t.id===d.tpl),side).forEach(o=>cv.add(o)); guides(); cv.renderAll(); loading=false; save(true);
+ }
+ showProps();
+}
+const EXTRA=['bind','ph','guide','fitW','baseSize'];
+function snap(){const j=cv.toDatalessJSON(EXTRA); j.objects=j.objects.filter(o=>!o.guide); return j;}
+function save(noHist){
+ if(loading) return;
+ const d=docs[prod]; const j=snap();
+ if(!noHist && d.sides[side]){hist[side].push(d.sides[side]); if(hist[side].length>40)hist[side].shift(); fut[side]=[];}
+ d.sides[side]=j; persist(); updBtns();
+}
+function persist(){try{localStorage.setItem('wsr_studio',JSON.stringify({docs,data,prod}));}catch(e){}}
+function updBtns(){document.getElementById('undo').disabled=!hist[side].length;document.getElementById('redo').disabled=!fut[side].length;}
+cv.on('object:modified',()=>save()); cv.on('text:changed',()=>save());
+cv.on('selection:created',showProps); cv.on('selection:updated',showProps); cv.on('selection:cleared',showProps);
+
+function newDoc(p,t){const tp=TPL[p].find(x=>x.id===t)||TPL[p][0];docs[p]={tpl:tp.id,bg:tp.bg.slice(),sides:[null,null]};}
+function useTpl(t){newDoc(prod,t);hist[0]=[];hist[1]=[];fut[0]=[];fut[1]=[];tplId=t;drawTpls();render();}
+
+/* 템플릿 썸네일 */
+function drawTpls(){
+ const box=document.getElementById('tpls'); box.innerHTML='';
+ TPL[prod].forEach(t=>{
+  const b=document.createElement('button'); b.className='tpl'+(docs[prod]&&docs[prod].tpl===t.id?' on':'');
+  const p=P(); const sc=new fabric.StaticCanvas(null,{width:(p.w+4)*p.k,height:(p.h+4)*p.k,backgroundColor:t.bg[0]});
+  build(t,0).forEach(o=>sc.add(o)); sc.renderAll();
+  b.innerHTML='<img alt=""><span>'+t.name+'</span>'; b.querySelector('img').src=sc.toDataURL({multiplier:.5});
+  b.onclick=()=>useTpl(t.id); box.appendChild(b);
+ });
+}
+
+/* 정보 입력 → 연결된 글자 갱신(양면) */
+const FIELDS=['biz','name','tel','addr','web','slogan'];
+function fillForm(){FIELDS.forEach(f=>document.getElementById('f_'+f).value=data[f]||'');document.getElementById('f_ind').value=data.ind;}
+function applyData(){
+ const d=docs[prod];
+ [0,1].forEach(s=>{
+  if(s===side){cv.getObjects().forEach(o=>{if(o.bind&&data[o.bind]!=null){o.set('text',data[o.bind]);fit(o);}});cv.renderAll();save(true);}
+  else if(d.sides[s]){d.sides[s].objects.forEach(o=>{if(o.bind&&data[o.bind]!=null)o.text=data[o.bind];});}
+ });
+ persist(); drawTpls();
+}
+const indSel=document.getElementById('f_ind'); Object.keys(IND).forEach(k=>{const o=document.createElement('option');o.textContent=k;indSel.appendChild(o);});
+indSel.onchange=()=>{data=Object.assign({ind:indSel.value},IND[indSel.value]);fillForm();applyData();};
+FIELDS.forEach(f=>document.getElementById('f_'+f).addEventListener('input',e=>{data[f]=e.target.value;applyData();}));
+
+/* 도구 */
+function center(){const p=P();return{left:mm(p.w/2),top:mm(p.h/2)};}
+function addObj(o){cv.add(o);cv.setActiveObject(o);cv.renderAll();save();}
+document.getElementById('addText').onclick=()=>{const c=center();addObj(new fabric.Textbox('글자를 입력하세요',{left:c.left,top:c.top,originX:'center',originY:'center',width:P().w*K()*0.6,fontSize:P().k*4,fontFamily:'Noto Sans KR',fill:C.ink,textAlign:'center',splitByGrapheme:true}));};
+document.getElementById('addRect').onclick=()=>{const c=center();addObj(new fabric.Rect({left:c.left,top:c.top,originX:'center',originY:'center',width:P().w*K()*.25,height:P().h*K()*.25,fill:C.gold}));};
+document.getElementById('addCircle').onclick=()=>{const c=center();addObj(new fabric.Circle({left:c.left,top:c.top,originX:'center',originY:'center',radius:P().h*K()*.12,fill:C.rose}));};
+document.getElementById('addLine').onclick=()=>{const c=center();addObj(new fabric.Rect({left:c.left,top:c.top,originX:'center',originY:'center',width:P().w*K()*.4,height:Math.max(2,K()*.4),fill:C.ink}));};
+document.getElementById('addQR').onclick=()=>{const k=K(),s=Math.min(P().w,P().h)*0.3*k;const c=center();const g=new fabric.Group([new fabric.Rect({width:s,height:s,fill:'#fff',stroke:C.ink,strokeWidth:1.5,strokeDashArray:[4,4]}),new fabric.Text('QR',{fontSize:s*.3,fontWeight:'900',fill:C.ink,originX:'center',originY:'center',left:s/2,top:s/2,fontFamily:'Noto Sans KR'})],{left:c.left,top:c.top,originX:'center',originY:'center'});addObj(g);};
+const imgIn=document.getElementById('imgIn');
+document.getElementById('addImg').onclick=()=>{imgIn.dataset.target='';imgIn.click();};
+imgIn.onchange=()=>{const f=imgIn.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{fabric.Image.fromURL(r.result,img=>{
+  const tgt=cv.getActiveObject(); const k=K();
+  if(tgt&&tgt.ph){const w=tgt.getScaledWidth(),h=tgt.getScaledHeight(); const s=Math.max(w/img.width,h/img.height); img.set({left:tgt.left,top:tgt.top,scaleX:s,scaleY:s,clipPath:new fabric.Rect({width:w/s,height:h/s,originX:'center',originY:'center'})}); cv.remove(tgt); addObj(img);}
+  else{const s=Math.min(P().w*k*.4/img.width,P().h*k*.5/img.height); const c=center(); img.set({left:c.left,top:c.top,originX:'center',originY:'center',scaleX:s,scaleY:s}); addObj(img);}
+ });};r.readAsDataURL(f);imgIn.value='';};
+cv.on('mouse:dblclick',e=>{if(e.target&&e.target.ph){cv.setActiveObject(e.target);imgIn.click();}});
+
+const bgsw=document.getElementById('bgsw');
+BG.forEach(c=>{const i=document.createElement('i');i.style.background=c;i.onclick=()=>{docs[prod].bg[side]=c;cv.backgroundColor=c;cv.renderAll();save();drawTpls();};bgsw.appendChild(i);});
+
+/* 속성 패널 */
+const FONTS=[['Noto Sans KR','본고딕'],['Gowun Batang','고운바탕'],['Nanum Myeongjo','나눔명조'],['Black Han Sans','검은고딕'],['Gowun Dodum','고운돋움'],['Cormorant Garamond','영문 세리프']];
+function showProps(){
+ const box=document.getElementById('props'); const o=cv.getActiveObject();
+ if(!o){box.innerHTML='<div class="empty">디자인 안의 글자·사진·도형을 누르면 여기서 글꼴, 크기, 색을 바꿀 수 있어요.</div>';return;}
+ const isT=o.type==='textbox'; let h='';
+ if(isT){
+  h+='<div class="fld"><label>글꼴</label><select id="pp_font">'+FONTS.map(f=>'<option value="'+f[0]+'"'+(o.fontFamily===f[0]?' selected':'')+'>'+f[1]+'</option>').join('')+'</select></div>';
+  h+='<div class="fld"><label>글자 크기</label><input type="range" id="pp_size" min="6" max="200" value="'+Math.round(o.fontSize)+'"></div>';
+  h+='<div class="row"><button id="pp_b" class="'+(+o.fontWeight>=700||o.fontWeight==='bold'?'on':'')+'">굵게</button><button data-al="left">왼쪽</button><button data-al="center">가운데</button><button data-al="right">오른쪽</button></div>';
+ }
+ if(o.type!=='image'&&!o.ph) h+='<div class="fld"><label>'+(isT?'글자 색':'채우기 색')+'</label><input type="color" id="pp_col" value="'+toHex(o.fill||'#000000')+'"></div>';
+ h+='<div class="fld"><label>투명도</label><input type="range" id="pp_op" min="10" max="100" value="'+Math.round((o.opacity||1)*100)+'"></div>';
+ h+='<div class="row"><button id="pp_up">앞으로</button><button id="pp_dn">뒤로</button></div><div class="row"><button id="pp_dup">복제</button><button id="pp_del" style="color:#E2483D">삭제</button></div>';
+ if(o.ph) h='<div class="empty" style="margin-bottom:10px">사진 자리입니다. 두 번 누르거나 아래 버튼으로 사진을 넣으세요.</div><div class="row"><button id="pp_img">사진 넣기</button></div>'+h;
+ box.innerHTML=h;
+ const $=id=>document.getElementById(id);
+ if($('pp_img'))$('pp_img').onclick=()=>imgIn.click();
+ if(isT){
+  $('pp_font').onchange=e=>{o.set('fontFamily',e.target.value);document.fonts.load('16px "'+e.target.value+'"').then(()=>{o.initDimensions&&o.initDimensions();cv.renderAll();save();});};
+  $('pp_size').oninput=e=>{o.set('fontSize',+e.target.value);cv.renderAll();};$('pp_size').onchange=()=>save();
+  $('pp_b').onclick=()=>{const b=(+o.fontWeight>=700||o.fontWeight==='bold');o.set('fontWeight',b?'400':'900');cv.renderAll();save();showProps();};
+  box.querySelectorAll('[data-al]').forEach(btn=>btn.onclick=()=>{o.set('textAlign',btn.dataset.al);cv.renderAll();save();});
+ }
+ if($('pp_col')){$('pp_col').oninput=e=>{o.set('fill',e.target.value);cv.renderAll();};$('pp_col').onchange=()=>save();}
+ $('pp_op').oninput=e=>{o.set('opacity',e.target.value/100);cv.renderAll();};$('pp_op').onchange=()=>save();
+ $('pp_up').onclick=()=>{cv.bringForward(o);save();};
+ $('pp_dn').onclick=()=>{cv.sendBackwards(o);cv.getObjects().filter(x=>x.guide).forEach(g=>cv.bringToFront(g));save();};
+ $('pp_dup').onclick=()=>{o.clone(c=>{c.set({left:o.left+12,top:o.top+12});c.bind=o.bind;addObj(c);},EXTRA);};
+ $('pp_del').onclick=()=>{cv.remove(o);cv.discardActiveObject();save();showProps();};
+}
+function toHex(c){if(typeof c!=='string')return'#000000';if(c[0]==='#')return c.length===4?'#'+c[1]+c[1]+c[2]+c[2]+c[3]+c[3]:c.slice(0,7);const m=c.match(/\d+/g);return m?'#'+m.slice(0,3).map(x=>(+x).toString(16).padStart(2,'0')).join(''):'#000000';}
+document.addEventListener('keydown',e=>{const o=cv.getActiveObject();if(!o||o.isEditing)return;if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;if(e.key==='Delete'||e.key==='Backspace'){cv.remove(o);cv.discardActiveObject();save();showProps();e.preventDefault();}});
+
+/* 되돌리기 */
+document.getElementById('undo').onclick=()=>{const d=docs[prod];if(!hist[side].length)return;fut[side].push(d.sides[side]);d.sides[side]=hist[side].pop();render();updBtns();persist();};
+document.getElementById('redo').onclick=()=>{const d=docs[prod];if(!fut[side].length)return;hist[side].push(d.sides[side]);d.sides[side]=fut[side].pop();render();updBtns();persist();};
+
+/* 면 · 상품 전환 */
+document.querySelectorAll('#sides button').forEach(b=>b.onclick=()=>{side=+b.dataset.s;document.querySelectorAll('#sides button').forEach(x=>x.classList.toggle('on',x===b));render();updBtns();});
+document.querySelectorAll('#prod button').forEach(b=>b.onclick=()=>{prod=b.dataset.p;document.querySelectorAll('#prod button').forEach(x=>x.classList.toggle('on',x===b));if(!docs[prod])newDoc(prod,TPL[prod][0].id);side=0;document.querySelectorAll('#sides button').forEach((x,i)=>x.classList.toggle('on',i===0));setPrice();drawTpls();render();});
+function setPrice(){const p=P();document.getElementById('pName').textContent=p.name;document.getElementById('pVal').textContent=p.price.toLocaleString()+'원';document.getElementById('pNote').innerHTML=p.note;}
+
+/* 내보내기: 300dpi, 재단 여유 2mm + 재단 표시 */
+function sideImage(s,mult){
+ return new Promise(res=>{
+  const p=P(), d=docs[prod]; const off=new fabric.StaticCanvas(null,{width:(p.w+BLEED*2)*p.k,height:(p.h+BLEED*2)*p.k,backgroundColor:d.bg[s]});
+  const j=s===side?snap():d.sides[s];
+  if(!j){build(TPL[prod].find(t=>t.id===d.tpl),s).forEach(o=>off.add(o));off.renderAll();res(off.toDataURL({format:'jpeg',quality:.95,multiplier:mult}));return;}
+  off.loadFromJSON(j,()=>{off.backgroundColor=d.bg[s];off.renderAll();res(off.toDataURL({format:'jpeg',quality:.95,multiplier:mult}));});
+ });
+}
+document.getElementById('pdf').onclick=async()=>{
+ const p=P(); const mult=(300/25.4)/p.k; const W=p.w+BLEED*2+16, H=p.h+BLEED*2+16;
+ const pdf=new jspdf.jsPDF({unit:'mm',format:[W,H],orientation:W>H?'landscape':'portrait'});
+ for(let s=0;s<2;s++){
+  if(s)pdf.addPage([W,H],W>H?'landscape':'portrait');
+  const img=await sideImage(s,mult); pdf.addImage(img,'JPEG',8,8,p.w+BLEED*2,p.h+BLEED*2);
+  pdf.setLineWidth(.2); const x0=8+BLEED,y0=8+BLEED,x1=x0+p.w,y1=y0+p.h;
+  [[x0,0,x0,6],[x1,0,x1,6],[x0,H-6,x0,H],[x1,H-6,x1,H],[0,y0,6,y0],[0,y1,6,y1],[W-6,y0,W,y0],[W-6,y1,W,y1]].forEach(l=>pdf.line(...l));
+  pdf.setFontSize(6);pdf.text((s?'뒷면':'앞면')==='앞면'?'FRONT':'BACK',W-14,H-2);
+ }
+ pdf.save((data.biz||'design')+'_'+(prod==='card'?'명함':'리플렛')+'_인쇄용.pdf'); toast('인쇄용 PDF를 저장했어요 (재단 여유 2mm·재단 표시 포함)');
+};
+document.getElementById('png').onclick=async()=>{const a=await sideImage(side,2);const w=window.open();if(w){w.document.write('<title>미리보기</title><body style="margin:0;background:#EFE7DA;display:flex;justify-content:center;align-items:center;min-height:100vh"><img src="'+a+'" style="max-width:96vw;box-shadow:0 10px 30px rgba(0,0,0,.2)"></body>');}};
+
+/* 주문 */
+const mO=document.getElementById('mOrder');
+document.getElementById('orderBtn').onclick=()=>{const q=document.getElementById('o_qty');q.innerHTML=P().qty.map(x=>'<option>'+x+'</option>').join('');mO.classList.add('on');};
+document.getElementById('oClose').onclick=()=>mO.classList.remove('on');
+document.getElementById('oSend').onclick=()=>{const n=document.getElementById('o_name').value.trim(),t=document.getElementById('o_tel').value.trim();if(!n||!t){toast('성함과 연락처를 넣어 주세요');return;}
+ try{const L=JSON.parse(localStorage.getItem('wsr_orders')||'[]');L.push({at:new Date().toISOString(),prod,name:n,tel:t,qty:document.getElementById('o_qty').value,data,doc:docs[prod]});localStorage.setItem('wsr_orders',JSON.stringify(L));}catch(e){}
+ mO.classList.remove('on');toast('시험판 접수 완료 — 실제 접수 연결은 준비 중입니다');};
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2600);}
+
+/* 시작 */
+try{const s=JSON.parse(localStorage.getItem('wsr_studio')||'null');if(s&&s.docs){Object.assign(docs,s.docs);data=s.data||data;prod=s.prod||'card';}}catch(e){}
+if(!docs[prod])newDoc(prod,TPL[prod][0].id);
+document.querySelectorAll('#prod button').forEach(x=>x.classList.toggle('on',x.dataset.p===prod));
+fillForm();setPrice();
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{drawTpls();render();});
+window.addEventListener('resize',()=>{fitView();cv.renderAll();});
+window._wsr={cv,docs,get side(){return side},get prod(){return prod}};
+})();
+</script>
+</body>
+</html>
