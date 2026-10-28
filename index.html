@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://mirmyung-sys.github.io/webshowroom/">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "웹쇼룸 WEBSHOWROOM", "url": "https://mirmyung-sys.github.io/webshowroom/", "description": "소상공인·학원·카페·제조업 홈페이지 제작. 490,000원부터, 7일 오픈. 명함·리플렛·브로슈어 온라인 디자인 스튜디오.", "email": "theju0911@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "엘에스로 92 국제유통단지 7동 230호", "addressLocality": "안양시 동안구", "addressRegion": "경기도", "addressCountry": "KR"}, "areaServed": "KR", "founder": {"@type": "Person", "name": "명충건"}, "makesOffer": [{"@type": "Offer", "name": "홈페이지 제작", "price": "490000", "priceCurrency": "KRW"}, {"@type": "Offer", "name": "명함 디자인", "url": "https://mirmyung-sys.github.io/webshowroom/editor.html"}]}</script>
 <title>웹쇼룸 | 홈페이지 제작 490,000원부터 · 7일 오픈 · 명함·브로슈어 디자인</title>
-<meta name="description" content="세계 1등 홈페이지처럼, 클릭하면 우리 가게 홈페이지가 완성됩니다. 490,000원부터, 7일 오픈.">
+<meta name="description" content="소상공인·카페·학원·필라테스·제조업 홈페이지 제작. 세계 1등 홈페이지 스타일을 우리 가게에 맞춰 7일 안에 오픈합니다. 490,000원부터, 무료 상담. 명함·리플렛·브로슈어 디자인까지.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
@@ -665,6 +665,7 @@ section.hx9{overflow-x:hidden}
       <label>하고 싶은 말 (선택)</label><textarea name="msg" rows="3" placeholder="예약 기능이 꼭 필요해요"></textarea>
       <div class="agree"><input type="checkbox" required id="agree"><label for="agree" style="margin:0;color:inherit;font-size:13px">상담을 위해 상호·연락처를 수집·이용하는 데 동의합니다. 상담 후 1년간 보관 뒤 파기합니다.</label></div>
       <button class="btn btn-r" type="submit">상담 신청 보내기</button>
+      <div id="askMsg" style="display:none;font-size:13px;line-height:1.7;margin-top:12px;color:#6b5a52">메일 앱이 열리면 <b>보내기</b>를 눌러야 접수됩니다. 메일 앱이 안 열리면 아래로 보내 주세요.<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px"><a id="askGmail" target="_blank" rel="noopener" style="flex:1;min-width:130px;text-align:center;padding:11px 10px;border-radius:999px;background:#fff;border:1px solid #e3d6cc;color:#2a211c;font-weight:700;text-decoration:none">Gmail로 보내기</a><button type="button" id="askCopy" style="flex:1;min-width:130px;padding:11px 10px;border-radius:999px;background:#fff;border:1px solid #e3d6cc;color:#2a211c;font:inherit;font-weight:700;cursor:pointer">신청 내용 복사</button></div></div>
     </form>
   </div>
 </div></section>
@@ -745,7 +746,8 @@ ac.innerHTML=[...new Set(M.map(m=>m.cat)),'기타'].map(c=>`<option>${c}</option
 am.innerHTML=M.map(m=>`<option>${m.n}</option>`).join('')+'<option>아직 못 골랐어요</option>';
 document.getElementById('askForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
  const body=`상호: ${f.get('shop')}\n업종: ${f.get('cat')}\n원하는 모델: ${f.get('model')}\n연락처: ${f.get('tel')}\n\n${f.get('msg')||''}`;
- location.href='mailto:theju0911@gmail.com?subject='+encodeURIComponent('[웹쇼룸 상담] '+f.get('shop'))+'&body='+encodeURIComponent(body)};
+ const su='[웹쇼룸 상담] '+f.get('shop');document.getElementById('askGmail').href='https://mail.google.com/mail/?view=cm&fs=1&to=theju0911@gmail.com&su='+encodeURIComponent(su)+'&body='+encodeURIComponent(body);document.getElementById('askCopy').onclick=()=>{try{navigator.clipboard.writeText(su+'\n'+body);document.getElementById('askCopy').textContent='복사됨 — theju0911@gmail.com 으로 보내 주세요'}catch(x){}};document.getElementById('askMsg').style.display='block';
+ location.href='mailto:theju0911@gmail.com?subject='+encodeURIComponent(su)+'&body='+encodeURIComponent(body)};
 fitAll();
 /* v8 — 1등 스타일 × 우리 가게 생성 */
 const STY=[

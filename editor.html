@@ -570,7 +570,7 @@ document.getElementById('pdf').onclick=async()=>{
  }
  pdf.save((data.biz||'design')+'_'+({card:'명함',leaflet:'리플렛',brochure:'브로슈어'})[prod]+'_인쇄용.pdf'); toast('인쇄용 PDF를 저장했어요 (재단 여유 2mm·재단 표시 포함)');
 };
-document.getElementById('png').onclick=async()=>{const a=await sideImage(side,2);const w=window.open();if(w){w.document.write('<title>미리보기</title><body style="margin:0;background:#EFE7DA;display:flex;justify-content:center;align-items:center;min-height:100vh"><img src="'+a+'" style="max-width:96vw;box-shadow:0 10px 30px rgba(0,0,0,.2)"></body>');}};
+document.getElementById('png').onclick=async()=>{const a=await sideImage(side,2);const w=window.open();if(w){w.document.write('<title>미리보기</title><body style="margin:0;background:#EFE7DA;display:flex;justify-content:center;align-items:center;min-height:100vh"><img alt="만든 시안 미리보기" src="'+a+'" style="max-width:96vw;box-shadow:0 10px 30px rgba(0,0,0,.2)"></body>');}};
 
 /* 주문 */
 const mO=document.getElementById('mOrder');
