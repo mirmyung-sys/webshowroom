@@ -565,6 +565,69 @@ section.hx9{overflow-x:hidden}
 .scene.flat::after{animation:sheen 1.3s ease .2s 1}
 @keyframes sheen{0%{opacity:1;transform:translateX(-120%)}100%{opacity:1;transform:translateX(120%)}}
 .scene .lab{position:absolute;right:-2%;top:var(--y);transform:translate3d(100%,0,var(--z));font:800 12px var(--sans);color:#fff;background:var(--rose);padding:5px 10px;border-radius:99px;white-space:nowrap;opacity:0;transition:opacity .4s}
+/* v11 — 트랜스포머 조립: 조각 덩어리 → 폭발 → 카페 홈페이지 */
+.s9 .sscr.tfbg{background:radial-gradient(60% 60% at 50% 50%,#FFF3E2 0,#F4E6D2 55%,#E9D6BC 100%)}
+.s9 .sscr.tfbg::before{opacity:.55}
+.scene.tfx{perspective:1400px;perspective-origin:50% 45%}
+.tfx [data-s]{opacity:1;transform:none;transition:none;filter:none}
+.scene.tfx .hl{outline:none}
+.tf{position:absolute;inset:0;font-family:var(--sans);color:#fff;transform-style:preserve-3d}
+.tf .core{position:absolute;left:50%;top:50%;width:14cqw;height:14cqw;margin:-7cqw 0 0 -7cqw;border-radius:50%;background:radial-gradient(circle,rgba(255,170,90,.95) 0,rgba(240,106,30,.55) 35%,rgba(240,106,30,0) 70%);animation:corePulse 1s ease-in-out infinite alternate;transition:opacity .6s .9s,transform 1s .6s}
+.tf .core.on{opacity:0;transform:scale(4)}
+@keyframes corePulse{to{transform:scale(1.25)}}
+.tf .tiles{position:absolute;inset:0;transform-style:preserve-3d}
+.tf .tiles.on{animation:tfSpin 3.1s cubic-bezier(.6,0,.2,1) both}
+@keyframes tfSpin{0%{transform:rotateX(18deg) rotateY(0)}40%{transform:rotateX(18deg) rotateY(320deg)}75%,100%{transform:none}}
+.tf .tl{position:absolute;width:12.6cqw;height:11.95cqw;background-size:100cqw 58.9cqw;background-repeat:no-repeat;backface-visibility:hidden;opacity:0;transform-style:preserve-3d;
+ transform:translate(var(--dx),var(--dy)) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz)) scale(.34)}
+.tf .tiles.on .tl{animation:tfTile 3.1s cubic-bezier(.55,0,.15,1) var(--d) both}
+@keyframes tfTile{
+ 0%{opacity:0;transform:translate(var(--dx),var(--dy)) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz)) scale(.34);box-shadow:inset 0 0 0 .25cqw #FFB16E}
+ 12%{opacity:1}
+ 38%{transform:translate(var(--dx),var(--dy)) rotateX(calc(var(--rx) + 180deg)) rotateY(var(--ry)) rotateZ(var(--rz)) scale(.4);box-shadow:inset 0 0 0 .25cqw #FFB16E}
+ 62%{opacity:1;transform:translate(var(--ex),var(--ey)) translateZ(var(--ez)) rotateX(calc(var(--rx) / 3)) rotateY(calc(var(--ry) / 3)) scale(.9);box-shadow:inset 0 0 0 .2cqw #FFB16E}
+ 88%{transform:translateZ(0) rotateY(-4deg) scale(1.01);box-shadow:inset 0 0 0 .08cqw rgba(255,190,130,.7)}
+ 100%{opacity:1;transform:none;box-shadow:inset 0 0 0 0 rgba(255,190,130,0)}}
+.tf .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,25,14,.78) 0,rgba(43,25,14,.5) 38%,rgba(43,25,14,.05) 68%),linear-gradient(0deg,rgba(43,25,14,.55) 0,transparent 35%);opacity:0;transition:opacity 1.2s}
+.tf .shade.on{opacity:1}
+.tf .nav{color:#fff;position:absolute;left:3%;right:3%;top:4.5%;height:5cqw;display:flex;align-items:center;justify-content:space-between;padding:0 2cqw;border-radius:99px;background:rgba(255,248,238,.16);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.35);clip-path:inset(0 50% 0 50% round 99px);opacity:0;transition:clip-path .9s cubic-bezier(.7,0,.2,1),opacity .2s}
+.tf .nav.on{clip-path:inset(0 0 0 0 round 99px);opacity:1}
+.tf .nav b{font-family:var(--en);font-weight:500;font-size:2.3cqw;letter-spacing:.32em}
+.tf .nav span{color:#fff;display:flex;gap:2.6cqw;font-size:1.15cqw;font-weight:600;opacity:.92}
+.tf .nav em{font-style:normal;font-size:1.1cqw;font-weight:800;background:#F06A1E;padding:.8cqw 1.8cqw;border-radius:99px}
+.tf .orb{position:absolute;right:9%;top:17%;width:24cqw;height:24cqw;transform-style:preserve-3d;opacity:0;transform:rotateY(-180deg) scale(.2);transition:transform 1.2s cubic-bezier(.3,1.4,.4,1),opacity .3s}
+.tf .orb.on{opacity:1;transform:none}
+.tf .orb .pic{position:absolute;inset:11%;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 2.5cqw 5cqw -1cqw rgba(30,15,5,.6),0 0 0 .5cqw rgba(255,248,238,.9)}
+.tf .orb svg{position:absolute;inset:0;width:100%;height:100%;animation:spin9 22s linear infinite}
+.tf .orb text{font:700 5.4px var(--sans);letter-spacing:2.2px;fill:#FFF3E2}
+.tf .cards{position:absolute;right:4%;bottom:6%;display:flex;gap:1.1cqw;transform-style:preserve-3d}
+.tf .cd{width:10.5cqw;background:rgba(255,248,238,.95);color:#2B1D14;border-radius:1cqw;padding:.6cqw;box-shadow:0 1.6cqw 3cqw -1cqw rgba(30,15,5,.6);opacity:0;transform:translate(var(--fx),-18cqw) rotateY(90deg) scale(.3);transition:transform 1s cubic-bezier(.3,1.3,.4,1) var(--d),opacity .2s var(--d)}
+.tf .cards.on .cd{opacity:1;transform:none}
+.tf .cd i{display:block;height:7cqw;border-radius:.6cqw;background-size:cover;background-position:center}
+.tf .cd b{display:block;font-size:1.05cqw;margin:.6cqw .2cqw 0}
+.tf .cd small{display:block;font-size:.95cqw;color:#C0622F;font-weight:800;margin:.1cqw .2cqw .2cqw}
+.tf .ttl{position:absolute;left:5%;top:24%;width:52%}
+.tf .ttl small{display:block;font-family:var(--en);font-style:italic;font-size:2cqw;color:#FFC08A;margin-bottom:1cqw;opacity:0;transition:opacity .8s .2s}
+.tf .ttl.on small{opacity:1}
+.tf .ttl h3{font-family:var(--serif);font-weight:700;font-size:6.2cqw;line-height:1.08;letter-spacing:-.04em;perspective:600px}
+.tf .ttl .ch{display:inline-block;opacity:0;transform:rotateX(-100deg) translateY(-2cqw);transform-origin:50% 0;transition:transform .7s cubic-bezier(.3,1.5,.5,1) var(--d),opacity .2s var(--d)}
+.tf .ttl.on .ch{opacity:1;transform:none}
+.tf .ttl p{font-size:1.35cqw;line-height:1.7;margin-top:1.4cqw;opacity:0;transform:translateY(1cqw);transition:all .8s .9s;color:#FBE9D6}
+.tf .ttl.on p{opacity:1;transform:none}
+.tf .acts{position:absolute;left:5%;bottom:9%;display:flex;gap:1cqw;align-items:center}
+.tf .acts a{font-size:1.3cqw;font-weight:800;padding:1.2cqw 2.4cqw;border-radius:99px;opacity:0;transform:translateX(-4cqw);transition:all .6s cubic-bezier(.3,1.4,.4,1)}
+.tf .acts a:first-child{background:#F06A1E;box-shadow:0 1cqw 2cqw -.8cqw rgba(240,106,30,.9)}
+.tf .acts a+a{border:1px solid rgba(255,255,255,.7);transition-delay:.12s}
+.tf .acts.on a{opacity:1;transform:none}
+.tf .stamp{position:absolute;left:47%;top:15%;width:8cqw;height:8cqw;border-radius:50%;background:#FFF3E2;color:#C0622F;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:.9cqw;line-height:1.2;text-align:center;opacity:0;transform:scale(3) rotate(-40deg);transition:transform .45s cubic-bezier(.5,1.6,.5,1) .35s,opacity .2s .35s;box-shadow:0 1cqw 2cqw -1cqw rgba(30,15,5,.6)}
+.tf .stamp b{font-family:var(--en);font-size:2.2cqw;font-weight:500}
+.tf .stamp.on{opacity:1;transform:rotate(-12deg)}
+.scene.flat .tf .tiles{animation:none;transform:none}
+.scene.flat .tf .tl{animation:none;opacity:1;transform:none}
+.scene.flat .tf .photo-kb{animation:kb 9s ease-out both}
+.tf .photo-kb{position:absolute;inset:0;transform-style:preserve-3d}
+@keyframes kb{to{transform:scale(1.05)}}
+@media (prefers-reduced-motion:reduce){.tf *{animation:none!important;transition:none!important}}
 @media (prefers-reduced-motion:reduce){.scene,.scene [data-s]{transition:none}.scene.tilt{transform:none}}
 </style>
 </head>
@@ -805,18 +868,37 @@ function tplSerif(t){
  <div class="hero el" data-s="3" style="color:${t.acc}"><div class="ring"></div>${art(t)}</div>
  <div class="ttl el" data-s="4"><small style="color:${t.acc}">${t.sub}</small>${t.t}<p>${t.it.map(i=>i[0]).join(' · ')}</p></div>
  <div class="barb el" data-s="5"><a style="background:${t.acc}">${t.cta}</a><a>오시는 길</a><a>전화 문의</a></div></div>`}
-const STYLE={ice:{n:'Igloo Inc.',w:'Awwwards 올해의 사이트',f:tplIce},pla:{n:'Messenger',w:'Awwwards 올해의 사이트',f:tplPla},bold:{n:'Outfit',w:'Awwwards 오늘의 사이트',f:tplBold},serif:{n:'Délice',w:'Awwwards 우수상',f:tplSerif}};
-const ORDER=[['cafe','ice'],['salon','bold'],['dining','serif'],['pilates','pla'],['academy','bold'],['photo','ice'],['shop','pla'],['factory','serif']];
+const UNS=id=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=`;
+function tplTf(t){
+ const hero=UNS('photo-1600093463592-8e36ae95ef56')+'1800&q=80';
+ const C=8,R=5,W=100/C,H=58.9/R,OFF=(66.7-58.9)/2;let tl='';
+ const rnd=(a,b,s)=>{const x=Math.sin(s*9301+49297)*233280;return a+(x-Math.floor(x))*(b-a)};
+ for(let r=0;r<R;r++)for(let c=0;c<C;c++){const k=r*C+c,l=c*W,tp=r*H,dx=50-(l+W/2),dy=29.45-(tp+H/2);
+  tl+=`<i class="tl" style="left:${l}cqw;top:${tp}cqw;background-image:url(${hero});background-size:100cqw 66.7cqw;background-position:${-l}cqw ${-(tp+OFF)}cqw;--dx:${dx.toFixed(2)}cqw;--dy:${dy.toFixed(2)}cqw;--ex:${(-dx*.45+rnd(-4,4,k)).toFixed(2)}cqw;--ey:${(-dy*.45+rnd(-3,3,k+7)).toFixed(2)}cqw;--ez:${rnd(60,320,k+3).toFixed(0)}px;--rx:${rnd(-160,160,k+1).toFixed(0)}deg;--ry:${rnd(-160,160,k+2).toFixed(0)}deg;--rz:${rnd(-90,90,k+5).toFixed(0)}deg;--d:${(rnd(0,.45,k+9)).toFixed(2)}s"></i>`}
+ const card=[['photo-1509042239860-f550ce710b93',t.it[0]],['photo-1495474472287-4d71bcdd2085',t.it[1]],['photo-1442512595331-e89e73853f31',t.it[3]]];
+ const ttl=['아침이','달라지는 한 잔'];let n=0;
+ const h3=ttl.map(w=>[...w].map(ch=>ch===' '?' ':`<span class="ch" style="--d:${(n++*.06).toFixed(2)}s">${ch}</span>`).join('')).join('<br>');
+ return `<div class="tf"><div class="core" data-s="1"></div>
+ <div class="photo-kb"><div class="tiles" data-s="1">${tl}</div></div>
+ <div class="shade" data-s="4"></div>
+ <div class="nav" data-s="2"><b>${t.en}</b><span>${t.it.slice(0,3).map(i=>`<i style="font-style:normal">${i[0]}</i>`).join('')}<i style="font-style:normal">오시는 길</i></span><em>주문하기</em></div>
+ <div class="orb" data-s="3"><svg viewBox="0 0 100 100"><defs><path id="tfc" d="M50 50 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs><text><textPath href="#tfc">SPECIALTY COFFEE · SANBON · ROASTED DAILY · </textPath></text></svg><div class="pic" style="background-image:url(${UNS('photo-1514432324607-a09d9b4aefdd')}700&q=80)"></div></div>
+ <div class="cards" data-s="3">${card.map((c,j)=>`<div class="cd" style="--d:${(.35+j*.14).toFixed(2)}s;--fx:${(-j*11).toFixed(1)}cqw"><i style="background-image:url(${UNS(c[0])}500&q=75)"></i><b>${c[1][0]}</b><small>${c[1][1]}원</small></div>`).join('')}</div>
+ <div class="ttl" data-s="4"><small>Specialty Coffee — 산본</small><h3>${h3}</h3><p>매일 아침 직접 볶은 원두로 내립니다.<br>창가 자리는 8시 전에 오시면 비어 있어요.</p></div>
+ <div class="acts" data-s="5"><a>${t.cta}</a><a>오시는 길</a></div>
+ <div class="stamp" data-s="5">OPEN<b>08:00</b>매일</div></div>`}
+const STYLE={tf:{n:'조립형 시네마틱',w:'트랜스포머식 조립 연출',f:tplTf},ice:{n:'Igloo Inc.',w:'Awwwards 올해의 사이트',f:tplIce},pla:{n:'Messenger',w:'Awwwards 올해의 사이트',f:tplPla},bold:{n:'Outfit',w:'Awwwards 오늘의 사이트',f:tplBold},serif:{n:'Délice',w:'Awwwards 우수상',f:tplSerif}};
+const ORDER=[['cafe','tf'],['salon','bold'],['dining','serif'],['pilates','pla'],['academy','bold'],['photo','ice'],['shop','pla'],['factory','serif']];
 const STEPS=['배경','로고·메뉴','주인공','제목','버튼'];
-const DUR=7000;let qi=0,timers=[],raf=0;
+let DUR=7000;let qi=0,timers=[],raf=0;
 const $=id=>document.getElementById(id);
 $('steps').innerHTML=STEPS.map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
 $('ind9').innerHTML=ORDER.map(([k],i)=>`<button type="button" data-i="${i}">${IND[k].n}</button>`).join('');
 function run(i){
  timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);qi=i;
- const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk];
+ const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk];DUR=sk==='tf'?9000:7000;
  $('sUrl').textContent=t.en.toLowerCase().replace(/\s/g,'')+'.kr';
- $('gen').innerHTML=`<div class="scene tilt" id="scene">${st.f(t)}</div>`;$('sscr').classList.remove('flat');
+ $('gen').innerHTML=`<div class="scene ${sk==='tf'?'tfx':'tilt'}" id="scene">${st.f(t)}</div>`;$('sscr').classList.remove('flat');$('sscr').classList.toggle('tfbg',sk==='tf');
  $('nowName').textContent=`${t.n} · ${t.s}`;$('nowStyle').textContent=`스타일: ${st.n} (${st.w}) 참고`;
  [...$('ind9').children].forEach((b,j)=>{b.classList.toggle('on',j==i)});
  $('ctaTry').style.display=t.demo>=0?'':'none';
@@ -836,6 +918,7 @@ $('ctaTry').onclick=()=>{const t=IND[ORDER[qi][0]];if(t.demo>=0)open(t.demo)};
 $('ctaAsk').onclick=()=>{const t=IND[ORDER[qi][0]],am=$('askModel');[...am.options].forEach(o=>{if(o.text.startsWith(t.n.slice(0,2)))am.value=o.text});document.querySelector('#askForm textarea').value=`[${STYLE[ORDER[qi][1]].n} 스타일] ${t.n} 홈페이지 상담 원합니다`};
 new IntersectionObserver(es=>{if(!es[0].isIntersecting){timers.forEach(clearTimeout);cancelAnimationFrame(raf);paused=true}else if(window.paused){paused=false;run(qi)}}).observe($('stage'));
 var paused=false;
+['photo-1600093463592-8e36ae95ef56|1800','photo-1514432324607-a09d9b4aefdd|700','photo-1509042239860-f550ce710b93|500','photo-1495474472287-4d71bcdd2085|500','photo-1442512595331-e89e73853f31|500'].forEach(x=>{const[a,b]=x.split('|');(new Image).src=UNS(a)+b+(b==='1800'?'&q=80':b==='700'?'&q=80':'&q=75')});
 run(0);
 </script>
 </body>
