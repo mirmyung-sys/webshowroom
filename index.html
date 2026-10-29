@@ -576,7 +576,7 @@ section.hx9{overflow-x:hidden}
 .tf .tl{position:absolute;width:12.6cqw;height:11.95cqw;background-repeat:no-repeat;opacity:0;backface-visibility:hidden;transform:rotateY(-95deg) translateZ(4cqw)}
 .tf .tiles.on .tl{animation:tfTile .9s cubic-bezier(.3,1.25,.4,1) var(--d) both}
 @keyframes tfTile{0%{opacity:0;transform:rotateY(-95deg) translateZ(4cqw);box-shadow:inset 0 0 0 .25cqw #FFB16E}40%{opacity:1}100%{opacity:1;transform:none;box-shadow:inset 0 0 0 0 rgba(255,177,110,0)}}
-.tf .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,25,14,.8) 0,rgba(43,25,14,.5) 38%,rgba(43,25,14,.05) 68%),linear-gradient(0deg,rgba(43,25,14,.55) 0,transparent 35%);opacity:0;transition:opacity 1.2s .9s}
+.tf .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--sh,43,25,14),.8) 0,rgba(var(--sh,43,25,14),.5) 38%,rgba(var(--sh,43,25,14),.05) 68%),linear-gradient(0deg,rgba(var(--sh,43,25,14),.55) 0,transparent 35%);opacity:0;transition:opacity 1.2s .9s}
 .tf .shade.on{opacity:1}
 .tf .cup3d{position:absolute;inset:0;z-index:3;pointer-events:none;transform-origin:50% 50%;clip-path:circle(80% at 50% 50%);transition:transform 1.3s cubic-bezier(.65,0,.25,1),clip-path 1.3s cubic-bezier(.65,0,.25,1)}
 .tf .cup3d canvas{display:block;width:100%!important;height:100%!important}
@@ -596,7 +596,7 @@ section.hx9{overflow-x:hidden}
 .tf .cup3d{transition:transform 1.3s cubic-bezier(.65,0,.25,1),clip-path 1.3s cubic-bezier(.65,0,.25,1),filter .8s}
 .tf.lgscene .cup3d{filter:blur(3px) brightness(1.06) saturate(.9)}
 .tf .nav span{color:#fff;display:flex;gap:2.6cqw;font-size:1.15cqw;font-weight:600;opacity:.92}
-.tf .nav em{font-style:normal;font-size:1.1cqw;font-weight:800;background:#F06A1E;padding:.8cqw 1.8cqw;border-radius:99px}
+.tf .nav em{font-style:normal;font-size:1.1cqw;font-weight:800;background:var(--ac,#F06A1E);padding:.8cqw 1.8cqw;border-radius:99px}
 .tf .orb{position:absolute;right:9%;top:17%;width:24cqw;height:24cqw;z-index:2;opacity:0;transition:opacity .6s .9s}
 .tf .orb.on{opacity:1}
 .tf .orb .pic{position:absolute;inset:11%;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 2.5cqw 5cqw -1cqw rgba(30,15,5,.6),0 0 0 .5cqw rgba(255,248,238,.9)}
@@ -608,7 +608,7 @@ section.hx9{overflow-x:hidden}
 .tf .cards.on .cd{opacity:1;transform:none}
 .tf .cd i{display:block;height:7cqw;border-radius:.6cqw;background-size:cover;background-position:center}
 .tf .cd b{display:block;font-size:1.05cqw;margin:.6cqw .2cqw 0}
-.tf .cd small{display:block;font-size:.95cqw;color:#C0622F;font-weight:800;margin:.1cqw .2cqw .2cqw}
+.tf .cd small{display:block;font-size:.95cqw;color:var(--ac,#C0622F);font-weight:800;margin:.1cqw .2cqw .2cqw}
 .tf .ttl{position:absolute;left:5%;top:24%;width:52%;z-index:4}
 .tf .ttl small{display:block;font-family:var(--en);font-style:italic;font-size:2cqw;color:#FFC08A;margin-bottom:1cqw;opacity:0;transition:opacity .8s 1.2s}
 .tf .ttl.on small{opacity:1}
@@ -619,13 +619,59 @@ section.hx9{overflow-x:hidden}
 .tf .ttl.on p{opacity:1;transform:none}
 .tf .acts{position:absolute;left:5%;bottom:9%;display:flex;gap:1cqw;align-items:center;z-index:4}
 .tf .acts a{font-size:1.3cqw;font-weight:800;padding:1.2cqw 2.4cqw;border-radius:99px;opacity:0;transform:translateX(-4cqw);transition:all .6s cubic-bezier(.3,1.4,.4,1) 1.8s}
-.tf .acts a:first-child{background:#F06A1E;box-shadow:0 1cqw 2cqw -.8cqw rgba(240,106,30,.9)}
+.tf .acts a:first-child{background:var(--ac,#F06A1E);box-shadow:0 1cqw 2cqw -.8cqw rgba(30,15,5,.6)}
 .tf .acts a+a{border:1px solid rgba(255,255,255,.7);transition-delay:1.92s}
 .tf .acts.on a{opacity:1;transform:none}
 .tf .stamp{position:absolute;left:58%;top:13%;z-index:5;width:7cqw;height:7cqw;border-radius:50%;background:#F06A1E;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:.85cqw;line-height:1.15;text-align:center;opacity:0;transform:scale(3) rotate(-40deg);transition:transform .45s cubic-bezier(.5,1.6,.5,1) 1.3s,opacity .2s 1.3s;box-shadow:0 1cqw 2cqw -1cqw rgba(30,15,5,.6)}
 .tf .stamp b{font-family:var(--en);font-size:2cqw;font-weight:500}
 .tf .stamp.on{opacity:1;transform:rotate(-12deg)}
 @media (prefers-reduced-motion:reduce){.tf *{animation:none!important;transition:none!important}}
+/* v14 학원 — 산본글로벌어학원 아키 */
+.ak{position:absolute;inset:0;overflow:hidden;font-family:var(--sans);color:#4A2A36;cursor:pointer;user-select:none}
+.ak .akbg{position:absolute;inset:0;background:radial-gradient(60% 75% at 50% 42%,#FFFAF4 0,#FBE7E6 55%,#F3D2D8 100%)}
+.ak .akbg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;background:linear-gradient(0deg,rgba(200,72,110,.10),transparent)}
+.ak .gys{position:absolute;inset:0;perspective:900px;perspective-origin:50% 45%}
+.ak .gy{position:absolute;font-style:normal;font-size:1.5cqw;font-weight:900;line-height:1;margin:-.66cqw 0 0 -.5cqw;transform:var(--f);opacity:.9;text-shadow:0 0 .4cqw rgba(255,255,255,.7);transition:transform 1.7s cubic-bezier(.2,.85,.25,1) var(--d),opacity .6s var(--d)}
+.ak.go .gy{transform:none;opacity:1}
+.ak.img .gy{opacity:0;transform:scale(.2);transition:opacity .8s calc(var(--d)*.5),transform .8s calc(var(--d)*.5)}
+.ak .akimg{position:absolute;left:50%;top:4.5cqw;height:50cqw;width:auto;transform:translateX(-50%);opacity:0;filter:drop-shadow(0 1.4cqw 2cqw rgba(120,40,70,.25));transition:opacity 1.1s,left 1s cubic-bezier(.65,0,.25,1),top 1s cubic-bezier(.65,0,.25,1),height 1s cubic-bezier(.65,0,.25,1),transform .5s}
+.ak.img .akimg{opacity:1}
+.ak.talk .akimg{left:19cqw;top:9cqw;height:44cqw}
+.ak.talk.akis .akimg{transform:translateX(-50%) scale(1.03)}
+.ak .who{position:absolute;right:6cqw;top:9cqw;width:22cqw;text-align:center;opacity:0;transform:translateY(2cqw);transition:opacity .5s,transform .5s,filter .4s}
+.ak.hasw .who{opacity:1;transform:none}
+.ak.talk.akis .who{filter:saturate(.6) opacity(.7)}
+.ak.flip .who{opacity:0;transform:rotateY(70deg)}
+.ak .wimg{width:17cqw;height:17cqw;margin:0 auto;border-radius:50%;overflow:hidden;background:#FFF;box-shadow:0 0 0 .5cqw #fff,0 0 0 .75cqw #E7A3B6,0 2cqw 3cqw -1.2cqw rgba(120,40,70,.45)}
+.ak .wimg img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
+.ak .who b{display:block;margin-top:1.6cqw;font-size:1.7cqw;font-weight:800;color:#4A2A36}
+.ak .who small{display:inline-block;margin-top:.5cqw;font-size:1.05cqw;font-weight:700;color:#fff;background:#C8486E;padding:.35cqw 1cqw;border-radius:99px}
+.ak .bub{position:absolute;left:35cqw;top:31cqw;width:32cqw;background:#fff;border-radius:1.6cqw;padding:1.6cqw 1.9cqw;box-shadow:0 1.6cqw 3cqw -1.4cqw rgba(120,40,70,.45);opacity:0;transform:scale(.85) translateY(1cqw)}
+.ak .bub::after{content:"";position:absolute;top:2.2cqw;right:-1.3cqw;border:.8cqw solid transparent;border-left:1.4cqw solid #fff;border-right:0}
+.ak.akis .bub::after{right:auto;left:-1.3cqw;border-left:0;border-right:1.4cqw solid #fff}
+.ak .bub.in{animation:akPop .45s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes akPop{from{opacity:0;transform:scale(.85) translateY(1cqw)}to{opacity:1;transform:none}}
+.ak .bub .lang{display:block;font-size:1cqw;font-weight:800;color:#C8486E;margin-bottom:.6cqw}
+.ak .bub .t{font-size:2.05cqw;font-weight:800;line-height:1.35;color:#3A1F2A;word-break:keep-all}
+.ak .bub .k{font-size:1.2cqw;line-height:1.5;margin-top:.7cqw;color:#8A6070}
+.ak .bub .k:empty{display:none}
+.ak .aktag{position:absolute;left:19cqw;top:53.2cqw;transform:translateX(-50%);font-size:1.05cqw;font-weight:800;color:#fff;background:#C8486E;padding:.35cqw 1cqw;border-radius:99px;opacity:0;transition:opacity .5s .6s}
+.ak.talk .aktag{opacity:1}
+.ak .hint{position:absolute;left:50%;bottom:2.4cqw;transform:translateX(-50%);font-size:1.1cqw;font-weight:800;color:#C8486E;opacity:0;transition:opacity .4s}
+.ak.talk:not(.end) .hint{opacity:1;animation:akHint 1.2s ease-in-out infinite alternate}
+@keyframes akHint{to{transform:translateX(-50%) translateY(-.4cqw)}}
+.ak .dots{position:absolute;left:35cqw;width:32cqw;top:27.6cqw;display:flex;gap:.45cqw;justify-content:center;opacity:0;transition:opacity .4s}
+.ak.talk .dots{opacity:1}
+.ak .dots i{width:.6cqw;height:.6cqw;border-radius:50%;background:rgba(200,72,110,.25)}
+.ak .dots i.on{background:#C8486E}
+.ak .akcta{position:absolute;left:35cqw;width:32cqw;top:47cqw;display:flex;gap:1cqw;justify-content:center;opacity:0;transform:translateY(1cqw);pointer-events:none;transition:all .5s .3s}
+.ak.end .akcta{opacity:1;transform:none;pointer-events:auto}
+.ak .akcta a{font-size:1.3cqw;font-weight:800;padding:1.1cqw 2.2cqw;border-radius:99px;text-decoration:none;color:#C8486E;border:1.5px solid #C8486E;background:#fff}
+.ak .akcta a:first-child{background:#C8486E;color:#fff}
+.ak .akcta a:focus-visible,.ak:focus-visible{outline:3px solid #E7A3B6;outline-offset:2px}
+.s9 .sscr.akbgx::before{opacity:0}
+@media (prefers-reduced-motion:reduce){.ak *{animation:none!important;transition:none!important}}
+
 @media (prefers-reduced-motion:reduce){.scene,.scene [data-s]{transition:none}.scene.tilt{transform:none}}
 </style>
 </head>
@@ -820,7 +866,7 @@ const IND={
  salon:{n:'헤어',s:'라움 헤어',en:'RAUM HAIR',t:'한 번에 한 분만',cta:'빈 시간 보기',sub:'1:1 Private Salon',it:[['여성 컷','25,000'],['남성 컷','20,000'],['빌드 펌','90,000~'],['클리닉','50,000~']],acc:'#C9636F',soft:'#F2D6D5',ink:'#3B2A2D',art:'blob',roof:'#C9636F',demo:1},
  dining:{n:'한식',s:'한우 담',en:'HANWOO DAM',t:'1++ 한우를, 조용한 룸에서',cta:'룸 예약',sub:'Korean Beef Dining',it:[['점심 정식','39,000'],['저녁 코스','89,000'],['담 코스','129,000'],['룸 예약','상견례']],acc:'#A8382C',soft:'#EBD3C6',ink:'#3A1F18',art:'plate',roof:'#A8382C',demo:2},
  pilates:{n:'필라테스',s:'코어온 필라테스',en:'CORE ON',t:'허리가 먼저 알아요',cta:'체험 신청',sub:'Pilates Studio',it:[['기구 그룹','정원 4명'],['1:1 개인','교정'],['매트 기초','입문'],['체험 1회','측정']],acc:'#2F6B55',soft:'#D3E6D8',ink:'#1F3A2B',art:'ring',roof:'#2F6B55',demo:3},
- academy:{n:'학원',s:'브릿지 영어학원',en:'BRIDGE',t:'말이 먼저 트이는 수업',cta:'레벨 테스트',sub:'English Academy',it:[['초등 회화','주 2회'],['중등 내신','주 3회'],['성인 회화','새벽·저녁'],['1:1 과외','맞춤']],acc:'#B8873A',soft:'#EEDFC2',ink:'#2E2416',art:'book',roof:'#B8873A',demo:-1},
+ academy:{n:'학원',s:'산본글로벌어학원',en:'SANBON GLOBAL',t:'원어민 선생님과 말이 트이는 곳',cta:'무료 레벨테스트',sub:'영어 · 일본어 · 중국어',it:[['영어 회화','원어민'],['일본어','원어민'],['중국어','현지인'],['레벨테스트','무료']],acc:'#C8486E',soft:'#F6D9E0',ink:'#4A2A36',art:'book',roof:'#C8486E',demo:-1,real:'sanbonglobal.com'},
  photo:{n:'사진관',s:'스튜디오 루멘',en:'LUMEN',t:'빛이 머무는 사진',cta:'촬영 문의',sub:'Portrait Studio',it:[['프로필','1인'],['가족사진','4인'],['웨딩 스냅','야외'],['브랜드','제품']],acc:'#8C6276',soft:'#E6D6DD',ink:'#33262C',art:'lens',roof:'#8C6276',demo:5},
  shop:{n:'소품샵',s:'소소 소품샵',en:'SOSO SHOP',t:'작은 물건이 하루를 바꿔요',cta:'신상 보기',sub:'Small Things Shop',it:[['소이 캔들','18,000'],['미니 화분','12,000'],['머그컵','15,000'],['라탄 바구니','22,000']],acc:'#D49A1E',soft:'#F3E3B8',ink:'#3A2E14',art:'bag',roof:'#D49A1E',demo:6},
  factory:{n:'부품몰',s:'B2B 부품몰',en:'PARTS MALL',t:'멈춘 라인, 부품부터',cta:'부품 찾기',sub:'Hot Melt Parts',it:[['노즐','규격별'],['히팅호스','길이별'],['펌프','모델별'],['컨트롤러','센서']],acc:'#B4541E',soft:'#E6E1CC',ink:'#2A2B1C',art:'gear',roof:'#B4541E',demo:7}
@@ -1000,49 +1046,264 @@ const CUP3D=(function(){
   return api}
  return {start,load};
 })();
+/* v14 — 업종별 3D 조립(헤어·한식·필라테스·사진관·소품샵·부품몰): 부품이 날아와 결합 → 동작 → 로고판 → 홈페이지 */
+function EMBLEM_SVG(en,ic,c){const I={
+ salon:`<g fill="none" stroke="${c}" stroke-width="4.5" stroke-linecap="round"><circle cx="86" cy="118" r="10"/><circle cx="114" cy="118" r="10"/><path d="M92 110 120 68M108 110 80 68"/></g>`,
+ dining:`<g fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round"><path d="M88 80q-5-6 0-12t0-12M100 78q-5-7 0-14t0-14M112 80q-5-6 0-12t0-12"/><path d="M128 74 142 52M134 76 148 54"/></g><path d="M68 90h64a32 32 0 0 1-64 0z" fill="${c}"/>`,
+ pilates:`<g fill="none" stroke="${c}" stroke-width="4.5" stroke-linecap="round"><circle cx="100" cy="70" r="8" fill="${c}"/><path d="M100 80v26M100 88 80 76M100 88l20-12M100 106 84 128M100 106l16 22"/><path d="M66 134h68"/></g>`,
+ photo:`<rect x="66" y="80" width="68" height="46" rx="8" fill="${c}"/><rect x="84" y="72" width="22" height="10" rx="3" fill="${c}"/><circle cx="100" cy="103" r="15" fill="#FFF3E2"/><circle cx="100" cy="103" r="8" fill="${c}"/>`,
+ shop:`<path d="M72 86h56l-6 46H78z" fill="${c}"/><path d="M86 86v-8a14 14 0 0 1 28 0v8" fill="none" stroke="${c}" stroke-width="5"/>`,
+ factory:`<g transform="translate(100 100)"><circle r="24" fill="${c}"/>${[...Array(8)].map((_,i)=>`<rect x="-6" y="-34" width="12" height="14" rx="2" fill="${c}" transform="rotate(${i*45})"/>`).join('')}<circle r="9" fill="#FFF3E2"/></g>`}[ic]||'';
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><path id="em_${ic}" d="M100 100 m-75 0 a75 75 0 1 1 150 0 a75 75 0 1 1 -150 0"/></defs><circle cx="100" cy="100" r="99" fill="${c}"/><circle cx="100" cy="100" r="92" fill="none" stroke="#FFF3E2" stroke-width="1.6"/><text font-family="Pretendard,Arial,sans-serif" font-size="16" font-weight="800" fill="#FFF3E2" textLength="455" lengthAdjust="spacing"><textPath href="#em_${ic}">${en} ✦ SANBON ✦</textPath></text><circle cx="100" cy="100" r="60" fill="#FFF3E2"/><circle cx="100" cy="100" r="54" fill="none" stroke="${c}" stroke-width="1.6"/>${I}<text x="100" y="152" text-anchor="middle" font-family="Pretendard,Arial,sans-serif" font-size="8.5" font-weight="800" letter-spacing="2" fill="${c}">EST · 2026</text></svg>`}
+const KIT3D=(function(){
+ const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),eo=x=>1-Math.pow(1-x,3),eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,lerp=(a,b,k)=>a+(b-a)*k;
+ const eb=x=>{const c=1.9;x=x-1;return 1+(c+1)*x*x*x+c*x*x};
+ function tex(svg){const c=document.createElement('canvas');c.width=c.height=512;const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;const im=new Image();im.onload=()=>{c.getContext('2d').drawImage(im,0,0,512,512);t.needsUpdate=true};im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);return t}
+ function soft(){const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d');const r=g.createRadialGradient(64,64,0,64,64,64);r.addColorStop(0,'rgba(255,255,255,.95)');r.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=r;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)}
+ /* 업종별 모델 — P(지오메트리, 재질, 위치, 회전, 옵션) 순서대로 조립된다 */
+ const KINDS={
+  salon(T,P,M,K){const acc=M.c(0xC9636F),wh=M.c(0xF6EFEC,.25),st=M.steel(),gd=M.gold();
+   P(new T.CylinderGeometry(1.25,1.35,.12,48),M.wood(),[0,.06,0]);
+   P(new T.CylinderGeometry(.06,.06,2.2,16),gd,[-1.0,1.2,-.6]);
+   P(new T.TorusGeometry(.62,.06,16,64),gd,[-1.0,2.6,-.6]);
+   P(new T.CircleGeometry(.58,48),M.mirror(),[-1.0,2.6,-.58]);
+   P(new T.CylinderGeometry(.34,.38,1.2,36),wh,[.35,1.55,0],[0,0,Math.PI/2]);
+   P(new T.CylinderGeometry(.22,.34,.42,32),acc,[1.15,1.55,0],[0,0,Math.PI/2]);
+   P(new T.TorusGeometry(.3,.05,12,40),st,[-.28,1.55,0],[0,Math.PI/2,0]);
+   P(new T.CylinderGeometry(.13,.15,.95,24),acc,[.15,.95,0],[0,0,-.25]);
+   P(new T.BoxGeometry(1.5,.05,.12),st,[.45,.18,.75],[0,.35,0]);
+   P(new T.BoxGeometry(1.5,.05,.12),st,[.45,.18,.75],[0,-.35,0]);
+   P(new T.TorusGeometry(.14,.035,10,28),acc,[-.32,.18,.48],[Math.PI/2,0,0]);
+   P(new T.TorusGeometry(.14,.035,10,28),acc,[-.32,.18,1.02],[Math.PI/2,0,0]);
+   K.logo=[ .35,1.55,.36,0];K.tick=(t,S)=>{};K.air=[1.45,1.55,0]},
+  dining(T,P,M){const br=M.gold(),wd=M.wood(),wh=M.c(0xF4EEE6,.3);
+   P(new T.BoxGeometry(3.2,.14,2.1),wd,[0,.07,0]);
+   [[-1.2,.9],[1.2,.9],[-1.2,-.9],[1.2,-.9]].forEach(p=>P(new T.CylinderGeometry(.06,.06,.3,10),wd,[p[0],-.1,p[1]]));
+   const bowl=(r,h)=>new T.LatheGeometry([[0,0],[r*.55,0],[r*.6,.04],[r,h],[r*.96,h],[r*.56,.07],[0,.07]].map(p=>new T.Vector2(p[0],p[1])),40);
+   P(bowl(.55,.5),br,[-.75,.14,-.3]);P(bowl(.6,.45),br,[.55,.14,-.3]);
+   [-1.1,-.3,.5,1.2].forEach(x=>P(bowl(.28,.14),wh,[x,.14,.6]));
+   P(new T.CylinderGeometry(.53,.53,.02,40),M.c(0xF7F2E8,.5),[-.75,.55,-.3]);
+   P(new T.CylinderGeometry(.57,.57,.02,40),M.c(0xA8382C,.4),[.55,.5,-.3]);
+   P(new T.CylinderGeometry(.025,.02,1.2,10),br,[1.25,.18,-.1],[Math.PI/2,0,.05]);
+   P(new T.CylinderGeometry(.025,.02,1.2,10),br,[1.35,.18,-.1],[Math.PI/2,0,.05]);
+   P(new T.CylinderGeometry(.03,.03,.9,10),br,[1.0,.18,-.1],[Math.PI/2,0,0]);
+   K_.logo=[0,.07,1.06,0];K_.steam=[[-.75,.7,-.3],[.55,.65,-.3]]},
+  pilates(T,P,M){const wd=M.wood(),gr=M.c(0x2F6B55,.45),st=M.steel(),cr=M.c(0xEDE6DA,.4);
+   [[-1.6,.5],[1.6,.5],[-1.6,-.5],[1.6,-.5]].forEach(p=>P(new T.BoxGeometry(.18,.5,.18),wd,[p[0],.25,p[1]]));
+   P(new T.BoxGeometry(3.6,.16,.14),wd,[0,.55,.5]);P(new T.BoxGeometry(3.6,.16,.14),wd,[0,.55,-.5]);
+   P(new T.BoxGeometry(.14,.16,1.1),wd,[-1.73,.55,0]);P(new T.BoxGeometry(.14,.16,1.1),wd,[1.73,.55,0]);
+   for(let i=0;i<4;i++)P(new T.CylinderGeometry(.035,.035,.9,8),st,[-1.1,.58,-.3+i*.2],[0,0,Math.PI/2]);
+   P(new T.BoxGeometry(1.5,.14,.9),gr,[-.2,.72,0]);P(new T.BoxGeometry(.5,.12,.9),gr,[-.95,.78,0]);
+   P(new T.BoxGeometry(.16,.32,.18),gr,[.35,.95,.25]);P(new T.BoxGeometry(.16,.32,.18),gr,[.35,.95,-.25]);
+   P(new T.TorusGeometry(.48,.04,10,30,Math.PI),st,[1.55,.62,0],[0,Math.PI/2,0]);
+   P(new T.CylinderGeometry(.18,.18,.12,24),cr,[-1.73,1.0,.42],[Math.PI/2,0,0]);P(new T.CylinderGeometry(.18,.18,.12,24),cr,[-1.73,1.0,-.42],[Math.PI/2,0,0]);
+   K_.logo=[0,.55,.58,0];K_.slide=true},
+  photo(T,P,M){const bd=M.c(0x3A3330,.45),mv=M.c(0x8C6276,.35),st=M.steel(),gl=M.glass();
+   [0,2.09,4.19].forEach(a=>P(new T.CylinderGeometry(.04,.05,2.0,10),st,[Math.sin(a)*.55,.95,Math.cos(a)*.55],[Math.cos(a)*.3,0,-Math.sin(a)*.3]));
+   P(new T.CylinderGeometry(.22,.26,.2,24),st,[0,1.95,0]);
+   P(new T.BoxGeometry(1.7,1.0,.7),bd,[0,2.6,0]);P(new T.BoxGeometry(.4,.95,.25),mv,[-.72,2.6,.42]);
+   P(new T.BoxGeometry(.55,.32,.5),bd,[.1,3.24,0]);
+   P(new T.CylinderGeometry(.48,.48,.35,40),mv,[.2,2.6,.52],[Math.PI/2,0,0]);
+   P(new T.CylinderGeometry(.42,.44,.3,40),st,[.2,2.6,.84],[Math.PI/2,0,0]);
+   P(new T.CylinderGeometry(.38,.4,.25,40),bd,[.2,2.6,1.1],[Math.PI/2,0,0]);
+   P(new T.CircleGeometry(.33,40),gl,[.2,2.6,1.23]);
+   P(new T.CylinderGeometry(.1,.1,.08,20),mv,[-.55,3.14,.1]);
+   P(new T.BoxGeometry(.5,.3,.36),bd,[.1,3.55,0]);P(new T.BoxGeometry(.42,.22,.04),M.c(0xFFF6E8,.2),[.1,3.55,.2]);
+   K_.logo=[.62,2.75,.36,0];K_.flash=[.1,3.55,.35]},
+  shop(T,P,M){const wd=M.wood(),gl=M.glass(),wx=M.c(0xF5EBDD,.6),mg=M.c(0xD49A1E,.3),pt=M.c(0xE9DCCB,.5),lf=M.c(0x4F8A4B,.5),rt=M.c(0xB98A55,.8);
+   P(new T.BoxGeometry(3.6,.14,1.3),wd,[0,.07,0]);
+   P(new T.CylinderGeometry(.34,.34,.62,36,1,true),gl,[-1.2,.45,0]);P(new T.CylinderGeometry(.32,.32,.4,36),wx,[-1.2,.34,0]);P(new T.CylinderGeometry(.02,.02,.12,8),M.c(0x3A3330),[-1.2,.6,0]);
+   const mug=new T.LatheGeometry([[0,0],[.3,0],[.33,.05],[.33,.62],[.3,.62],[.3,.08],[0,.08]].map(p=>new T.Vector2(p[0],p[1])),40);
+   P(mug,mg,[-.25,.14,0]);P(new T.TorusGeometry(.16,.04,12,24,Math.PI),mg,[.08,.45,0],[0,0,-Math.PI/2]);
+   const pot=new T.LatheGeometry([[0,0],[.26,0],[.36,.5],[.38,.52],[.34,.52],[.24,.06],[0,.06]].map(p=>new T.Vector2(p[0],p[1])),36);
+   P(pot,pt,[.75,.14,0]);
+   for(let i=0;i<5;i++){const a=i*1.26;P(new T.SphereGeometry(.2,16,12),lf,[.75+Math.sin(a)*.14,.95+(i%2)*.15,Math.cos(a)*.14],[0,a,.6],{s:[.5,1.4,.25]})}
+   P(new T.CylinderGeometry(.42,.34,.36,24,1,true),rt,[1.55,.32,.1]);
+   K_.logo=[0,.07,.66,0];K_.flame=[-1.2,.72,0]},
+  factory(T,P,M){const st=M.steel(),or=M.c(0xB4541E,.35),dk=M.c(0x4A4440,.5),gr=M.c(0xD9D2C6,.4);
+   const gear=(R,n,d)=>{const s=new T.Shape();for(let i=0;i<n*2;i++){const a0=i/(n*2)*Math.PI*2,a1=(i+1)/(n*2)*Math.PI*2,r=i%2?R*.82:R;s.absarc(0,0,r,a0,a1,false)}const h=new T.Path();h.absarc(0,0,R*.28,0,Math.PI*2,true);s.holes.push(h);return new T.ExtrudeGeometry(s,{depth:d,bevelEnabled:true,bevelThickness:.02,bevelSize:.02,bevelSegments:2,curveSegments:6})};
+   P(new T.BoxGeometry(3.6,.16,1.6),gr,[0,.08,0]);
+   K_.g1=P(gear(.75,14,.2),or,[-1.0,1.05,-.4]);K_.g2=P(gear(.48,9,.2),st,[.12,.86,-.4],[0,0,.18]);
+   P(new T.CylinderGeometry(.42,.42,.9,36),st,[1.15,.61,.2]);P(new T.CylinderGeometry(.5,.5,.1,36),or,[1.15,1.1,.2]);P(new T.CylinderGeometry(.5,.5,.1,36),or,[1.15,.21,.2]);
+   P(new T.CylinderGeometry(.08,.08,.5,16),st,[1.15,1.4,.2]);P(new T.ConeGeometry(.12,.3,20),or,[1.15,1.75,.2],[Math.PI,0,0]);
+   const curve=new T.CatmullRomCurve3([new T.Vector3(.75,.5,.35),new T.Vector3(.2,.3,.75),new T.Vector3(-.6,.35,.6),new T.Vector3(-1.2,.45,.5)]);
+   P(new T.TubeGeometry(curve,40,.07,10,false),dk,[0,0,0]);
+   P(new T.BoxGeometry(.7,.8,.35),gr,[-1.3,.56,.45]);P(new T.BoxGeometry(.5,.3,.02),M.c(0x2E8B57,.2),[-1.3,.7,.63]);
+   K_.logo=[-1.3,.38,.63,0];K_.spin=true}
+ };
+ let K_={};
+ function start(wrap,kind,acc){
+  let alive=true,dockT=-1,raf=0;const t0=performance.now(),clock=()=>(performance.now()-t0)/1000;
+  const api={dock(){dockT=clock()},stop(){alive=false;cancelAnimationFrame(raf)}};
+  CUP3D.load().then(()=>{if(!alive||!document.contains(wrap))return;try{build()}catch(e){console.warn(e);wrap.classList.add('fail')}}).catch(()=>wrap.classList.add('fail'));
+  function build(){
+   const T=THREE,W=wrap.clientWidth||800,H=wrap.clientHeight||470;
+   const R=new T.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio||1,2));R.setSize(W,H);R.outputEncoding=T.sRGBEncoding;R.toneMapping=T.ACESFilmicToneMapping;R.toneMappingExposure=.95;R.shadowMap.enabled=true;R.shadowMap.type=T.PCFSoftShadowMap;
+   wrap.appendChild(R.domElement);wrap.classList.add('live');wrap.parentElement.classList.add('has3d');
+   const S=new T.Scene();S.environment=new T.PMREMGenerator(R).fromScene(new T.RoomEnvironment(),.04).texture;
+   const cam=new T.PerspectiveCamera(32,W/H,.1,100);
+   const sun=new T.DirectionalLight(0xfff1e0,2.1);sun.position.set(4,9,6);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-5,right:5,top:5,bottom:-5});sun.shadow.radius=6;sun.shadow.bias=-.0006;sun.shadow.normalBias=.03;S.add(sun);
+   S.add(new T.HemisphereLight(0xfff6ea,0xd9b48c,.6));
+   const fl=new T.Mesh(new T.PlaneGeometry(40,40),new T.ShadowMaterial({opacity:.2}));fl.rotation.x=-Math.PI/2;fl.position.y=-.3;fl.receiveShadow=true;S.add(fl);
+   const em={emissive:0xF06A1E,emissiveIntensity:0};
+   const M={c:(col,r=.35)=>new T.MeshPhysicalMaterial({color:col,roughness:r,clearcoat:.8,envMapIntensity:.6,...em}),
+    steel:()=>new T.MeshPhysicalMaterial({color:0xD6D1CA,metalness:1,roughness:.22,envMapIntensity:1.1,...em}),
+    gold:()=>new T.MeshPhysicalMaterial({color:0xD9A95B,metalness:1,roughness:.25,envMapIntensity:1,...em}),
+    wood:()=>new T.MeshPhysicalMaterial({color:0xB98A5E,roughness:.55,clearcoat:.4,...em}),
+    mirror:()=>new T.MeshPhysicalMaterial({color:0xEDE8E2,metalness:1,roughness:.04,envMapIntensity:1.3,...em}),
+    glass:()=>new T.MeshPhysicalMaterial({color:0xFFFFFF,roughness:.05,transmission:.9,thickness:.2,transparent:true,opacity:.5,side:T.DoubleSide,...em})};
+   const root=new T.Group();S.add(root);const parts=[];
+   const P=(geo,mat,pos,rot=[0,0,0],o={})=>{const g=new T.Group();g.position.set(...pos);g.rotation.set(...rot);const m=new T.Mesh(geo,mat);m.castShadow=m.receiveShadow=true;if(o.s)m.scale.set(...o.s);
+    const e=new T.LineSegments(new T.EdgesGeometry(geo,25),new T.LineBasicMaterial({color:0xFF7A2E,transparent:true,opacity:.95}));m.add(e);g.add(m);root.add(g);const p={g,m,e,pos:g.position.clone(),rot:g.rotation.clone()};parts.push(p);return p};
+   K_={};KINDS[kind](T,P,M,K_);
+   /* 로고판 */
+   const lg=new T.Group();const L=K_.logo||[0,1,0,0];lg.position.set(L[0],L[1],L[2]+.02);lg.rotation.y=L[3];root.add(lg);
+   const lgm=new T.Mesh(new T.CircleGeometry(.36,48),new T.MeshPhysicalMaterial({map:tex(EMBLEM_SVG(K_en,kind,acc)),roughness:.35,clearcoat:1}));lg.add(lgm);
+   const lgr=new T.Mesh(new T.TorusGeometry(.37,.02,10,48),M.steel());lg.add(lgr);
+   /* 크기·중심 */
+   const box=new T.Box3().setFromObject(root),ctr=box.getCenter(new T.Vector3()),rad=box.getSize(new T.Vector3()).length()/2;
+   const n=parts.length,span=5.0;
+   parts.forEach((p,i)=>{p.t0=.35+i*(span/n);p.t1=p.t0+.75;const a=i*2.39996;p.off=[Math.cos(a)*rad*1.6,rad*(.8+(i%3)*.35),Math.sin(a)*rad*1.6];p.spin=[(i%2?1:-1)*2.4,(i%3-1)*3,(i%2?-1:1)*1.6];p.g.visible=false});
+   /* 효과 */
+   const st=soft();const fx=[];const spr=(pos,sc,op)=>{const s=new T.Sprite(new T.SpriteMaterial({map:st,transparent:true,opacity:0,depthWrite:false,blending:T.AdditiveBlending}));s.position.set(...pos);s.scale.setScalar(sc);root.add(s);fx.push(s);return s};
+   const steam=(K_.steam||[]).map(p=>[0,1,2].map(i=>{const s=spr(p,.5,0);s.material.blending=T.NormalBlending;s.userData={p,i};return s})).flat();
+   const flame=K_.flame?spr(K_.flame,.35,0):null;if(flame)flame.material.color=new T.Color(0xFFB050);
+   const flash=K_.flash?spr(K_.flash,1,0):null;const air=K_.air?[0,1,2,3].map(i=>{const s=spr(K_.air,.3,0);s.userData={i};return s}):[];
+   const NP=200,pg=new T.BufferGeometry(),pos=new Float32Array(NP*3),vel=[],life=new Float32Array(NP);pg.setAttribute('position',new T.BufferAttribute(pos,3));for(let i=0;i<NP;i++){vel.push(new T.Vector3());pos[i*3+1]=-99}
+   const pts=new T.Points(pg,new T.PointsMaterial({color:0xFFA45C,size:.06,transparent:true,blending:T.AdditiveBlending,depthWrite:false}));root.add(pts);let pi=0;
+   const burst=(v,k=10)=>{for(let j=0;j<k;j++){const i=pi++%NP;pos[i*3]=v.x;pos[i*3+1]=v.y;pos[i*3+2]=v.z;vel[i].set((Math.random()-.5)*3,Math.random()*2.4,(Math.random()-.5)*3);life[i]=.6+Math.random()*.4}};
+   let last=performance.now();
+   function frame(){if(!alive||!document.contains(wrap)){alive=false;return}
+    const now=performance.now(),dt=Math.min(.05,(now-last)/1000);last=now;const t=clock();
+    parts.forEach(p=>{const e=eb(seg(t,p.t0,p.t1)),u=1-e;p.g.visible=t>p.t0;p.g.position.set(p.pos.x+p.off[0]*u,p.pos.y+p.off[1]*u,p.pos.z+p.off[2]*u);p.g.rotation.set(p.rot.x+p.spin[0]*u,p.rot.y+p.spin[1]*u,p.rot.z+p.spin[2]*u);
+     const k=t<p.t1?0:Math.max(0,1-(t-p.t1)/.6);p.m.material.emissiveIntensity=k*1.3;p.e.material.opacity=t<p.t1?.95:Math.max(0,.95*(1-(t-p.t1)/.9));p.e.visible=p.e.material.opacity>.01;
+     if(t>p.t1&&!p.done){p.done=1;burst(p.g.getWorldPosition(new T.Vector3()),10)}});
+    {const e=eb(seg(t,5.5,6.2));lg.visible=t>5.5;lg.rotation.y=L[3]+Math.PI*(1-e);lg.scale.setScalar(.3+.7*e)}
+    /* 업종별 동작 */
+    if(K_.spin&&t>5.6){const w=(t-5.6)*1.6;K_.g1.g.rotation.z=w;K_.g2.g.rotation.z=.18-w*1.55}
+    if(K_.slide&&t>5.8){const c=parts.find(p=>p.m.geometry.parameters&&p.m.geometry.parameters.width===1.5);if(c)c.g.position.x=c.pos.x+Math.sin((t-5.8)*2)*.35}
+    steam.forEach(s=>{const ph=((t*.35+s.userData.i/3)%1);s.position.set(s.userData.p[0]+Math.sin(t+s.userData.i)*.08,s.userData.p[1]+ph*1.2,s.userData.p[2]);s.material.opacity=cl((t-5.8)/.8)*.3*Math.sin(ph*Math.PI);s.scale.setScalar(.4+ph*.6)});
+    if(flame){flame.material.opacity=t>5.8?.8+Math.sin(t*23)*.15:0;flame.scale.set(.22,.38+Math.sin(t*17)*.04,1)}
+    if(flash){const f=t>6.0&&t<6.6?1-((t-6.0)/.6):0;flash.material.opacity=f;flash.scale.setScalar(1+f*5)}
+    air.forEach(s=>{const ph=((t*1.2+s.userData.i/4)%1);s.position.set(K_.air[0]+ph*1.6,K_.air[1]+Math.sin(ph*9)*.05,K_.air[2]);s.material.opacity=t>5.8?.25*Math.sin(ph*Math.PI):0;s.scale.setScalar(.2+ph*.5)});
+    for(let i=0;i<NP;i++){if(life[i]>0){life[i]-=dt*1.4;vel[i].y-=dt*5;pos[i*3]+=vel[i].x*dt;pos[i*3+1]+=vel[i].y*dt;pos[i*3+2]+=vel[i].z*dt;if(life[i]<=0)pos[i*3+1]=-99}}pg.attributes.position.needsUpdate=true;
+    /* 카메라 */
+    const k0=eio(seg(t,0,7));let az=-.9+k0*1.3,el=.32+k0*.1,ds=rad*3.3-k0*rad*.5;let tx=ctr.x,ty=ctr.y,tz=ctr.z;
+    let px=tx+ds*Math.cos(el)*Math.sin(az),py=ty+ds*Math.sin(el),pz=tz+ds*Math.cos(el)*Math.cos(az);
+    const kl=eio(seg(t,7.44,8.4));if(kl>0){const lp=lg.getWorldPosition(new T.Vector3());px=lerp(px,lp.x+.1,kl);py=lerp(py,lp.y+.45,kl);pz=lerp(pz,lp.z+1.9,kl);tx=lerp(tx,lp.x,kl);ty=lerp(ty,lp.y,kl);tz=lerp(tz,lp.z,kl)}
+    if(dockT>0){const k=eio(seg(t,dockT,dockT+1.2));const d2=rad*2.45,a2=.55,e2=.36;px=lerp(px,ctr.x+d2*Math.cos(e2)*Math.sin(a2),k);py=lerp(py,ctr.y+d2*Math.sin(e2),k);pz=lerp(pz,ctr.z+d2*Math.cos(e2)*Math.cos(a2),k);tx=lerp(tx,ctr.x,k);ty=lerp(ty,ctr.y,k);tz=lerp(tz,ctr.z,k);root.rotation.y=(t-dockT)*.3*k}
+    cam.position.set(px,py,pz);cam.lookAt(tx,ty,tz);
+    const w=wrap.clientWidth,h=wrap.clientHeight;if(w&&h&&(R.domElement.width!==Math.round(w*R.getPixelRatio())||R.domElement.height!==Math.round(h*R.getPixelRatio()))){R.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()}
+    R.render(S,cam);raf=requestAnimationFrame(frame)}
+   frame()}
+  return api}
+ let K_en='';
+ return {start:(w,k,acc,en)=>{K_en=en||'';return start(w,k,acc)}};
+})();
+
+/* v14 — 학원(산본글로벌어학원 실제 사례): 영어·히라가나·한자가 모여 아키 완성 → 원어민 선생님들과 대화(클릭 진행) */
+const SG='https://sanbonglobal.com/img/';
+const AKI_PTS='622,9,b66965;297,37,ad5f5f;338,37,b76767;378,37,b96a6c;419,37,bd7270;541,37,994f4c;581,37,aa5654;622,37,ad5f5f;662,37,b56162;703,37,ad696d;256,65,af6763;297,65,b76767;338,65,b76767;378,65,ac5a5a;419,65,c37977;541,65,a5504d;581,65,a5504d;622,65,b56162;662,65,ad5f5f;703,65,b76c6c;297,93,aa5654;338,93,ac5a5a;378,93,c37977;419,93,af6666;459,93,b96a6c;541,93,a5504d;581,93,a5504d;622,93,aa5654;662,93,b56162;338,121,ad605c;378,121,ac5a5a;419,121,b96a6c;459,121,aa5654;500,121,aa5654;500,149,ab605d;419,177,bd7270;459,177,b66965;500,177,ad5f5f;541,177,b46261;581,177,bd7270;216,205,712d29;256,205,bd7071;297,205,57140d;338,205,541614;378,205,6b1d17;419,205,712d29;459,205,6e2725;500,205,6f241e;541,205,712d29;581,205,802e29;622,205,953f3b;662,205,c58282;703,205,a24843;744,205,984641;175,233,c58282;216,233,af6666;256,233,af6666;297,233,b96a6c;338,233,b96a6c;378,233,bd7071;419,233,bd7071;459,233,b96a6c;500,233,b96a6c;541,233,b96a6c;581,233,bd7071;622,233,bd7071;662,233,bd7071;703,233,b96a6c;744,233,b96a6c;784,233,c37b7f;825,233,a5504d;134,261,c37977;175,261,ad5f5f;216,261,ad5f5f;256,261,ad5f5f;297,261,ad5f5f;338,261,ac5a5a;378,261,ad5f5f;419,261,b76767;459,261,b76767;500,261,b56162;541,261,b56162;581,261,b56162;622,261,ad5f5f;662,261,b56162;703,261,b56162;744,261,bd7071;784,261,bd7071;825,261,c58282;866,261,994f4c;94,289,994f4c;134,289,ac5a5a;175,289,ac5a5a;216,289,ad5f5f;256,289,420c09;297,289,340402;338,289,360a07;378,289,340402;419,289,360a07;459,289,360a07;500,289,360a07;541,289,360a07;581,289,360a07;622,289,360a07;662,289,340402;703,289,541614;744,289,ad5f5f;784,289,c37977;825,289,b96a6c;866,289,c47f7a;906,289,bd7270;94,317,c47f7a;134,317,a5504d;175,317,b76767;216,317,360a07;256,317,360a07;297,317,360a07;338,317,400402;378,317,420c09;419,317,360a07;459,317,360a07;500,317,360a07;541,317,360a07;581,317,360a07;622,317,420c09;662,317,420c09;703,317,360a07;744,317,864d4f;784,317,813837;825,317,bd7071;866,317,ad696d;906,317,994f4c;53,345,560d07;94,345,994f4c;134,345,994f4c;175,345,420c09;216,345,340402;256,345,360a07;297,345,4a1512;338,345,57140d;378,345,400402;419,345,360a07;459,345,360a07;500,345,360a07;541,345,360a07;581,345,340402;622,345,400402;662,345,ad5f5f;703,345,420c09;744,345,360a07;784,345,834849;825,345,c37b7f;866,345,b76767;906,345,984641;947,345,bd7270;53,373,bd7071;94,373,994f4c;134,373,a5504d;175,373,340402;216,373,360a07;256,373,420c09;297,373,83352f;338,373,a0403d;378,373,984641;419,373,360a07;459,373,360a07;500,373,360a07;541,373,360a07;581,373,420c09;622,373,b55852;662,373,953f3b;703,373,46120f;744,373,360a07;784,373,6e3737;825,373,ad5f5f;866,373,b96a6c;906,373,a5504d;947,373,83352f;12,401,bd7270;53,401,6f241e;94,401,a5504d;134,401,aa5654;175,401,340402;216,401,360a07;256,401,a24843;297,401,560d07;338,401,984641;378,401,c58282;419,401,420c09;459,401,360a07;500,401,360a07;541,401,360a07;581,401,6b1d17;622,401,c37977;662,401,c58282;703,401,953f3b;744,401,420c09;784,401,4c1a17;825,401,b56162;866,401,b96a6c;906,401,a0403d;947,401,c58282;12,429,bd7270;53,429,a5504d;94,429,aa5654;134,429,ad5f5f;175,429,340402;216,429,360a07;256,429,953f3b;297,429,984641;338,429,8e3631;378,429,8d2f2c;419,429,46120f;459,429,360a07;500,429,360a07;541,429,420c09;581,429,8e3631;622,429,8e3631;662,429,953f3b;703,429,bd7071;744,429,420c09;784,429,420c09;825,429,b56162;866,429,b96a6c;906,429,a5504d;947,429,aa5654;53,457,a54d45;94,457,aa5654;134,457,aa5654;175,457,360a07;216,457,360a07;256,457,400402;297,457,aa5654;338,457,bf6f67;378,457,b76767;419,457,46120f;459,457,360a07;500,457,420c09;541,457,420c09;581,457,c37977;622,457,bf6f67;662,457,bf6f67;703,457,c47f7a;744,457,340402;784,457,420c09;825,457,b76767;866,457,b96a6c;906,457,a24843;947,457,aa5654;94,485,ad5f5f;134,485,aa5654;175,485,46120f;216,485,360a07;256,485,420c09;297,485,541614;338,485,420c09;378,485,46120f;419,485,360a07;459,485,b76767;500,485,aa5d57;541,485,420c09;581,485,340402;622,485,420c09;662,485,57140d;703,485,560d07;744,485,420c09;784,485,4a1512;825,485,b96a6c;866,485,b96a6c;906,485,a24843;947,485,984641;134,513,aa5654;175,513,ac5a5a;216,513,46120f;256,513,46120f;297,513,46120f;338,513,420c09;378,513,360a07;419,513,360a07;459,513,360a07;500,513,360a07;541,513,360a07;581,513,420c09;622,513,420c09;662,513,420c09;703,513,46120f;744,513,4a1512;784,513,400402;825,513,b76767;866,513,b76767;906,513,c37977;134,541,aa5654;175,541,aa5654;216,541,bd7071;256,541,46120f;297,541,46120f;338,541,46120f;378,541,46120f;419,541,46120f;459,541,46120f;500,541,46120f;541,541,46120f;581,541,46120f;622,541,46120f;662,541,4a1512;703,541,4a1512;744,541,6f241e;784,541,b76767;825,541,b76767;866,541,c37977;906,541,ad5f5f;175,569,aa5654;216,569,aa5654;256,569,aa5654;297,569,ad5f5f;338,569,ad5f5f;378,569,b96a6c;419,569,ac5a5a;459,569,853e3b;500,569,864442;541,569,a5504d;581,569,b96a6c;622,569,ad5f5f;662,569,b76767;703,569,ad5f5f;744,569,b56162;784,569,b56162;825,569,bd7071;866,569,c37977;906,569,aa5654;216,597,aa5d57;256,597,a5504d;297,597,aa5654;338,597,aa5654;378,597,aa5654;419,597,aa5654;459,597,aa5654;500,597,aa5654;541,597,aa5654;581,597,a5504d;622,597,aa5654;662,597,aa5654;703,597,aa5654;744,597,aa5d57;784,597,c47f7a;825,597,af6666;866,597,aa5654;378,625,83352f;419,625,953f3b;459,625,953f3b;500,625,953f3b;541,625,953f3b;581,625,953f3b;622,625,a5504d;662,625,c47f7a;703,625,c47f7a;744,625,994f4c;784,625,994f4c;297,653,b66965;338,653,83352f;378,653,802e29;419,653,802e29;459,653,8e3631;500,653,8e3631;541,653,953f3b;581,653,a5504d;622,653,aa5654;662,653,a5504d;703,653,c37977;744,653,bd7071;216,681,a5504d;256,681,7b251f;297,681,953f3b;338,681,a5504d;378,681,8e3631;419,681,a5504d;459,681,a5504d;500,681,a5504d;541,681,aa5654;581,681,a5504d;622,681,a5504d;662,681,b56162;703,681,802e29;744,681,a5504d;784,681,b9706f;175,709,994f4c;216,709,aa5654;256,709,540400;297,709,a5504d;338,709,a5504d;378,709,aa5654;419,709,a5504d;459,709,a5504d;500,709,a5504d;541,709,802e29;581,709,b45a5c;622,709,bd7071;662,709,bd7071;703,709,b56162;744,709,a5504d;784,709,ad5f5f;175,737,984949;216,737,66150d;256,737,953f3b;297,737,a24949;338,737,ac5a5a;378,737,aa5654;419,737,953f3b;459,737,ac5a5a;500,737,b56162;541,737,b45a5c;581,737,ac5a5a;622,737,ad5f5f;662,737,c37977;703,737,b96a6c;744,737,b5514d;784,737,b76767;825,737,c07776;134,765,ab605d;175,765,aa5654;216,765,7b251f;256,765,8e3631;297,765,a5504d;338,765,a5504d;378,765,aa5654;419,765,a5504d;459,765,a24949;500,765,903837;541,765,b56162;581,765,b56162;622,765,b56162;662,765,b76767;703,765,b56162;784,765,aa5654;825,765,b96a6c;134,793,ad5f5f;175,793,a5504d;256,793,953f3b;297,793,a24949;338,793,a5504d;378,793,ac5a5a;419,793,aa5654;459,793,ac5a5a;500,793,b96a6c;541,793,ac5a5a;581,793,ad5f5f;622,793,b96a6c;662,793,b76767;703,793,b96a6c;784,793,a54d45;825,793,bd7071;134,821,aa5654;175,821,b55852;256,821,953f3b;297,821,a24843;338,821,a5504d;378,821,a5504d;419,821,af6666;459,821,ad5f5f;500,821,c37b7f;541,821,984641;581,821,b56162;622,821,b56162;662,821,b76767;703,821,b76767;784,821,9b4e4a;825,821,b56162;866,821,af6666;134,849,aa5d57;175,849,aa5c59;256,849,984641;297,849,a5504d;338,849,994f4c;378,849,a54d45;419,849,b56162;459,849,aa5654;500,849,994f4c;541,849,bd7071;581,849,b76767;622,849,b96a6c;662,849,b96a6c;703,849,b96a6c;825,849,a24843;866,849,b76767;134,877,984641;256,877,a5504d;297,877,a5504d;338,877,a5504d;378,877,984641;419,877,984d43;459,877,ad5f5f;500,877,99595c;541,877,57140d;581,877,b56162;622,877,b76767;662,877,b96a6c;703,877,b76767;825,877,944741;866,877,b76c6c;256,905,a5504d;297,905,a5504d;338,905,984641;378,905,984641;419,905,a24843;459,905,984641;500,905,984641;541,905,a5504d;581,905,b56162;622,905,b96a6c;662,905,b76767;703,905,b76767;256,933,994f4c;297,933,a5504d;338,933,a5504d;378,933,a54d45;419,933,a24843;459,933,a24843;500,933,a5504d;541,933,a5504d;581,933,b56162;622,933,ad5f5f;662,933,b76767;703,933,b76767;297,961,984641;338,961,984641;378,961,a24843;419,961,a24949;459,961,a5504d;500,961,a5504d;541,961,aa5654;581,961,a5504d;622,961,aa5654;662,961,aa5654;703,961,b56162';
+const AKI_TALK=[
+ {w:'aki',l:'ko',t:'안녕하세요! 저는 산본글로벌어학원 AI 도우미 아키예요.',k:'오늘은 선생님들께 인사드리러 왔어요!'},
+ {w:'en',l:'en',t:'Hi Aki! Welcome! Shall we start with some small talk?',k:'안녕 아키! 반가워요. 스몰토크부터 해볼까요?'},
+ {w:'aki',l:'en',t:'Yes! How was your weekend?',k:'네! 주말 어떻게 보내셨어요?'},
+ {w:'en',l:'en',t:'Great — I went hiking! See? That\'s how small talk starts.',k:'좋았어요, 등산 갔어요! 봐요, 스몰토크는 이렇게 시작해요.'},
+ {w:'ja',l:'ja',t:'アキちゃん、こんにちは!',k:'아키, 안녕하세요!'},
+ {w:'aki',l:'ja',t:'はじめまして!日本語、少しできます。',k:'처음 뵙겠습니다! 일본어 조금 할 수 있어요.'},
+ {w:'ja',l:'ja',t:'上手ですね!一緒に練習しましょう。',k:'잘하네요! 같이 연습해요.'},
+ {w:'zh',l:'zh',t:'你好,Aki!',k:'안녕하세요, 아키!'},
+ {w:'aki',l:'zh',t:'你好!我想学中文。',k:'안녕하세요! 중국어 배우고 싶어요.'},
+ {w:'zh',l:'zh',t:'没问题!我们一起说吧。',k:'문제없어요! 우리 같이 말해 봐요.'},
+ {w:'aki',l:'ko',t:'영어 · 일본어 · 중국어,',k:'원어민 선생님과 산본글로벌어학원에서 시작해요!',end:1}];
+const AKI_WHO={en:{img:'teachers/eng_11.png',n:'Jerollyn 선생님',r:'영어 원어민'},ja:{img:'teachers/jpn_5.png',n:'조미히로 선생님',r:'일본어 원어민'},zh:{img:'teachers/chn_7.png',n:'중국어 선생님',r:'중국 현지인'}};
+function tplAki(t){
+ const pool='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんアイウエオカキクケコ你好我们学说中文汉字谢再见朋友老师学生今天明天爱家人'.split('');
+ const pts=AKI_PTS.split(';').map(s=>s.split(','));const AH=50,AW=AH*.69,cx=50,top=4.5;let gl='';
+ pts.forEach((p,i)=>{const x=cx-AW/2+(+p[0])/1000*AW,y=top+(+p[1])/1000*AH*1.0;const r=(a)=>{const v=Math.sin(i*12.9898+a*78.233)*43758.5453;return v-Math.floor(v)};
+  const fx=(r(1)-.5)*140,fy=(r(2)-.5)*90,fz=Math.round((r(3)-.5)*1400),rx=Math.round((r(4)-.5)*720),ry=Math.round((r(5)-.5)*720);
+  const ch=pool[Math.floor(r(6)*pool.length)];
+  gl+=`<i class="gy" style="left:${x.toFixed(2)}cqw;top:${y.toFixed(2)}cqw;color:#${p[2]};--f:translate3d(${(fx-x+50).toFixed(1)}cqw,${(fy-y+29).toFixed(1)}cqw,${fz}px) rotateX(${rx}deg) rotateY(${ry}deg);--d:${(r(7)*1.3).toFixed(2)}s">${ch}</i>`});
+ return `<div class="ak" id="ak"><div class="akbg"></div><div class="gys" data-s="1">${gl}</div>
+ <img class="akimg" src="${SG}aki/aki_hero.png" alt="아키"><div class="aktag">아키 · AI 도우미</div>
+ <div class="who"><div class="wimg"><img alt=""></div><b></b><small></small></div>
+ <div class="bub"><small class="lang"></small><p class="t"></p><p class="k"></p></div>
+ <div class="akcta"><a href="https://sanbonglobal.com" target="_blank" rel="noopener">무료 레벨테스트</a><a href="https://sanbonglobal.com" target="_blank" rel="noopener">상담 신청</a></div>
+ <div class="hint">화면을 누르면 다음 대사 ▶</div><div class="dots">${AKI_TALK.map(()=>'<i></i>').join('')}</div></div>`}
+const AKI={start(g,sb,T,done){const a=g.querySelector('#ak');if(!a)return;let n=-1;
+ const mark=s=>sb.forEach((b,j)=>{b.classList.toggle('on',j==s);b.classList.toggle('done',j<s)});
+ mark(0);T(()=>a.classList.add('go'),900);
+ T(()=>{mark(1);a.classList.add('img')},4300);
+ T(()=>{a.classList.add('talk');show(0)},5700);
+ const LN={ko:'',en:'English',ja:'日本語',zh:'中文'};
+ function show(i){n=i;const L=AKI_TALK[i];const w=L.w==='aki'?null:AKI_WHO[L.w];
+  const seg=L.l==='en'?2:L.l==='ja'?3:L.l==='zh'?4:(i===0?1:5);mark(seg);
+  if(w){const im=a.querySelector('.wimg img');if(!im.src.endsWith(w.img)){a.classList.add('flip');setTimeout(()=>{im.src=SG+w.img;a.querySelector('.who b').textContent=w.n;a.querySelector('.who small').textContent=w.r;a.classList.remove('flip')},260)}a.classList.add('hasw')}
+  a.classList.toggle('akis',L.w==='aki');const b=a.querySelector('.bub');b.classList.remove('in');void b.offsetWidth;
+  b.querySelector('.lang').textContent=L.w==='aki'?'아키'+(LN[L.l]?' · '+LN[L.l]:''):(w.n.replace(' 선생님','')+' · '+LN[L.l]);
+  b.querySelector('.t').textContent=L.t;b.querySelector('.k').textContent=L.l==='ko'?'':L.k;if(L.l==='ko')b.querySelector('.t').textContent=L.t+' '+L.k;
+  b.setAttribute('lang',L.l==='zh'?'zh':L.l);b.classList.add('in');
+  [...a.querySelectorAll('.dots i')].forEach((d,j)=>d.classList.toggle('on',j<=i));
+  a.classList.toggle('end',!!L.end);done(!!L.end)}
+ a.addEventListener('click',e=>{if(e.target.closest('.akcta'))return;if(!a.classList.contains('talk'))return;if(n<AKI_TALK.length-1)show(n+1)});
+}};
+
+
+/* v14 — 업종별 완성 홈페이지 데이터 (사진: Unsplash) */
+const TF={
+ cafe:{h:'photo-1600093463592-8e36ae95ef56',c:[['photo-1509042239860-f550ce710b93',0],['photo-1495474472287-4d71bcdd2085',1],['photo-1442512595331-e89e73853f31',3]],sm:'Specialty Coffee — 산본',ti:['아침이','달라지는 한 잔'],p:'매일 아침 직접 볶은 원두로 내립니다.<br>창가 자리는 8시 전에 오시면 비어 있어요.',orb:'SPECIALTY COFFEE · SANBON · ROASTED DAILY · ',nv:'주문하기',a2:'오시는 길'},
+ salon:{h:'photo-1626383137804-ff908d2753a2',c:[['photo-1695527081848-1e46c06e6458',0],['photo-1776850476481-2bccba2e35c7',1],['photo-1787880172059-1c52decb1ca9',3]],sm:'Hair Salon — 산본',ti:['한 번에','한 분만'],p:'예약한 한 분만, 처음부터 끝까지 원장이 직접 합니다.<br>평일 오전은 대기 없이 바로 앉으실 수 있어요.',nv:'예약하기',a2:'오시는 길'},
+ dining:{h:'photo-1708388064672-6536507fdf6e',c:[['photo-1498654896293-37aacf113fd9',0],['photo-1761303506087-9788d0a98e87',1],['photo-1632558610168-8377309e34c7',2]],sm:'Korean Beef Dining — 산본',ti:['1++ 한우를,','조용한 룸에서'],p:'1++ 한우만 씁니다. 6인·10인 룸은 상견례로 많이 찾으세요.<br>룸은 하루 전까지 예약해 주세요.',nv:'룸 예약',a2:'코스 보기'},
+ pilates:{h:'photo-1717500251997-80b234166d00',c:[['photo-1717500251741-cdbc93342d5a',0],['photo-1717500252573-d31d4bf5ddf1',1],['photo-1747239685045-fcbcf98985db',3]],sm:'Pilates Studio — 산본',ti:['허리가','먼저 알아요'],p:'기구 그룹은 정원 4명, 강사 한 명이 끝까지 자세를 봅니다.<br>체험 1회에서 체형 측정부터 해 드려요.',nv:'체험 신청',a2:'시간표 보기'},
+ photo:{h:'photo-1617463874381-85b513b3e991',c:[['photo-1654765437547-6b572f52ee1a',0],['photo-1763013259279-3195d6330519',1],['photo-1768565077836-121f6cae75d9',2]],sm:'Portrait Studio — 산본',ti:['빛이 머무는','사진'],p:'촬영 후 바로 모니터로 같이 고르고, 보정본은 3일 안에 보내 드립니다.<br>가족사진은 주말 오전이 가장 빨리 마감돼요.',nv:'촬영 문의',a2:'작업 보기'},
+ shop:{h:'photo-1760863264228-fa0792a2d894',c:[['photo-1646562011038-73774c1ef7d7',0],['photo-1485955900006-10f4d324d411',1],['photo-1775029676778-5a43b2edc4bd',2]],sm:'Small Things Shop — 산본',ti:['작은 물건이','하루를 바꿔요'],p:'작가님들이 손으로 만든 물건만 들여옵니다.<br>선물 포장은 무료, 매주 금요일 신상이 들어와요.',nv:'신상 보기',a2:'오시는 길'},
+ factory:{h:'photo-1610891015188-5369212db097',c:[['photo-1764114235891-66ff86abaf87',0],['photo-1620203853151-496c7228306c',1],['photo-1513828646384-e4d8ec30d2bb',2]],sm:'Hot Melt Parts — B2B',ti:['멈춘 라인,','부품부터'],p:'노즐·히팅호스·펌프까지 규격별로 바로 찾습니다.<br>도면 번호만 보내 주시면 맞는 규격을 찾아 드립니다.',nv:'견적 문의',a2:'견적 문의'}};
+const wonP=v=>/^[\d,]+~?$/.test(v)?v.replace('~','')+'원'+(v.endsWith('~')?'~':''):v;
+const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)).join(',');
 const UNS=id=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=`;
-function tplTf(t){
- const hero=UNS('photo-1600093463592-8e36ae95ef56')+'1800&q=80';
+function tplTf(t){const k=t.k,D=TF[k]||TF.cafe,LG=k==='cafe'?LOGO_SVG:EMBLEM_SVG(t.en,k,t.acc);
+ const hero=UNS(D.h)+'1800&q=80';
  const C=8,R=5,W=100/C,H=58.9/R,OFF=(66.7-58.9)/2;let tl='';
  for(let r=0;r<R;r++)for(let c=0;c<C;c++){const l=c*W,tp=r*H,d=Math.hypot(l+W/2-79,tp+H/2-22);
   tl+=`<i class="tl" style="left:${l}cqw;top:${tp}cqw;background-image:url(${hero});background-size:100cqw 66.7cqw;background-position:${-l}cqw ${-(tp+OFF)}cqw;--d:${(.25+d*.011).toFixed(2)}s"></i>`}
- const card=[['photo-1509042239860-f550ce710b93',t.it[0]],['photo-1495474472287-4d71bcdd2085',t.it[1]],['photo-1442512595331-e89e73853f31',t.it[3]]];
- const ttl=['아침이','달라지는 한 잔'];let n=0;
- const h3=ttl.map(w=>[...w].map(ch=>ch===' '?' ':`<span class="ch" style="--d:${(n++*.06).toFixed(2)}s">${ch}</span>`).join('')).join('<br>');
- return `<div class="tf"><div class="tiles" data-s="5">${tl}</div>
+ const card=D.c.map(c=>[c[0],t.it[c[1]]]);let n=0;
+ const h3=D.ti.map(w=>[...w].map(ch=>ch===' '?' ':`<span class="ch" style="--d:${(n++*.06).toFixed(2)}s">${ch}</span>`).join('')).join('<br>');
+ const orb=D.orb||`${t.sub.toUpperCase()} · SANBON · ${t.en} · `;
+ return `<div class="tf" style="--ac:${k==='cafe'?'#F06A1E':t.acc};--sh:${rgb(t.ink)}"><div class="tiles" data-s="5">${tl}</div>
  <div class="shade" data-s="5"></div>
- <div class="orb" data-s="5"><svg viewBox="0 0 100 100"><defs><path id="tfc" d="M50 50 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs><text><textPath href="#tfc">SPECIALTY COFFEE · SANBON · ROASTED DAILY · </textPath></text></svg><div class="pic" style="background-image:url(${UNS('photo-1514432324607-a09d9b4aefdd')}700&q=80)"></div></div>
+ <div class="orb" data-s="5"><svg viewBox="0 0 100 100"><defs><path id="tfc" d="M50 50 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs><text><textPath href="#tfc">${orb}</textPath></text></svg><div class="pic" style="background-image:url(${UNS(D.h)}700&q=80)"></div></div>
  <div class="cup3d" id="cup3d"></div>
- <div class="lg" data-s="4">${LOGO_SVG}</div>
- <div class="nav" data-s="5"><b><i class="mini">${LOGO_SVG}</i>${t.en}</b><span>${t.it.slice(0,3).map(i=>`<i style="font-style:normal">${i[0]}</i>`).join('')}<i style="font-style:normal">오시는 길</i></span><em>주문하기</em></div>
- <div class="cards" data-s="5">${card.map((c,j)=>`<div class="cd" style="--d:${(1.5+j*.14).toFixed(2)}s;--fx:${(-j*11).toFixed(1)}cqw"><i style="background-image:url(${UNS(c[0])}500&q=75)"></i><b>${c[1][0]}</b><small>${c[1][1]}원</small></div>`).join('')}</div>
- <div class="ttl" data-s="5"><small>Specialty Coffee — 산본</small><h3>${h3}</h3><p>매일 아침 직접 볶은 원두로 내립니다.<br>창가 자리는 8시 전에 오시면 비어 있어요.</p></div>
- <div class="acts" data-s="5"><a>${t.cta}</a><a>오시는 길</a></div></div>`}
-const STYLE={tf:{n:'조립형 시네마틱',w:'트랜스포머식 조립 연출',f:tplTf},ice:{n:'Igloo Inc.',w:'Awwwards 올해의 사이트',f:tplIce},pla:{n:'Messenger',w:'Awwwards 올해의 사이트',f:tplPla},bold:{n:'Outfit',w:'Awwwards 오늘의 사이트',f:tplBold},serif:{n:'Délice',w:'Awwwards 우수상',f:tplSerif}};
-const ORDER=[['cafe','tf'],['salon','bold'],['dining','serif'],['pilates','pla'],['academy','bold'],['photo','ice'],['shop','pla'],['factory','serif']];
-const STEPS=['배경','로고·메뉴','주인공','제목','버튼'],TFSTEPS=['머신','커피잔','추출','로고','홈페이지'];
+ <div class="lg" data-s="4">${LG}</div>
+ <div class="nav" data-s="5"><b><i class="mini">${LG}</i>${t.en}</b><span>${t.it.slice(0,3).map(i=>`<i style="font-style:normal">${i[0]}</i>`).join('')}<i style="font-style:normal">오시는 길</i></span><em>${D.nv}</em></div>
+ <div class="cards" data-s="5">${card.map((c,j)=>`<div class="cd" style="--d:${(1.5+j*.14).toFixed(2)}s;--fx:${(-j*11).toFixed(1)}cqw"><i style="background-image:url(${UNS(c[0])}500&q=75)"></i><b>${c[1][0]}</b><small>${wonP(c[1][1])}</small></div>`).join('')}</div>
+ <div class="ttl" data-s="5"><small>${D.sm}</small><h3>${h3}</h3><p>${D.p}</p></div>
+ <div class="acts" data-s="5"><a>${t.cta}</a><a>${D.a2}</a></div></div>`}
+const STYLE={tf:{n:'조립형 시네마틱',w:'트랜스포머식 조립 연출',f:tplTf},aki:{n:'실제 사례',w:'sanbonglobal.com · 아키와 원어민 선생님',f:tplAki},ice:{n:'Igloo Inc.',w:'Awwwards 올해의 사이트',f:tplIce},pla:{n:'Messenger',w:'Awwwards 올해의 사이트',f:tplPla},bold:{n:'Outfit',w:'Awwwards 오늘의 사이트',f:tplBold},serif:{n:'Délice',w:'Awwwards 우수상',f:tplSerif}};
+const ORDER=[['cafe','tf'],['salon','tf'],['dining','tf'],['pilates','tf'],['academy','aki'],['photo','tf'],['shop','tf'],['factory','tf']];Object.keys(IND).forEach(k=>IND[k].k=k);
+const STEPS=['배경','로고·메뉴','주인공','제목','버튼'],TFSTEPS=['머신','커피잔','추출','로고','홈페이지'],KITSTEPS=['부품','조립','동작','로고','홈페이지'],AKSTEPS=['글자','아키','영어','일본어','중국어'];
 let DUR=7000;let qi=0,timers=[],raf=0;
 const $=id=>document.getElementById(id);
 $('steps').innerHTML=STEPS.map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
 $('ind9').innerHTML=ORDER.map(([k],i)=>`<button type="button" data-i="${i}">${IND[k].n}</button>`).join('');
 function run(i){
  timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);qi=i;
- const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk];DUR=sk==='tf'?13000:7000;if(window._cup)_cup.stop();window._cup=null;
- $('steps').innerHTML=(sk==='tf'?TFSTEPS:STEPS).map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
- $('sUrl').textContent=t.en.toLowerCase().replace(/\s/g,'')+'.kr';
- $('gen').innerHTML=`<div class="scene ${sk==='tf'?'tfx':'tilt'}" id="scene">${st.f(t)}</div>`;$('sscr').classList.remove('flat');$('sscr').classList.toggle('tfbg',sk==='tf');
+ const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?5700:7000;if(window._cup)_cup.stop();window._cup=null;
+ $('steps').innerHTML=(ak?AKSTEPS:sk==='tf'?(k==='cafe'?TFSTEPS:KITSTEPS):STEPS).map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
+ $('sUrl').textContent=t.real||t.en.toLowerCase().replace(/\s/g,'')+'.kr';
+ $('gen').innerHTML=`<div class="scene ${sk==='tf'||ak?'tfx':'tilt'}" id="scene">${st.f(t)}</div>`;$('sscr').classList.remove('flat');$('sscr').classList.toggle('tfbg',sk==='tf');$('sscr').classList.toggle('akbgx',ak);
  $('nowName').textContent=`${t.n} · ${t.s}`;$('nowStyle').textContent=`스타일: ${st.n} (${st.w}) 참고`;
  [...$('ind9').children].forEach((b,j)=>{b.classList.toggle('on',j==i)});
  $('ctaTry').style.display=t.demo>=0?'':'none';
  const sb=[...$('steps').children];sb.forEach(b=>b.classList.remove('on','done'));
  const g=$('gen'),T=(f,ms)=>timers.push(setTimeout(f,ms));const step=(DUR-600)/5;
- for(let n=1;n<=5;n++)T(()=>{sb.forEach((b,j)=>{b.classList.toggle('on',j==n-1);b.classList.toggle('done',j<n-1)});
+ if(!ak)for(let n=1;n<=5;n++)T(()=>{sb.forEach((b,j)=>{b.classList.toggle('on',j==n-1);b.classList.toggle('done',j<n-1)});
    g.querySelectorAll('[data-s="'+n+'"]').forEach(e=>{e.classList.add('on','hl');setTimeout(()=>e.classList.remove('hl'),650)});
    g.querySelectorAll('[data-s="'+n+'"] .blk,[data-s="'+n+'"] .card').forEach((b,j)=>setTimeout(()=>b.classList.add('on'),j*120));
  },300+(n-1)*step);
- if(sk==='tf'){T(()=>{const w=$('cup3d');if(w)window._cup=CUP3D.start(w)},300);T(()=>{const f=g.querySelector('.tf');f&&f.classList.add('lgscene')},300+3*step);T(()=>{const w=$('cup3d'),f=g.querySelector('.tf'),lg=g.querySelector('.tf .lg');f&&f.classList.remove('lgscene');if(w){w.classList.add('dock');window._cup&&_cup.dock()}if(lg){lg.classList.add('go');setTimeout(()=>lg.classList.add('gone'),1600)}},300+4*step)}
+ if(sk==='tf'){T(()=>{const w=$('cup3d');if(w)window._cup=k==='cafe'?CUP3D.start(w):KIT3D.start(w,k,t.acc,t.en)},300);T(()=>{const f=g.querySelector('.tf');f&&f.classList.add('lgscene')},300+3*step);T(()=>{const w=$('cup3d'),f=g.querySelector('.tf'),lg=g.querySelector('.tf .lg');f&&f.classList.remove('lgscene');if(w){w.classList.add('dock');window._cup&&_cup.dock()}if(lg){lg.classList.add('go');setTimeout(()=>lg.classList.add('gone'),1600)}},300+4*step)}
  const t0=performance.now(),fill=$('barFill');
- (function tick(){const p=Math.min(1,(performance.now()-t0)/DUR);fill.style.transform=`scaleX(${1-p})`;$('barSec').textContent=p<1?Math.ceil((DUR-(performance.now()-t0))/1000)+'초':'완성!';$('barTxt').textContent=p<1?'완성까지':'홈페이지 완성';if(p<1)raf=requestAnimationFrame(tick)})();
+ (function tick(){const p=Math.min(1,(performance.now()-t0)/DUR);fill.style.transform=`scaleX(${1-p})`;$('barSec').textContent=p<1?Math.ceil((DUR-(performance.now()-t0))/1000)+'초':'완성!';$('barTxt').textContent=p<1?(ak?'아키 완성까지':'완성까지'):(ak?'화면을 눌러 대화를 넘겨 보세요':'홈페이지 완성');if(p<1)raf=requestAnimationFrame(tick)})();
+ if(ak){let idle=0;const arm=ms=>{clearTimeout(idle);idle=setTimeout(()=>run((i+1)%ORDER.length),ms);timers.push(idle)};arm(45000);AKI.start(g,sb,T,end=>{arm(end?12000:30000);if(end)$('ind9').children[i].classList.add('done')});return}
  T(()=>{const sc=$('scene');sc.classList.remove('tilt');sc.classList.add('flat');$('sscr').classList.add('flat');sb.forEach((b,j)=>{b.classList.toggle('on',j==5);b.classList.toggle('done',j<5)});$('ind9').children[i].classList.add('done')},DUR-900);
  T(()=>run((i+1)%ORDER.length),DUR+3000);
 }
