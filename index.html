@@ -710,7 +710,18 @@ section.hx9{overflow-x:hidden}
 .ak.logo .go2{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
 .ak .go2 small{font-weight:600;opacity:.85;margin-left:.6cqw}
 .ak.logo .tile,.ak.logo .sub,.ak.logo .dots,.ak.logo .fix,.ak.logo>.tag1{opacity:0!important;pointer-events:none;transition:opacity .5s}
-.ak.logo .akimg{left:82cqw;top:16cqw;height:32cqw}
+.ak.logo .akimg{left:17cqw;top:17cqw;height:34cqw}
+.ak .wel{position:absolute;left:4cqw;top:5.5cqw;z-index:8;background:#fff;color:#3A1F2A;font-size:2.1cqw;font-weight:900;line-height:1.35;padding:1.3cqw 2cqw;border-radius:1.6cqw;box-shadow:0 1.2cqw 2.6cqw -1cqw rgba(120,40,70,.45);border:.3cqw solid #C8486E;word-break:keep-all;opacity:0;transform:translateY(1cqw) scale(.85);transform-origin:30% 100%;transition:opacity .4s,transform .45s cubic-bezier(.3,1.4,.4,1);pointer-events:none}
+.ak .wel::after{content:"";position:absolute;left:11cqw;bottom:-1.5cqw;border:1.2cqw solid transparent;border-top-color:#C8486E;border-bottom:0}
+.ak .wel b{color:#C8486E}
+.ak.wel .wel{opacity:1;transform:none}
+.ak.home .wel{opacity:0}
+#sgFull{position:fixed;inset:0;z-index:99999;background:#fff;display:none}
+#sgFull.on{display:block}
+#sgFull iframe{width:100%;height:100%;border:0;display:block}
+#sgFull .x{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:66px;height:66px;border-radius:50%;border:0;background:#FFD43B;color:#3A1F2A;font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px -6px rgba(0,0,0,.35)}
+#sgFull .nw{position:fixed;right:18px;bottom:30px;background:#C8486E;color:#fff;font-size:13px;font-weight:800;padding:10px 16px;border-radius:99px;text-decoration:none}
+#sgFull .x:focus-visible,#sgFull .nw:focus-visible{outline:3px solid #E7A3B6;outline-offset:3px}
 .ak .akcta{display:none!important}
 
 @media (prefers-reduced-motion:reduce){.ak *{animation:none!important;transition:none!important}}
@@ -1288,7 +1299,11 @@ function tplAki(t){
  <a class="medal" href="https://sanbonglobal.com" target="_blank" rel="noopener" aria-label="산본글로벌어학원 홈페이지 열기"><img src="${SG}sga_emblem.png" alt="SGA 산본글로벌어학원"></a>
  <a class="go2" href="https://sanbonglobal.com" target="_blank" rel="noopener">산본글로벌어학원 홈페이지 보기 ▶<small>sanbonglobal.com</small></a>
  <div class="hp"><iframe title="산본글로벌어학원 홈페이지" tabindex="-1" src="https://sanbonglobal.com/?embed=1"></iframe></div><a class="hpa" href="https://sanbonglobal.com" target="_blank" rel="noopener" aria-label="산본글로벌어학원 홈페이지 열기"></a>
+ <div class="wel">산본글로벌어학원에<br><b>오신 걸 환영합니다!</b></div>
  <div class="hint" hidden></div></div>`}
+function sgFull(){let f=document.getElementById('sgFull');if(!f){f=document.createElement('div');f.id='sgFull';f.setAttribute('role','dialog');f.setAttribute('aria-label','산본글로벌어학원 홈페이지');f.innerHTML='<iframe title="산본글로벌어학원 홈페이지" src="https://sanbonglobal.com/?embed=1"></iframe><a class="nw" href="https://sanbonglobal.com" target="_blank" rel="noopener">새 창으로 열기</a><button class="x" type="button">닫기</button>';f.querySelector('.x').onclick=()=>{f.classList.remove('on');document.documentElement.style.overflow=''};document.body.appendChild(f)}f.classList.add('on');document.documentElement.style.overflow='hidden';f.querySelector('.x').focus()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const f=document.getElementById('sgFull');if(f&&f.classList.contains('on'))f.querySelector('.x').click()}});
+document.addEventListener('click',e=>{const l=e.target.closest('#ak a[href^="https://sanbonglobal.com"]');if(l){e.preventDefault();sgFull()}});
 const AKI={start(g,sb,T,done){const a=g.querySelector('#ak');if(!a)return;let n=-1,tw=0,seq=0;const fit=()=>a.style.setProperty('--hs',(a.clientWidth/1440).toFixed(4));fit();
  const mark=s=>sb.forEach((b,j)=>{b.classList.toggle('on',j==s);b.classList.toggle('done',j<s)});
  const cap=a.querySelector('.cap'),say=s=>{cap.classList.remove('on');setTimeout(()=>{cap.innerHTML=s;cap.classList.add('on')},180)};
@@ -1310,7 +1325,7 @@ const AKI={start(g,sb,T,done){const a=g.querySelector('#ak');if(!a)return;let n=
   tw=setInterval(()=>{o.textContent=s.slice(0,++c).join('');if(c>=s.length){clearInterval(tw);k.textContent=L.k}},L.l==='ko'?45:38);
   fx.classList.remove('on');if(L.fix){fx.querySelector('.x').textContent=L.fix[0];fx.querySelector('.v').textContent=L.fix[1];setTimeout(()=>fx.classList.add('on'),Math.min(1400,s.length*38+200))}
   [...a.querySelectorAll('.dots i')].forEach((d,j)=>d.classList.toggle('on',j<=i));
-  a.classList.toggle('end',!!L.end);const my=++seq;if(!L.end)T(()=>{if(my===seq&&n===i)show(i+1)},Math.max(4200,1500+[...L.t].length*70+[...L.k].length*55));else{T(()=>{if(my!==seq)return;mark(3);a.classList.add('logo');SFX.chime()},1800);T(()=>{if(my!==seq)return;fit();a.classList.add('home');SFX.reveal()},2900);T(()=>{if(my!==seq)return;mark(4);done(true)},4300)}}
+  a.classList.toggle('end',!!L.end);const my=++seq;if(!L.end)T(()=>{if(my===seq&&n===i)show(i+1)},Math.max(4200,1500+[...L.t].length*70+[...L.k].length*55));else{T(()=>{if(my!==seq)return;mark(3);a.classList.add('logo');SFX.chime()},1800);T(()=>{if(my!==seq)return;a.classList.add('wel');SFX.speak('산본글로벌어학원에 오신 걸 환영합니다!','ko-KR')},2200);T(()=>{if(my!==seq)return;fit();a.classList.add('home');SFX.reveal()},5000);T(()=>{if(my!==seq)return;mark(4);done(true)},6400)}}
  a.addEventListener('click',e=>{if(e.target.closest('.akcta,a'))return;if(a.classList.contains('logo'))return;if(!a.classList.contains('talk'))return;if(n<AKI_TALK.length-1)show(n+1)});
 }};
 
@@ -1381,7 +1396,7 @@ const SFX=(function(){let ac=null,master=null,on=true,noiseBuf=null;
   shutter(){if(!ok())return;const t=ac.currentTime;noise(t,.05,'highpass',2000,1,.35,.002);noise(t+.09,.06,'highpass',1500,1,.28,.002);tone(t+.2,2600,.6,'sine',.04,.05,4200)},
   strike(){if(!ok())return;const t=ac.currentTime;noise(t,.25,'bandpass',3000,1,.25,.01);noise(t+.2,.8,'lowpass',600,.5,.08,.1)},
   whir(){if(!ok())return;const t=ac.currentTime;const o=tone(t,90,2.2,'sawtooth',.07,.3,140);noise(t+1.4,.7,'highpass',3500,.7,.12,.05)},
-  speak(txt,lang){if(!on||!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang||'en-US';u.rate=.95;const v=speechSynthesis.getVoices().find(x=>/^en(-|_)US/i.test(x.lang)&&/female|samantha|zira|google us/i.test(x.name))||speechSynthesis.getVoices().find(x=>/^en/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+  speak(txt,lang){if(!on||!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang||'en-US';u.rate=.95;const vs=speechSynthesis.getVoices(),L2=u.lang.slice(0,2).toLowerCase(),v=(L2==='en'&&vs.find(x=>/^en(-|_)US/i.test(x.lang)&&/female|samantha|zira|google us/i.test(x.name)))||vs.find(x=>x.lang.toLowerCase().startsWith(L2)&&/female|google|heami|yuna|sunhi/i.test(x.name))||vs.find(x=>x.lang.toLowerCase().startsWith(L2));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
  };return api})();
 const KSFX={cafe:[[2600,'grind'],[5200,'brew']],salon:[[5700,'dryer'],[6900,'snip']],dining:[[5700,'sizzle']],pilates:[[5800,'spring']],photo:[[6000,'shutter']],shop:[[5800,'strike']],factory:[[5600,'whir']]};
 let swT=0,swGo=null;
@@ -1394,7 +1409,7 @@ function run(i){clearTimeout(swT);timers.forEach(clearTimeout);timers=[];cancelA
 $('sw9').onclick=()=>swGo&&swGo();$('sndBtn').onclick=e=>{e.stopPropagation();const b=e.currentTarget,v=!SFX.on;SFX.set(v);b.classList.toggle('off',!v);b.textContent=v?'🔊 소리':'🔇 소리 꺼짐';b.setAttribute('aria-label',v?'소리 끄기':'소리 켜기');if(!v&&window.speechSynthesis)speechSynthesis.cancel()};$('sw9').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();swGo&&swGo()}};
 function run0(i){SFX.reset();
  timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);qi=i;
- const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?14800:7000;if(window._cup)_cup.stop();window._cup=null;
+ const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?17000:7000;if(window._cup)_cup.stop();window._cup=null;
  $('steps').innerHTML=(ak?AKSTEPS:sk==='tf'?(k==='cafe'?TFSTEPS:KITSTEPS):STEPS).map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
  $('sUrl').textContent=t.real||t.en.toLowerCase().replace(/\s/g,'')+'.kr';
  $('gen').innerHTML=`<div class="scene ${sk==='tf'||ak?'tfx':'tilt'}" id="scene">${st.f(t)}</div>`;$('sscr').classList.remove('flat');$('sscr').classList.toggle('tfbg',sk==='tf');$('sscr').classList.toggle('akbgx',ak);
