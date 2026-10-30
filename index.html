@@ -626,49 +626,70 @@ section.hx9{overflow-x:hidden}
 .tf .stamp b{font-family:var(--en);font-size:2cqw;font-weight:500}
 .tf .stamp.on{opacity:1;transform:rotate(-12deg)}
 @media (prefers-reduced-motion:reduce){.tf *{animation:none!important;transition:none!important}}
-/* v14 학원 — 산본글로벌어학원 아키 */
+/* v15 학원 — 산본글로벌어학원 아키: 큰 글자가 모여 아키 → 원어민 선생님과 영상통화 수업 */
 .ak{position:absolute;inset:0;overflow:hidden;font-family:var(--sans);color:#4A2A36;cursor:pointer;user-select:none}
 .ak .akbg{position:absolute;inset:0;background:radial-gradient(60% 75% at 50% 42%,#FFFAF4 0,#FBE7E6 55%,#F3D2D8 100%)}
-.ak .akbg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;background:linear-gradient(0deg,rgba(200,72,110,.10),transparent)}
-.ak .gys{position:absolute;inset:0;perspective:900px;perspective-origin:50% 45%}
-.ak .gy{position:absolute;font-style:normal;font-size:1.5cqw;font-weight:900;line-height:1;margin:-.66cqw 0 0 -.5cqw;transform:var(--f);opacity:.9;text-shadow:0 0 .4cqw rgba(255,255,255,.7);transition:transform 1.7s cubic-bezier(.2,.85,.25,1) var(--d),opacity .6s var(--d)}
-.ak.go .gy{transform:none;opacity:1}
-.ak.img .gy{opacity:0;transform:scale(.2);transition:opacity .8s calc(var(--d)*.5),transform .8s calc(var(--d)*.5)}
-.ak .akimg{position:absolute;left:50%;top:4.5cqw;height:50cqw;width:auto;transform:translateX(-50%);opacity:0;filter:drop-shadow(0 1.4cqw 2cqw rgba(120,40,70,.25));transition:opacity 1.1s,left 1s cubic-bezier(.65,0,.25,1),top 1s cubic-bezier(.65,0,.25,1),height 1s cubic-bezier(.65,0,.25,1),transform .5s}
-.ak.img .akimg{opacity:1}
-.ak.talk .akimg{left:19cqw;top:9cqw;height:44cqw}
-.ak.talk.akis .akimg{transform:translateX(-50%) scale(1.03)}
-.ak .who{position:absolute;right:6cqw;top:9cqw;width:22cqw;text-align:center;opacity:0;transform:translateY(2cqw);transition:opacity .5s,transform .5s,filter .4s}
-.ak.hasw .who{opacity:1;transform:none}
-.ak.talk.akis .who{filter:saturate(.6) opacity(.7)}
-.ak.flip .who{opacity:0;transform:rotateY(70deg)}
-.ak .wimg{width:17cqw;height:17cqw;margin:0 auto;border-radius:50%;overflow:hidden;background:#FFF;box-shadow:0 0 0 .5cqw #fff,0 0 0 .75cqw #E7A3B6,0 2cqw 3cqw -1.2cqw rgba(120,40,70,.45)}
-.ak .wimg img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block}
-.ak .who b{display:block;margin-top:1.6cqw;font-size:1.7cqw;font-weight:800;color:#4A2A36}
-.ak .who small{display:inline-block;margin-top:.5cqw;font-size:1.05cqw;font-weight:700;color:#fff;background:#C8486E;padding:.35cqw 1cqw;border-radius:99px}
-.ak .bub{position:absolute;left:35cqw;top:31cqw;width:32cqw;background:#fff;border-radius:1.6cqw;padding:1.6cqw 1.9cqw;box-shadow:0 1.6cqw 3cqw -1.4cqw rgba(120,40,70,.45);opacity:0;transform:scale(.85) translateY(1cqw)}
-.ak .bub::after{content:"";position:absolute;top:2.2cqw;right:-1.3cqw;border:.8cqw solid transparent;border-left:1.4cqw solid #fff;border-right:0}
-.ak.akis .bub::after{right:auto;left:-1.3cqw;border-left:0;border-right:1.4cqw solid #fff}
-.ak .bub.in{animation:akPop .45s cubic-bezier(.3,1.5,.5,1) both}
-@keyframes akPop{from{opacity:0;transform:scale(.85) translateY(1cqw)}to{opacity:1;transform:none}}
-.ak .bub .lang{display:block;font-size:1cqw;font-weight:800;color:#C8486E;margin-bottom:.6cqw}
-.ak .bub .t{font-size:2.05cqw;font-weight:800;line-height:1.35;color:#3A1F2A;word-break:keep-all}
-.ak .bub .k{font-size:1.2cqw;line-height:1.5;margin-top:.7cqw;color:#8A6070}
-.ak .bub .k:empty{display:none}
-.ak .aktag{position:absolute;left:19cqw;top:53.2cqw;transform:translateX(-50%);font-size:1.05cqw;font-weight:800;color:#fff;background:#C8486E;padding:.35cqw 1cqw;border-radius:99px;opacity:0;transition:opacity .5s .6s}
-.ak.talk .aktag{opacity:1}
-.ak .hint{position:absolute;left:50%;bottom:2.4cqw;transform:translateX(-50%);font-size:1.1cqw;font-weight:800;color:#C8486E;opacity:0;transition:opacity .4s}
-.ak.talk:not(.end) .hint{opacity:1;animation:akHint 1.2s ease-in-out infinite alternate}
-@keyframes akHint{to{transform:translateX(-50%) translateY(-.4cqw)}}
-.ak .dots{position:absolute;left:35cqw;width:32cqw;top:27.6cqw;display:flex;gap:.45cqw;justify-content:center;opacity:0;transition:opacity .4s}
+.ak .gys{position:absolute;inset:0;perspective:1000px;perspective-origin:50% 45%;transition:opacity .6s}
+.ak .gy{position:absolute;font-style:normal;font-family:var(--en),var(--sans);font-size:3.3cqw;font-weight:900;line-height:1;width:3.4cqw;margin:-1.65cqw 0 0 -1.7cqw;text-align:center;color:#B9786A;opacity:0;transform:var(--f);text-shadow:0 .2cqw .5cqw rgba(120,40,70,.18);transition:transform 1.1s cubic-bezier(.2,1.2,.35,1) var(--d),opacity .25s var(--d),color .9s var(--c)}
+.ak .gy.on{opacity:1;transform:none}
+.ak.col .gy{color:var(--k)}
+.ak.boom .gy{opacity:0!important;transform:translate3d(var(--bx),var(--by),300px) scale(1.6)!important;transition:transform .9s cubic-bezier(.3,0,.6,1),opacity .7s .15s}
+.ak .bigA{position:absolute;left:50%;top:44%;font-family:var(--en),serif;font-weight:900;font-size:24cqw;line-height:1;color:#C8486E;transform:translate(-50%,-50%) scale(3);opacity:0;text-shadow:0 1.5cqw 3cqw rgba(200,72,110,.3)}
+.ak.go .bigA{animation:akA 1.6s cubic-bezier(.3,1.4,.4,1) forwards}
+@keyframes akA{0%{opacity:0;transform:translate(-50%,-50%) scale(3) rotate(-25deg)}35%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}70%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}100%{opacity:0;transform:translate(-50%,-50%) scale(.12)}}
+.ak .cap{position:absolute;left:70cqw;right:3cqw;top:22cqw;text-align:left;font-size:2.5cqw;line-height:1.35;font-weight:900;color:#C8486E;word-break:keep-all;opacity:0;transform:translateX(1.5cqw);transition:opacity .35s,transform .35s;z-index:5}
+.ak .cap.on{opacity:1;transform:none}
+.ak .akimg{position:absolute;left:50%;top:4.5cqw;height:50cqw;width:auto;transform:translateX(-50%) scale(.92);opacity:0;z-index:3;filter:drop-shadow(0 1.4cqw 2cqw rgba(120,40,70,.25));transition:opacity .8s,transform .8s cubic-bezier(.3,1.4,.4,1),left 1s cubic-bezier(.65,0,.25,1),top 1s cubic-bezier(.65,0,.25,1),height 1s cubic-bezier(.65,0,.25,1)}
+.ak.img .akimg{opacity:1;transform:translateX(-50%)}
+.ak .flash{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,#fff 0,rgba(255,255,255,0) 60%);opacity:0;pointer-events:none;z-index:4}
+.ak.img .flash{animation:akFl .9s ease-out}
+@keyframes akFl{0%{opacity:0}20%{opacity:1}100%{opacity:0}}
+/* 영상통화 수업 */
+.ak .tile{position:absolute;top:3.4cqw;width:45cqw;height:33cqw;border-radius:1.8cqw;overflow:hidden;opacity:0;transform:translateY(2cqw);transition:opacity .6s .3s,transform .6s .3s,box-shadow .3s,filter .3s;box-shadow:0 1.6cqw 3cqw -1.6cqw rgba(120,40,70,.45)}
+.ak .t1{left:3.5cqw;background:linear-gradient(160deg,#FFF3EE,#F6D3DB)}
+.ak .t2{left:51.5cqw;background:linear-gradient(160deg,#FFF6F0,#EFD6CC);perspective:900px}
+.ak.talk .tile{opacity:1;transform:none}
+.ak.talk .akimg{left:26cqw;top:5.2cqw;height:31cqw}
+.ak .tile.spk{box-shadow:0 0 0 .45cqw #C8486E,0 1.6cqw 3cqw -1.2cqw rgba(200,72,110,.6)}
+.ak .tile.mute{filter:saturate(.75) brightness(.97)}
+.ak .t2 .ph{position:absolute;inset:0;transition:transform .45s,opacity .45s;backface-visibility:hidden}
+.ak .t2 .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.ak .t2.flip .ph{transform:rotateY(90deg);opacity:.3}
+.ak .t2 .wait{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.6cqw;font-weight:800;color:#C8486E}
+.ak .t2 .wait i{width:.8cqw;height:.8cqw;border-radius:50%;background:#C8486E;margin-left:.6cqw;animation:akDot 1s infinite alternate}
+.ak .t2 .wait i:nth-child(2){animation-delay:.33s}.ak .t2 .wait i:nth-child(3){animation-delay:.66s}
+@keyframes akDot{to{opacity:.2;transform:translateY(-.5cqw)}}
+.ak .t2.has .wait{display:none}.ak .t2:not(.has) .tag{display:none}
+.ak .tag{position:absolute;left:1.2cqw;bottom:1.1cqw;z-index:5;display:flex;align-items:center;gap:.6cqw;background:rgba(255,255,255,.92);color:#3A1F2A;border-radius:99px;padding:.5cqw 1.2cqw;font-size:1.2cqw;font-weight:800}
+.ak .tag small{font-size:1cqw;font-weight:700;color:#fff;background:#C8486E;padding:.2cqw .7cqw;border-radius:99px}
+.ak .eq{display:none;gap:.2cqw;align-items:flex-end;height:1.2cqw}
+.ak .eq i{width:.28cqw;background:#C8486E;border-radius:.2cqw;animation:akEq .5s infinite alternate}
+.ak .eq i:nth-child(2){animation-delay:.15s}.ak .eq i:nth-child(3){animation-delay:.3s}
+@keyframes akEq{from{height:.3cqw}to{height:1.2cqw}}
+.ak .tile.spk .eq{display:flex}
+.ak>.tag1{left:4.7cqw;bottom:auto;top:32.4cqw;opacity:0;transition:opacity .5s .6s}.ak.talk>.tag1{opacity:1}.ak.akspk .tag1 .eq{display:flex}
+.ak .sub{position:absolute;left:4cqw;right:4cqw;top:38.6cqw;text-align:center;opacity:0;transition:opacity .4s}
+.ak.talk .sub{opacity:1}
+.ak .sub .who{font-size:1.1cqw;font-weight:800;color:#C8486E}
+.ak .sub .o{font-size:2.6cqw;font-weight:900;color:#3A1F2A;line-height:1.3;margin-top:.4cqw;min-height:3.4cqw;word-break:keep-all}
+.ak .sub .k{font-size:1.4cqw;color:#7E5566;margin-top:.5cqw;line-height:1.45;word-break:keep-all}
+.ak .fix{position:absolute;left:50%;top:13cqw;z-index:7;transform:translate(-50%,0) scale(.6);opacity:0;background:#fff;border-radius:1.4cqw;padding:1.3cqw 2cqw;box-shadow:0 1.6cqw 3cqw -1cqw rgba(120,40,70,.5);text-align:center;transition:transform .45s cubic-bezier(.3,1.6,.5,1),opacity .3s;pointer-events:none;min-width:22cqw}
+.ak .fix.on{opacity:1;transform:translate(-50%,0) scale(1)}
+.ak .fix .x{font-size:1.9cqw;font-weight:800;color:#B04040;text-decoration:line-through;text-decoration-thickness:.25cqw}
+.ak .fix .v{font-size:2.5cqw;font-weight:900;color:#2E7D4F;margin-top:.5cqw}
+.ak .fix small{display:block;font-size:1cqw;font-weight:800;color:#C8486E;margin-bottom:.5cqw}
+.ak .dots{position:absolute;left:0;right:0;top:37.2cqw;display:flex;gap:.45cqw;justify-content:center;opacity:0;transition:opacity .4s}
 .ak.talk .dots{opacity:1}
 .ak .dots i{width:.6cqw;height:.6cqw;border-radius:50%;background:rgba(200,72,110,.25)}
 .ak .dots i.on{background:#C8486E}
-.ak .akcta{position:absolute;left:35cqw;width:32cqw;top:47cqw;display:flex;gap:1cqw;justify-content:center;opacity:0;transform:translateY(1cqw);pointer-events:none;transition:all .5s .3s}
+.ak .hint{position:absolute;left:50%;bottom:1.4cqw;transform:translateX(-50%);font-size:1.15cqw;font-weight:800;color:#fff;background:#C8486E;padding:.5cqw 1.4cqw;border-radius:99px;opacity:0;transition:opacity .4s}
+.ak.talk:not(.end) .hint{opacity:1;animation:akHint 1.2s ease-in-out infinite alternate}
+@keyframes akHint{to{transform:translateX(-50%) translateY(-.4cqw)}}
+.ak .akcta{position:absolute;left:0;right:0;bottom:1.2cqw;display:flex;gap:1cqw;justify-content:center;opacity:0;transform:translateY(1cqw);pointer-events:none;transition:all .5s .3s}
 .ak.end .akcta{opacity:1;transform:none;pointer-events:auto}
-.ak .akcta a{font-size:1.3cqw;font-weight:800;padding:1.1cqw 2.2cqw;border-radius:99px;text-decoration:none;color:#C8486E;border:1.5px solid #C8486E;background:#fff}
+.ak .akcta a{font-size:1.3cqw;font-weight:800;padding:.9cqw 2.2cqw;border-radius:99px;text-decoration:none;color:#C8486E;border:1.5px solid #C8486E;background:#fff}
 .ak .akcta a:first-child{background:#C8486E;color:#fff}
-.ak .akcta a:focus-visible,.ak:focus-visible{outline:3px solid #E7A3B6;outline-offset:2px}
+.ak .akcta a:focus-visible{outline:3px solid #E7A3B6;outline-offset:2px}
 .s9 .sscr.akbgx::before{opacity:0}
 @media (prefers-reduced-motion:reduce){.ak *{animation:none!important;transition:none!important}}
 
@@ -1201,48 +1222,61 @@ const KIT3D=(function(){
  return {start:(w,k,acc,en)=>{K_en=en||'';return start(w,k,acc)}};
 })();
 
-/* v14 — 학원(산본글로벌어학원 실제 사례): 영어·히라가나·한자가 모여 아키 완성 → 원어민 선생님들과 대화(클릭 진행) */
+/* v15 — 학원(산본글로벌어학원 실제 사례): 큰 A가 떨어지고 → 알파벳·히라가나·한자가 하나씩 모여 → 뭐지? → 아키 등장 → 원어민 선생님과 영상통화 수업(아키가 틀리면 선생님이 바로 고쳐 줌) */
 const SG='https://sanbonglobal.com/img/';
-const AKI_PTS='622,9,b66965;297,37,ad5f5f;338,37,b76767;378,37,b96a6c;419,37,bd7270;541,37,994f4c;581,37,aa5654;622,37,ad5f5f;662,37,b56162;703,37,ad696d;256,65,af6763;297,65,b76767;338,65,b76767;378,65,ac5a5a;419,65,c37977;541,65,a5504d;581,65,a5504d;622,65,b56162;662,65,ad5f5f;703,65,b76c6c;297,93,aa5654;338,93,ac5a5a;378,93,c37977;419,93,af6666;459,93,b96a6c;541,93,a5504d;581,93,a5504d;622,93,aa5654;662,93,b56162;338,121,ad605c;378,121,ac5a5a;419,121,b96a6c;459,121,aa5654;500,121,aa5654;500,149,ab605d;419,177,bd7270;459,177,b66965;500,177,ad5f5f;541,177,b46261;581,177,bd7270;216,205,712d29;256,205,bd7071;297,205,57140d;338,205,541614;378,205,6b1d17;419,205,712d29;459,205,6e2725;500,205,6f241e;541,205,712d29;581,205,802e29;622,205,953f3b;662,205,c58282;703,205,a24843;744,205,984641;175,233,c58282;216,233,af6666;256,233,af6666;297,233,b96a6c;338,233,b96a6c;378,233,bd7071;419,233,bd7071;459,233,b96a6c;500,233,b96a6c;541,233,b96a6c;581,233,bd7071;622,233,bd7071;662,233,bd7071;703,233,b96a6c;744,233,b96a6c;784,233,c37b7f;825,233,a5504d;134,261,c37977;175,261,ad5f5f;216,261,ad5f5f;256,261,ad5f5f;297,261,ad5f5f;338,261,ac5a5a;378,261,ad5f5f;419,261,b76767;459,261,b76767;500,261,b56162;541,261,b56162;581,261,b56162;622,261,ad5f5f;662,261,b56162;703,261,b56162;744,261,bd7071;784,261,bd7071;825,261,c58282;866,261,994f4c;94,289,994f4c;134,289,ac5a5a;175,289,ac5a5a;216,289,ad5f5f;256,289,420c09;297,289,340402;338,289,360a07;378,289,340402;419,289,360a07;459,289,360a07;500,289,360a07;541,289,360a07;581,289,360a07;622,289,360a07;662,289,340402;703,289,541614;744,289,ad5f5f;784,289,c37977;825,289,b96a6c;866,289,c47f7a;906,289,bd7270;94,317,c47f7a;134,317,a5504d;175,317,b76767;216,317,360a07;256,317,360a07;297,317,360a07;338,317,400402;378,317,420c09;419,317,360a07;459,317,360a07;500,317,360a07;541,317,360a07;581,317,360a07;622,317,420c09;662,317,420c09;703,317,360a07;744,317,864d4f;784,317,813837;825,317,bd7071;866,317,ad696d;906,317,994f4c;53,345,560d07;94,345,994f4c;134,345,994f4c;175,345,420c09;216,345,340402;256,345,360a07;297,345,4a1512;338,345,57140d;378,345,400402;419,345,360a07;459,345,360a07;500,345,360a07;541,345,360a07;581,345,340402;622,345,400402;662,345,ad5f5f;703,345,420c09;744,345,360a07;784,345,834849;825,345,c37b7f;866,345,b76767;906,345,984641;947,345,bd7270;53,373,bd7071;94,373,994f4c;134,373,a5504d;175,373,340402;216,373,360a07;256,373,420c09;297,373,83352f;338,373,a0403d;378,373,984641;419,373,360a07;459,373,360a07;500,373,360a07;541,373,360a07;581,373,420c09;622,373,b55852;662,373,953f3b;703,373,46120f;744,373,360a07;784,373,6e3737;825,373,ad5f5f;866,373,b96a6c;906,373,a5504d;947,373,83352f;12,401,bd7270;53,401,6f241e;94,401,a5504d;134,401,aa5654;175,401,340402;216,401,360a07;256,401,a24843;297,401,560d07;338,401,984641;378,401,c58282;419,401,420c09;459,401,360a07;500,401,360a07;541,401,360a07;581,401,6b1d17;622,401,c37977;662,401,c58282;703,401,953f3b;744,401,420c09;784,401,4c1a17;825,401,b56162;866,401,b96a6c;906,401,a0403d;947,401,c58282;12,429,bd7270;53,429,a5504d;94,429,aa5654;134,429,ad5f5f;175,429,340402;216,429,360a07;256,429,953f3b;297,429,984641;338,429,8e3631;378,429,8d2f2c;419,429,46120f;459,429,360a07;500,429,360a07;541,429,420c09;581,429,8e3631;622,429,8e3631;662,429,953f3b;703,429,bd7071;744,429,420c09;784,429,420c09;825,429,b56162;866,429,b96a6c;906,429,a5504d;947,429,aa5654;53,457,a54d45;94,457,aa5654;134,457,aa5654;175,457,360a07;216,457,360a07;256,457,400402;297,457,aa5654;338,457,bf6f67;378,457,b76767;419,457,46120f;459,457,360a07;500,457,420c09;541,457,420c09;581,457,c37977;622,457,bf6f67;662,457,bf6f67;703,457,c47f7a;744,457,340402;784,457,420c09;825,457,b76767;866,457,b96a6c;906,457,a24843;947,457,aa5654;94,485,ad5f5f;134,485,aa5654;175,485,46120f;216,485,360a07;256,485,420c09;297,485,541614;338,485,420c09;378,485,46120f;419,485,360a07;459,485,b76767;500,485,aa5d57;541,485,420c09;581,485,340402;622,485,420c09;662,485,57140d;703,485,560d07;744,485,420c09;784,485,4a1512;825,485,b96a6c;866,485,b96a6c;906,485,a24843;947,485,984641;134,513,aa5654;175,513,ac5a5a;216,513,46120f;256,513,46120f;297,513,46120f;338,513,420c09;378,513,360a07;419,513,360a07;459,513,360a07;500,513,360a07;541,513,360a07;581,513,420c09;622,513,420c09;662,513,420c09;703,513,46120f;744,513,4a1512;784,513,400402;825,513,b76767;866,513,b76767;906,513,c37977;134,541,aa5654;175,541,aa5654;216,541,bd7071;256,541,46120f;297,541,46120f;338,541,46120f;378,541,46120f;419,541,46120f;459,541,46120f;500,541,46120f;541,541,46120f;581,541,46120f;622,541,46120f;662,541,4a1512;703,541,4a1512;744,541,6f241e;784,541,b76767;825,541,b76767;866,541,c37977;906,541,ad5f5f;175,569,aa5654;216,569,aa5654;256,569,aa5654;297,569,ad5f5f;338,569,ad5f5f;378,569,b96a6c;419,569,ac5a5a;459,569,853e3b;500,569,864442;541,569,a5504d;581,569,b96a6c;622,569,ad5f5f;662,569,b76767;703,569,ad5f5f;744,569,b56162;784,569,b56162;825,569,bd7071;866,569,c37977;906,569,aa5654;216,597,aa5d57;256,597,a5504d;297,597,aa5654;338,597,aa5654;378,597,aa5654;419,597,aa5654;459,597,aa5654;500,597,aa5654;541,597,aa5654;581,597,a5504d;622,597,aa5654;662,597,aa5654;703,597,aa5654;744,597,aa5d57;784,597,c47f7a;825,597,af6666;866,597,aa5654;378,625,83352f;419,625,953f3b;459,625,953f3b;500,625,953f3b;541,625,953f3b;581,625,953f3b;622,625,a5504d;662,625,c47f7a;703,625,c47f7a;744,625,994f4c;784,625,994f4c;297,653,b66965;338,653,83352f;378,653,802e29;419,653,802e29;459,653,8e3631;500,653,8e3631;541,653,953f3b;581,653,a5504d;622,653,aa5654;662,653,a5504d;703,653,c37977;744,653,bd7071;216,681,a5504d;256,681,7b251f;297,681,953f3b;338,681,a5504d;378,681,8e3631;419,681,a5504d;459,681,a5504d;500,681,a5504d;541,681,aa5654;581,681,a5504d;622,681,a5504d;662,681,b56162;703,681,802e29;744,681,a5504d;784,681,b9706f;175,709,994f4c;216,709,aa5654;256,709,540400;297,709,a5504d;338,709,a5504d;378,709,aa5654;419,709,a5504d;459,709,a5504d;500,709,a5504d;541,709,802e29;581,709,b45a5c;622,709,bd7071;662,709,bd7071;703,709,b56162;744,709,a5504d;784,709,ad5f5f;175,737,984949;216,737,66150d;256,737,953f3b;297,737,a24949;338,737,ac5a5a;378,737,aa5654;419,737,953f3b;459,737,ac5a5a;500,737,b56162;541,737,b45a5c;581,737,ac5a5a;622,737,ad5f5f;662,737,c37977;703,737,b96a6c;744,737,b5514d;784,737,b76767;825,737,c07776;134,765,ab605d;175,765,aa5654;216,765,7b251f;256,765,8e3631;297,765,a5504d;338,765,a5504d;378,765,aa5654;419,765,a5504d;459,765,a24949;500,765,903837;541,765,b56162;581,765,b56162;622,765,b56162;662,765,b76767;703,765,b56162;784,765,aa5654;825,765,b96a6c;134,793,ad5f5f;175,793,a5504d;256,793,953f3b;297,793,a24949;338,793,a5504d;378,793,ac5a5a;419,793,aa5654;459,793,ac5a5a;500,793,b96a6c;541,793,ac5a5a;581,793,ad5f5f;622,793,b96a6c;662,793,b76767;703,793,b96a6c;784,793,a54d45;825,793,bd7071;134,821,aa5654;175,821,b55852;256,821,953f3b;297,821,a24843;338,821,a5504d;378,821,a5504d;419,821,af6666;459,821,ad5f5f;500,821,c37b7f;541,821,984641;581,821,b56162;622,821,b56162;662,821,b76767;703,821,b76767;784,821,9b4e4a;825,821,b56162;866,821,af6666;134,849,aa5d57;175,849,aa5c59;256,849,984641;297,849,a5504d;338,849,994f4c;378,849,a54d45;419,849,b56162;459,849,aa5654;500,849,994f4c;541,849,bd7071;581,849,b76767;622,849,b96a6c;662,849,b96a6c;703,849,b96a6c;825,849,a24843;866,849,b76767;134,877,984641;256,877,a5504d;297,877,a5504d;338,877,a5504d;378,877,984641;419,877,984d43;459,877,ad5f5f;500,877,99595c;541,877,57140d;581,877,b56162;622,877,b76767;662,877,b96a6c;703,877,b76767;825,877,944741;866,877,b76c6c;256,905,a5504d;297,905,a5504d;338,905,984641;378,905,984641;419,905,a24843;459,905,984641;500,905,984641;541,905,a5504d;581,905,b56162;622,905,b96a6c;662,905,b76767;703,905,b76767;256,933,994f4c;297,933,a5504d;338,933,a5504d;378,933,a54d45;419,933,a24843;459,933,a24843;500,933,a5504d;541,933,a5504d;581,933,b56162;622,933,ad5f5f;662,933,b76767;703,933,b76767;297,961,984641;338,961,984641;378,961,a24843;419,961,a24949;459,961,a5504d;500,961,a5504d;541,961,aa5654;581,961,a5504d;622,961,aa5654;662,961,aa5654;703,961,b56162';
+const AKI_PTS='292,29,ad938a;375,29,b49b93;625,29,af9189;292,88,a8887f;375,88,b59d95;458,88,b7a39b;542,88,9b7367;625,88,a6857c;458,147,a5867b;208,206,9e867c;292,206,8f7269;375,206,92756a;458,206,987a71;542,206,9c7f75;625,206,a3897f;708,206,a3887e;125,265,9a8378;208,265,a88c83;292,265,8a716a;375,265,725e58;458,265,6a5750;542,265,6e5a53;625,265,78635c;708,265,98817a;792,265,baa69e;875,265,af9a90;125,324,a78b82;208,324,42322d;292,324,1d1510;375,324,31221c;458,324,120f0a;542,324,120e0a;625,324,382721;708,324,261d18;792,324,8a7771;875,324,b5a198;42,382,836358;125,382,9b7970;208,382,160d09;292,382,52352c;375,382,664b42;458,382,130f0a;542,382,1e1611;625,382,684b42;708,382,483028;792,382,493934;875,382,aa8d86;958,382,9a7e72;42,441,916759;125,441,98766c;208,441,19100b;292,441,94776c;375,441,947468;458,441,18110c;542,441,2d211c;625,441,99776a;708,441,7f655c;792,441,352722;875,441,a98981;958,441,9f786a;125,500,a38176;208,500,382922;292,500,3c2a23;375,500,291d18;458,500,31231d;542,500,271c17;625,500,31221b;708,500,3c2b23;792,500,604c46;875,500,b69e95;958,500,947164;208,559,97786d;292,559,634e46;375,559,54433c;458,559,4b3b34;542,559,4e3c35;625,559,57443d;708,559,735c55;792,559,ad9088;875,559,b8a59a;292,618,9e7a6e;375,618,8d685e;458,618,91695f;542,618,936a5f;625,618,9f7c71;708,618,aa8d82;792,618,b49f94;208,676,947065;292,676,885f55;375,676,8a5f55;458,676,91655c;542,676,946a5f;625,676,a7847a;708,676,a07f75;208,735,8e6a5f;292,735,8d6459;375,735,9f7a6f;458,735,9c766c;542,735,9d786f;625,735,b39891;708,735,9f7f77;792,735,ab8e85;125,794,a08278;208,794,8b665c;292,794,91675c;375,794,a37f75;458,794,9e7d74;542,794,a8867f;625,794,b1938b;708,794,ad9087;792,794,9f7e74;125,853,9a766a;292,853,987165;375,853,967266;458,853,a08b83;542,853,977e75;625,853,b2938c;708,853,b39991;875,853,ad9086;292,912,9b7469;375,912,966d60;458,912,916e62;542,912,99776d;625,912,b1938b;708,912,b49a91;292,971,866052;375,971,865c51;458,971,8a6258;542,971,916b60;625,971,9a766c';
 const AKI_TALK=[
- {w:'aki',l:'ko',t:'안녕하세요! 저는 산본글로벌어학원 AI 도우미 아키예요.',k:'오늘은 선생님들께 인사드리러 왔어요!'},
- {w:'en',l:'en',t:'Hi Aki! Welcome! Shall we start with some small talk?',k:'안녕 아키! 반가워요. 스몰토크부터 해볼까요?'},
- {w:'aki',l:'en',t:'Yes! How was your weekend?',k:'네! 주말 어떻게 보내셨어요?'},
- {w:'en',l:'en',t:'Great — I went hiking! See? That\'s how small talk starts.',k:'좋았어요, 등산 갔어요! 봐요, 스몰토크는 이렇게 시작해요.'},
- {w:'ja',l:'ja',t:'アキちゃん、こんにちは!',k:'아키, 안녕하세요!'},
- {w:'aki',l:'ja',t:'はじめまして!日本語、少しできます。',k:'처음 뵙겠습니다! 일본어 조금 할 수 있어요.'},
- {w:'ja',l:'ja',t:'上手ですね!一緒に練習しましょう。',k:'잘하네요! 같이 연습해요.'},
- {w:'zh',l:'zh',t:'你好,Aki!',k:'안녕하세요, 아키!'},
- {w:'aki',l:'zh',t:'你好!我想学中文。',k:'안녕하세요! 중국어 배우고 싶어요.'},
- {w:'zh',l:'zh',t:'没问题!我们一起说吧。',k:'문제없어요! 우리 같이 말해 봐요.'},
- {w:'aki',l:'ko',t:'영어 · 일본어 · 중국어,',k:'원어민 선생님과 산본글로벌어학원에서 시작해요!',end:1}];
-const AKI_WHO={en:{img:'teachers/eng_11.png',n:'Jerollyn 선생님',r:'영어 원어민'},ja:{img:'teachers/jpn_5.png',n:'조미히로 선생님',r:'일본어 원어민'},zh:{img:'teachers/chn_7.png',n:'현지인강사님',r:'중국어 원어민'}};
+ {w:'aki',l:'ko',t:'안녕하세요! 저는 아키예요.',k:'오늘 원어민 선생님들과 처음 수업해요. 틀려도 괜찮대요!'},
+ {w:'aki',l:'en',t:'Hi Jerollyn! I\'m so boring today.',k:'(아키는 「오늘 너무 지루해요」라고 말하고 싶었어요)'},
+ {w:'en',l:'en',t:'Haha! You mean "I\'m bored."',k:'하하! "I\'m bored"라고 해야죠. "boring"은 아키가 남을 지루하게 만든다는 뜻이에요!',fix:['I\'m boring','I\'m bored']},
+ {w:'aki',l:'en',t:'Oops! I\'m bored... not boring!',k:'앗! 지루해요… 지루한 사람 아니에요!'},
+ {w:'aki',l:'ja',t:'先生、ご苦労様です!',k:'선생님, 수고하셨습니다!'},
+ {w:'ja',l:'ja',t:'先生には「お疲れ様です」ですよ。',k:'선생님께는 「오쓰카레사마데스」예요. 「고쿠로사마」는 윗사람이 아랫사람에게 하는 말이에요.',fix:['ご苦労様です','お疲れ様です']},
+ {w:'aki',l:'ja',t:'お疲れ様です!',k:'수고하셨습니다! (이번엔 제대로!)'},
+ {w:'aki',l:'zh',t:'老师,你好吗?',k:'선생님, 잘 지내세요?'},
+ {w:'zh',l:'zh',t:'很好!朋友之间常说「最近怎么样?」',k:'잘 지내요! 친구끼리는 「요즘 어때?」를 더 많이 써요.',fix:['你好吗?','最近怎么样?']},
+ {w:'aki',l:'zh',t:'最近怎么样?',k:'요즘 어때요?'},
+ {w:'aki',l:'ko',t:'틀려도 괜찮아요!',k:'원어민 선생님이 그 자리에서 고쳐 줘요. 산본글로벌어학원에서 시작해요.',end:1}];
+const AKI_WHO={en:{img:'teachers/eng_11.png',n:'Jerollyn 선생님',r:'영어 원어민',cr:['50% 42%','scale(1.32)','43% 50%']},ja:{img:'teachers/jpn_5.png',n:'조미히로 선생님',r:'일본어 원어민'},zh:{img:'teachers/chn_7.png',n:'현지인강사님',r:'중국어 원어민'}};
 function tplAki(t){
- const pool='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんアイウエオカキクケコ你好我们学说中文汉字谢再见朋友老师学生今天明天爱家人'.split('');
- const pts=AKI_PTS.split(';').map(s=>s.split(','));const AH=50,AW=AH*.69,cx=50,top=4.5;let gl='';
- pts.forEach((p,i)=>{const x=cx-AW/2+(+p[0])/1000*AW,y=top+(+p[1])/1000*AH*1.0;const r=(a)=>{const v=Math.sin(i*12.9898+a*78.233)*43758.5453;return v-Math.floor(v)};
-  const fx=(r(1)-.5)*140,fy=(r(2)-.5)*90,fz=Math.round((r(3)-.5)*1400),rx=Math.round((r(4)-.5)*720),ry=Math.round((r(5)-.5)*720);
-  const ch=pool[Math.floor(r(6)*pool.length)];
-  gl+=`<i class="gy" style="left:${x.toFixed(2)}cqw;top:${y.toFixed(2)}cqw;color:#${p[2]};--f:translate3d(${(fx-x+50).toFixed(1)}cqw,${(fy-y+29).toFixed(1)}cqw,${fz}px) rotateX(${rx}deg) rotateY(${ry}deg);--d:${(r(7)*1.3).toFixed(2)}s">${ch}</i>`});
- return `<div class="ak" id="ak"><div class="akbg"></div><div class="gys" data-s="1">${gl}</div>
- <img class="akimg" src="${SG}aki/aki_hero.png" alt="아키"><div class="aktag">아키 · AI 도우미</div>
- <div class="who"><div class="wimg"><img alt=""></div><b></b><small></small></div>
- <div class="bub"><small class="lang"></small><p class="t"></p><p class="k"></p></div>
+ const EN='ABCDEFGHIJKLMNOPQRSTUVWXYZ',JA='あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん',ZH='你好我们学说中文汉字谢再见朋友老师学生今天明天爱家人早安';
+ const pts=AKI_PTS.split(';').map(s=>s.split(','));const AH=50,AW=AH*.69,cx=50,top=4.5,n=pts.length;
+ const R=(i,a)=>{const v=Math.sin(i*12.9898+a*78.233)*43758.5453;return v-Math.floor(v)};
+ const ord=pts.map((_,i)=>i).sort((a,b)=>R(a,9)-R(b,9));let gl='';
+ ord.forEach((pi,j)=>{const p=pts[pi],x=cx-AW/2+(+p[0])/1000*AW,y=top+(+p[1])/1000*AH;
+  const w=j<n*.42?0:j<n*.72?1:2,set=[EN,JA,ZH][w],ch=j===0?'A':set[Math.floor(R(pi,6)*set.length)];
+  const t0=[0,2.3,3.6][w],span=[2.2,1.25,1.05][w],k=j<n*.42?j/(n*.42):j<n*.72?(j-n*.42)/(n*.3):(j-n*.72)/(n*.28);
+  const a=R(pi,1)*6.283,dist=60+R(pi,2)*50,fx=Math.cos(a)*dist,fy=Math.sin(a)*dist*.7,fz=Math.round(300+R(pi,3)*900),rx=Math.round((R(pi,4)-.5)*540),ry=Math.round((R(pi,5)-.5)*540);
+  gl+=`<i class="gy" data-w="${w}" style="left:${x.toFixed(2)}cqw;top:${y.toFixed(2)}cqw;--k:#${p[2]};--f:translate3d(${fx.toFixed(1)}cqw,${fy.toFixed(1)}cqw,${fz}px) rotateX(${rx}deg) rotateY(${ry}deg);--d:${(t0+k*span).toFixed(2)}s;--c:${(R(pi,7)*.5).toFixed(2)}s;--bx:${((x-50)*1.8).toFixed(1)}cqw;--by:${((y-29)*1.8).toFixed(1)}cqw">${ch}</i>`});
+ return `<div class="ak" id="ak"><div class="akbg"></div><div class="bigA">A</div><div class="gys">${gl}</div>
+ <div class="tile t1"></div><div class="tag tag1">아키 <small>AI 도우미</small><span class="eq"><i></i><i></i><i></i></span></div>
+ <div class="tile t2"><div class="wait">원어민 선생님 연결 중<i></i><i></i><i></i></div><div class="ph"><img alt=""></div><div class="tag"><b></b> <small></small><span class="eq"><i></i><i></i><i></i></span></div></div>
+ <img class="akimg" src="${SG}aki/aki_hero.png" alt="아키"><div class="flash"></div>
+ <div class="fix"><small>원어민 선생님 첨삭</small><div class="x"></div><div class="v"></div></div>
+ <div class="dots">${AKI_TALK.map(()=>'<i></i>').join('')}</div>
+ <div class="sub"><div class="who"></div><div class="o"></div><div class="k"></div></div>
+ <div class="cap"></div>
  <div class="akcta"><a href="https://sanbonglobal.com" target="_blank" rel="noopener">무료 레벨테스트</a><a href="https://sanbonglobal.com" target="_blank" rel="noopener">상담 신청</a></div>
- <div class="hint">화면을 누르면 다음 대사 ▶</div><div class="dots">${AKI_TALK.map(()=>'<i></i>').join('')}</div></div>`}
-const AKI={start(g,sb,T,done){const a=g.querySelector('#ak');if(!a)return;let n=-1;
+ <div class="hint">화면을 누르면 다음 대사 ▶</div></div>`}
+const AKI={start(g,sb,T,done){const a=g.querySelector('#ak');if(!a)return;let n=-1,tw=0;
  const mark=s=>sb.forEach((b,j)=>{b.classList.toggle('on',j==s);b.classList.toggle('done',j<s)});
- mark(0);T(()=>a.classList.add('go'),900);
- T(()=>{mark(1);a.classList.add('img')},4300);
- T(()=>{a.classList.add('talk');show(0)},5700);
- const LN={ko:'',en:'English',ja:'日本語',zh:'中文'};
- function show(i){n=i;const L=AKI_TALK[i];const w=L.w==='aki'?null:AKI_WHO[L.w];
-  const seg=L.l==='en'?2:L.l==='ja'?3:L.l==='zh'?4:(i===0?1:5);mark(seg);
-  if(w){const im=a.querySelector('.wimg img');if(!im.src.endsWith(w.img)){a.classList.add('flip');setTimeout(()=>{im.src=SG+w.img;a.querySelector('.who b').textContent=w.n;a.querySelector('.who small').textContent=w.r;a.classList.remove('flip')},260)}a.classList.add('hasw')}
-  a.classList.toggle('akis',L.w==='aki');const b=a.querySelector('.bub');b.classList.remove('in');void b.offsetWidth;
-  b.querySelector('.lang').textContent=L.w==='aki'?'아키'+(LN[L.l]?' · '+LN[L.l]:''):(w.n.replace(' 선생님','')+' · '+LN[L.l]);
-  b.querySelector('.t').textContent=L.t;b.querySelector('.k').textContent=L.l==='ko'?'':L.k;if(L.l==='ko')b.querySelector('.t').textContent=L.t+' '+L.k;
-  b.setAttribute('lang',L.l==='zh'?'zh':L.l);b.classList.add('in');
+ const cap=a.querySelector('.cap'),say=s=>{cap.classList.remove('on');setTimeout(()=>{cap.innerHTML=s;cap.classList.add('on')},180)};
+ mark(0);T(()=>a.classList.add('go'),300);
+ T(()=>{a.querySelectorAll('.gy').forEach(e=>e.classList.add('on'));say('A … B … C …<br>뭐가 만들어질까요?')},1700);
+ T(()=>say('あ … い … う …<br>이번엔 일본어?'),4000);
+ T(()=>say('你 … 好 …<br>중국어까지!'),5300);
+ T(()=>{a.classList.add('col');say('… 누구지?')},6500);
+ T(()=>{mark(1);a.classList.add('boom','img');say('아키 등장!')},7600);
+ T(()=>{cap.classList.remove('on');a.classList.add('talk');show(0)},8600);
+ const LN={ko:'',en:'English',ja:'日本語',zh:'中文'};const t1=a.querySelector('.t1'),t2=a.querySelector('.t2'),sub=a.querySelector('.sub'),fx=a.querySelector('.fix');let cur='';
+ function show(i){n=i;const L=AKI_TALK[i];const lang=L.l==='ko'?(cur||''):L.l,w=AKI_WHO[lang];
+  mark(L.l==='en'?2:L.l==='ja'?3:L.l==='zh'?4:(i===0?1:5));
+  if(w&&lang!==cur){cur=lang;const im=t2.querySelector('img');t2.classList.add('flip');setTimeout(()=>{im.src=SG+w.img;const c=w.cr||['50% 18%','none','50% 50%'];im.style.objectPosition=c[0];im.style.transform=c[1];im.style.transformOrigin=c[2];t2.querySelector('.tag b').textContent=w.n;t2.querySelector('.tag small').textContent=w.r;t2.classList.add('has');t2.classList.remove('flip')},280)}
+  const ak=L.w==='aki';t1.classList.toggle('spk',ak);t1.classList.toggle('mute',!ak);a.classList.toggle('akspk',ak);t2.classList.toggle('spk',!ak);t2.classList.toggle('mute',ak);
+  sub.querySelector('.who').textContent=(ak?'아키':AKI_WHO[L.w].n.replace(' 선생님',' 선생님'))+(LN[L.l]?' · '+LN[L.l]:'');
+  const o=sub.querySelector('.o'),k=sub.querySelector('.k');o.setAttribute('lang',L.l);clearInterval(tw);o.textContent='';k.textContent='';const s=[...L.t];let c=0;
+  tw=setInterval(()=>{o.textContent=s.slice(0,++c).join('');if(c>=s.length){clearInterval(tw);k.textContent=L.k}},L.l==='ko'?45:38);
+  fx.classList.remove('on');if(L.fix){fx.querySelector('.x').textContent=L.fix[0];fx.querySelector('.v').textContent=L.fix[1];setTimeout(()=>fx.classList.add('on'),Math.min(1400,s.length*38+200))}
   [...a.querySelectorAll('.dots i')].forEach((d,j)=>d.classList.toggle('on',j<=i));
   a.classList.toggle('end',!!L.end);done(!!L.end)}
  a.addEventListener('click',e=>{if(e.target.closest('.akcta'))return;if(!a.classList.contains('talk'))return;if(n<AKI_TALK.length-1)show(n+1)});
@@ -1287,7 +1321,7 @@ $('steps').innerHTML=STEPS.map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성<
 $('ind9').innerHTML=ORDER.map(([k],i)=>`<button type="button" data-i="${i}">${IND[k].n}</button>`).join('');
 function run(i){
  timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);qi=i;
- const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?5700:7000;if(window._cup)_cup.stop();window._cup=null;
+ const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?8600:7000;if(window._cup)_cup.stop();window._cup=null;
  $('steps').innerHTML=(ak?AKSTEPS:sk==='tf'?(k==='cafe'?TFSTEPS:KITSTEPS):STEPS).map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
  $('sUrl').textContent=t.real||t.en.toLowerCase().replace(/\s/g,'')+'.kr';
  $('gen').innerHTML=`<div class="scene ${sk==='tf'||ak?'tfx':'tilt'}" id="scene">${st.f(t)}</div>`;$('sscr').classList.remove('flat');$('sscr').classList.toggle('tfbg',sk==='tf');$('sscr').classList.toggle('akbgx',ak);
