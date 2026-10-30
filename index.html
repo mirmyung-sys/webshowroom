@@ -695,7 +695,7 @@ section.hx9{overflow-x:hidden}
 .ak .hp{position:absolute;inset:0;z-index:9;overflow:hidden;background:#fff;clip-path:circle(0% at 50% 44%);transition:clip-path 1.4s cubic-bezier(.65,0,.25,1);pointer-events:none}
 .ak .hp iframe{position:absolute;left:0;top:0;width:1440px;height:860px;border:0;transform-origin:0 0;transform:scale(var(--hs,.5));pointer-events:none;background:#fff}
 .ak.home .hp{clip-path:circle(150% at 50% 44%)}
-.ak.home .go2{z-index:10;left:auto;right:2cqw;top:auto;bottom:2cqw;transform:none;transition-delay:1.2s}
+.ak .go2{display:none!important}
 .ak.home .akimg,.ak.home .gys{opacity:0}
 .ak .hpa{position:absolute;inset:0;z-index:9;display:none}
 .ak.home .hpa{display:block;cursor:pointer}
@@ -719,6 +719,8 @@ section.hx9{overflow-x:hidden}
 /* v16 — 스위치를 켜면 홈페이지가 켜진다 (인스타 릴스 「벽 스위치 ON → 광고판」 연출 적용) */
 .sw9{position:absolute;inset:0;z-index:30;container-type:inline-size;background:linear-gradient(180deg,#F5F0E8 0,#EEE6DA 78%,#D9C7AE 78.4%,#CDB89B 100%);cursor:pointer;transition:opacity .12s}
 .sw9.gone{opacity:0;pointer-events:none}
+.snd{position:absolute;right:10px;bottom:10px;z-index:40;border:0;border-radius:99px;padding:6px 12px;font:700 12px var(--sans);background:rgba(255,255,255,.88);color:#6B5444;cursor:pointer;box-shadow:0 2px 8px rgba(60,40,20,.18)}
+.snd.off{opacity:.7}
 .sw9 .tg{position:absolute;left:50%;top:12%;transform:translateX(-50%);width:15cqw;height:7.6cqw;border-radius:99px;background:#D8D0C5;box-shadow:inset 0 .5cqw 1cqw rgba(60,40,20,.18),0 .2cqw 0 rgba(255,255,255,.8);transition:background .2s}
 .sw9 .tg i{position:absolute;left:.8cqw;top:.8cqw;width:6cqw;height:6cqw;border-radius:50%;background:#fff;box-shadow:0 .4cqw 1cqw rgba(60,40,20,.25);transition:left .22s cubic-bezier(.3,1.5,.5,1)}
 .sw9.on .tg{background:#34C759}.sw9.on .tg i{left:8.2cqw}
@@ -743,7 +745,7 @@ section.hx9{overflow-x:hidden}
   <div class="h9">
     <div class="stage s9" id="stage">
       <div class="sbar"><i></i><i></i><i></i><span id="sUrl">morningbrew.kr</span><div class="steps4" id="steps"></div></div>
-      <div class="sscr" id="sscr"><div class="gen" id="gen"></div><div class="sw9 gone" id="sw9" role="button" tabindex="0" aria-label="홈페이지 켜기"><div class="tg"><i></i></div><div class="lb"></div><div class="pl"><b></b><b></b><b></b><b></b></div><div class="hd">👆</div></div></div>
+      <div class="sscr" id="sscr"><div class="gen" id="gen"></div><div class="sw9 gone" id="sw9" role="button" tabindex="0" aria-label="홈페이지 켜기"><div class="tg"><i></i></div><div class="lb"></div><div class="pl"><b></b><b></b><b></b><b></b></div><div class="hd">👆</div></div><button type="button" class="snd" id="sndBtn" aria-label="소리 끄기">🔊 소리</button></div>
     </div>
     <aside class="side9">
       <div class="eye">Website Showroom</div>
@@ -1291,14 +1293,15 @@ const AKI={start(g,sb,T,done){const a=g.querySelector('#ak');if(!a)return;let n=
  const mark=s=>sb.forEach((b,j)=>{b.classList.toggle('on',j==s);b.classList.toggle('done',j<s)});
  const cap=a.querySelector('.cap'),say=s=>{cap.classList.remove('on');setTimeout(()=>{cap.innerHTML=s;cap.classList.add('on')},180)};
  mark(0);T(()=>a.classList.add('go'),300);
+ for(let q=0;q<26;q++)T(()=>SFX.pop(),1700+q*180);
  T(()=>{a.querySelectorAll('.gy').forEach(e=>e.classList.add('on'));say('A … B … C …<br>뭐가 만들어질까요?')},1700);
  T(()=>say('あ … い … う …<br>이번엔 일본어?'),4000);
  T(()=>say('你 … 好 …<br>중국어까지!'),5300);
  T(()=>{a.classList.add('col');say('… 누구지?')},6500);
- T(()=>{mark(1);a.classList.add('boom','img');say('아키 등장!')},7600);
+ T(()=>{mark(1);a.classList.add('boom','img');say('아키 등장!');SFX.sparkle()},7600);
  T(()=>{cap.classList.remove('on');a.classList.add('talk');show(0)},8600);
  const LN={ko:'',en:'English',ja:'日本語',zh:'中文'};const t1=a.querySelector('.t1'),t2=a.querySelector('.t2'),sub=a.querySelector('.sub'),fx=a.querySelector('.fix');let cur='';
- function show(i){n=i;const L=AKI_TALK[i];const lang=L.l==='ko'?(cur||''):L.l,w=AKI_WHO[lang];
+ function show(i){n=i;const L=AKI_TALK[i];if(L.l==='en')SFX.speak(L.t,'en-US');const lang=L.l==='ko'?(cur||''):L.l,w=AKI_WHO[lang];
   mark(2);
   if(w&&lang!==cur){cur=lang;const im=t2.querySelector('img');t2.classList.add('flip');setTimeout(()=>{im.src=SG+w.img;const c=w.cr||['50% 18%','none','50% 50%'];im.style.objectPosition=c[0];im.style.transform=c[1];im.style.transformOrigin=c[2];t2.querySelector('.tag b').textContent=w.n;t2.querySelector('.tag small').textContent=w.r;t2.classList.add('has');t2.classList.remove('flip')},280)}
   const ak=L.w==='aki';t1.classList.toggle('spk',ak);t1.classList.toggle('mute',!ak);a.classList.toggle('akspk',ak);t2.classList.toggle('spk',!ak);t2.classList.toggle('mute',ak);
@@ -1307,7 +1310,7 @@ const AKI={start(g,sb,T,done){const a=g.querySelector('#ak');if(!a)return;let n=
   tw=setInterval(()=>{o.textContent=s.slice(0,++c).join('');if(c>=s.length){clearInterval(tw);k.textContent=L.k}},L.l==='ko'?45:38);
   fx.classList.remove('on');if(L.fix){fx.querySelector('.x').textContent=L.fix[0];fx.querySelector('.v').textContent=L.fix[1];setTimeout(()=>fx.classList.add('on'),Math.min(1400,s.length*38+200))}
   [...a.querySelectorAll('.dots i')].forEach((d,j)=>d.classList.toggle('on',j<=i));
-  a.classList.toggle('end',!!L.end);const my=++seq;if(!L.end)T(()=>{if(my===seq&&n===i)show(i+1)},Math.max(4200,1500+[...L.t].length*70+[...L.k].length*55));else{T(()=>{if(my!==seq)return;mark(3);a.classList.add('logo')},3000);T(()=>{if(my!==seq)return;fit();a.classList.add('home')},4600);T(()=>{if(my!==seq)return;mark(4);done(true)},6000)}}
+  a.classList.toggle('end',!!L.end);const my=++seq;if(!L.end)T(()=>{if(my===seq&&n===i)show(i+1)},Math.max(4200,1500+[...L.t].length*70+[...L.k].length*55));else{T(()=>{if(my!==seq)return;mark(3);a.classList.add('logo');SFX.chime()},1800);T(()=>{if(my!==seq)return;fit();a.classList.add('home');SFX.reveal()},2900);T(()=>{if(my!==seq)return;mark(4);done(true)},4300)}}
  a.addEventListener('click',e=>{if(e.target.closest('.akcta,a'))return;if(a.classList.contains('logo'))return;if(!a.classList.contains('talk'))return;if(n<AKI_TALK.length-1)show(n+1)});
 }};
 
@@ -1348,17 +1351,50 @@ let DUR=7000;let qi=0,timers=[],raf=0;
 const $=id=>document.getElementById(id);
 $('steps').innerHTML=STEPS.map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
 $('ind9').innerHTML=ORDER.map(([k],i)=>`<button type="button" data-i="${i}">${IND[k].n}</button>`).join('');
+/* v20 — 효과음(파일 없이 브라우저 WebAudio로 합성). 브라우저 규칙상 손님이 화면을 한 번 누른 뒤부터 소리가 납니다 */
+const SFX=(function(){let ac=null,master=null,on=true,noiseBuf=null;
+ const ok=()=>on&&ac&&ac.state==='running'&&master;
+ function init(){if(ac)return;try{ac=new (window.AudioContext||window.webkitAudioContext)();const n=ac.sampleRate*2;noiseBuf=ac.createBuffer(1,n,ac.sampleRate);const d=noiseBuf.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;fresh()}catch(e){ac=null}}
+ function fresh(){if(!ac)return;if(master){try{master.gain.setTargetAtTime(0,ac.currentTime,.05);const m=master;setTimeout(()=>m.disconnect(),300)}catch(e){}}master=ac.createGain();master.gain.value=.55;master.connect(ac.destination)}
+ const unlock=()=>{init();if(ac&&ac.state!=='running')ac.resume()};['pointerdown','keydown','touchstart'].forEach(e=>window.addEventListener(e,unlock,{passive:true}));
+ function env(g,t,a,d,v){g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d)}
+ function noise(t,dur,type,f,q,v,a=.01){const s=ac.createBufferSource();s.buffer=noiseBuf;s.loop=true;const fl=ac.createBiquadFilter();fl.type=type;fl.frequency.value=f;fl.Q.value=q;const g=ac.createGain();env(g,t,a,dur,v);s.connect(fl);fl.connect(g);g.connect(master);s.start(t);s.stop(t+a+dur+.05);return {s,fl,g}}
+ function tone(t,f,dur,type,v,a=.005,f2){const o=ac.createOscillator();o.type=type;o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+dur);const g=ac.createGain();env(g,t,a,dur,v);o.connect(g);g.connect(master);o.start(t);o.stop(t+a+dur+.05);return o}
+ const api={
+  set(v){on=v;if(!v&&master)master.gain.value=0;else if(master)master.gain.value=.55},get on(){return on},
+  reset(){if(ac)fresh()},
+  click(){if(!ok())return;const t=ac.currentTime;tone(t,1900,.03,'square',.18);tone(t+.04,1200,.04,'square',.12)},
+  whoosh(){if(!ok())return;const t=ac.currentTime;const n=noise(t,.32,'bandpass',600,1.2,.22,.08);n.fl.frequency.exponentialRampToValueAtTime(3200,t+.35)},
+  clank(){if(!ok())return;const t=ac.currentTime;tone(t,880,.18,'triangle',.18);tone(t,1320,.12,'sine',.1);noise(t,.04,'highpass',3000,.7,.12)},
+  pop(){if(!ok())return;const t=ac.currentTime;tone(t,500+Math.random()*700,.07,'sine',.07,.003,1400+Math.random()*600)},
+  chime(){if(!ok())return;const t=ac.currentTime;[880,1320,1760].forEach((f,i)=>tone(t+i*.09,f,1.3,'sine',.14-i*.03,.005))},
+  sparkle(){if(!ok())return;const t=ac.currentTime;for(let i=0;i<7;i++)tone(t+i*.06,1500+i*260,.25,'sine',.06)},
+  reveal(){if(!ok())return;const t=ac.currentTime;const n=noise(t,.9,'lowpass',400,.7,.2,.25);n.fl.frequency.exponentialRampToValueAtTime(5000,t+1);tone(t+.6,660,1.2,'sine',.1);tone(t+.6,990,1.2,'sine',.07)},
+  /* 카페 — 원두 가는 소리 → 펌프 웅 + 커피 떨어지는 소리 */
+  grind(){if(!ok())return;const t=ac.currentTime;const n=noise(t,1.1,'bandpass',1800,2,.22,.05);const l=ac.createOscillator(),lg=ac.createGain();l.frequency.value=28;lg.gain.value=700;l.connect(lg);lg.connect(n.fl.frequency);l.start(t);l.stop(t+1.2)},
+  brew(){if(!ok())return;const t=ac.currentTime,D=3;const o=ac.createOscillator();o.type='sawtooth';o.frequency.value=55;const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=220;const g=ac.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.3);g.gain.setValueAtTime(.16,t+D-.4);g.gain.linearRampToValueAtTime(0,t+D);o.connect(lp);lp.connect(g);g.connect(master);o.start(t);o.stop(t+D+.1);
+   noise(t+.6,D-.8,'bandpass',2600,1.4,.09,.4);for(let i=0;i<14;i++){const tt=t+.9+i*.15+Math.random()*.06;tone(tt,900+Math.random()*500,.05,'sine',.05,.002,400)}},
+  dryer(){if(!ok())return;const t=ac.currentTime;noise(t,1.8,'lowpass',900,.7,.18,.2);tone(t,320,1.8,'sawtooth',.03,.2)},
+  snip(){if(!ok())return;const t=ac.currentTime;[0,.16].forEach(d=>{noise(t+d,.05,'highpass',4000,1,.25,.002);tone(t+d,2400,.04,'square',.05)})},
+  sizzle(){if(!ok())return;const t=ac.currentTime;noise(t,2.2,'highpass',2500,.6,.12,.15);for(let i=0;i<30;i++)noise(t+Math.random()*2,.02,'highpass',5000,1,.18,.002)},
+  spring(){if(!ok())return;const t=ac.currentTime;[0,.5,1].forEach(d=>tone(t+d,180,.4,'sine',.12,.01,90))},
+  shutter(){if(!ok())return;const t=ac.currentTime;noise(t,.05,'highpass',2000,1,.35,.002);noise(t+.09,.06,'highpass',1500,1,.28,.002);tone(t+.2,2600,.6,'sine',.04,.05,4200)},
+  strike(){if(!ok())return;const t=ac.currentTime;noise(t,.25,'bandpass',3000,1,.25,.01);noise(t+.2,.8,'lowpass',600,.5,.08,.1)},
+  whir(){if(!ok())return;const t=ac.currentTime;const o=tone(t,90,2.2,'sawtooth',.07,.3,140);noise(t+1.4,.7,'highpass',3500,.7,.12,.05)},
+  speak(txt,lang){if(!on||!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang||'en-US';u.rate=.95;const v=speechSynthesis.getVoices().find(x=>/^en(-|_)US/i.test(x.lang)&&/female|samantha|zira|google us/i.test(x.name))||speechSynthesis.getVoices().find(x=>/^en/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+ };return api})();
+const KSFX={cafe:[[2600,'grind'],[5200,'brew']],salon:[[5700,'dryer'],[6900,'snip']],dining:[[5700,'sizzle']],pilates:[[5800,'spring']],photo:[[6000,'shutter']],shop:[[5800,'strike']],factory:[[5600,'whir']]};
 let swT=0,swGo=null;
 function run(i){clearTimeout(swT);timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);if(window._cup){_cup.stop();window._cup=null}qi=i;
  const sw=$('sw9'),t=IND[ORDER[i][0]];[...$('ind9').children].forEach((b,j)=>b.classList.toggle('on',j==i));
  sw.querySelector('.lb').innerHTML=`${t.s} 홈페이지, 켜 볼까요?<small>스위치를 누르세요</small>`;$('sUrl').textContent=t.real||t.en.toLowerCase().replace(/\s/g,'')+'.kr';[...$('steps').children].forEach(b=>b.classList.remove('on','done'));
  sw.classList.remove('on','gone');const hd=sw.querySelector('.hd');hd.style.animation='none';void hd.offsetWidth;hd.style.animation='';
- swGo=()=>{if(!swGo)return;swGo=null;clearTimeout(swT);sw.classList.add('on');swT=setTimeout(()=>{sw.classList.add('gone');run0(i)},260)};
+ swGo=()=>{if(!swGo)return;swGo=null;clearTimeout(swT);SFX.click();sw.classList.add('on');swT=setTimeout(()=>{sw.classList.add('gone');run0(i)},260)};
  swT=setTimeout(()=>swGo&&swGo(),1450)}
-$('sw9').onclick=()=>swGo&&swGo();$('sw9').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();swGo&&swGo()}};
-function run0(i){
+$('sw9').onclick=()=>swGo&&swGo();$('sndBtn').onclick=e=>{e.stopPropagation();const b=e.currentTarget,v=!SFX.on;SFX.set(v);b.classList.toggle('off',!v);b.textContent=v?'🔊 소리':'🔇 소리 꺼짐';b.setAttribute('aria-label',v?'소리 끄기':'소리 켜기');if(!v&&window.speechSynthesis)speechSynthesis.cancel()};$('sw9').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();swGo&&swGo()}};
+function run0(i){SFX.reset();
  timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);qi=i;
- const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?16500:7000;if(window._cup)_cup.stop();window._cup=null;
+ const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?14800:7000;if(window._cup)_cup.stop();window._cup=null;
  $('steps').innerHTML=(ak?AKSTEPS:sk==='tf'?(k==='cafe'?TFSTEPS:KITSTEPS):STEPS).map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
  $('sUrl').textContent=t.real||t.en.toLowerCase().replace(/\s/g,'')+'.kr';
  $('gen').innerHTML=`<div class="scene ${sk==='tf'||ak?'tfx':'tilt'}" id="scene">${st.f(t)}</div>`;$('sscr').classList.remove('flat');$('sscr').classList.toggle('tfbg',sk==='tf');$('sscr').classList.toggle('akbgx',ak);
@@ -1371,6 +1407,7 @@ function run0(i){
    g.querySelectorAll('[data-s="'+n+'"]').forEach(e=>{e.classList.add('on','hl');setTimeout(()=>e.classList.remove('hl'),650)});
    g.querySelectorAll('[data-s="'+n+'"] .blk,[data-s="'+n+'"] .card').forEach((b,j)=>setTimeout(()=>b.classList.add('on'),j*120));
  },300+(n-1)*step);
+ if(sk==='tf'){for(let q=0;q<10;q++)T(()=>{SFX.whoosh();setTimeout(()=>SFX.clank(),330)},400+q*500);(KSFX[k]||[]).forEach(([ms,f])=>T(()=>SFX[f](),ms));T(()=>SFX.chime(),300+3*step);T(()=>SFX.reveal(),300+4*step)}
  if(sk==='tf'){T(()=>{const w=$('cup3d');if(w)window._cup=k==='cafe'?CUP3D.start(w):KIT3D.start(w,k,t.acc,t.en)},300);T(()=>{const f=g.querySelector('.tf');f&&f.classList.add('lgscene')},300+3*step);T(()=>{const w=$('cup3d'),f=g.querySelector('.tf'),lg=g.querySelector('.tf .lg');f&&f.classList.remove('lgscene');if(w){w.classList.add('dock');window._cup&&_cup.dock()}if(lg){lg.classList.add('go');setTimeout(()=>lg.classList.add('gone'),1600)}},300+4*step)}
  const t0=performance.now(),fill=$('barFill');
  (function tick(){const p=Math.min(1,(performance.now()-t0)/DUR);fill.style.transform=`scaleX(${1-p})`;$('barSec').textContent=p<1?Math.ceil((DUR-(performance.now()-t0))/1000)+'초':'완성!';$('barTxt').textContent=p<1?'완성까지':'홈페이지 완성';if(p<1)raf=requestAnimationFrame(tick)})();
