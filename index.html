@@ -694,6 +694,20 @@ section.hx9{overflow-x:hidden}
 @media (prefers-reduced-motion:reduce){.ak *{animation:none!important;transition:none!important}}
 
 @media (prefers-reduced-motion:reduce){.scene,.scene [data-s]{transition:none}.scene.tilt{transform:none}}
+/* v16 — 스위치를 켜면 홈페이지가 켜진다 (인스타 릴스 「벽 스위치 ON → 광고판」 연출 적용) */
+.sw9{position:absolute;inset:0;z-index:30;container-type:inline-size;background:linear-gradient(180deg,#F5F0E8 0,#EEE6DA 78%,#D9C7AE 78.4%,#CDB89B 100%);cursor:pointer;transition:opacity .12s}
+.sw9.gone{opacity:0;pointer-events:none}
+.sw9 .tg{position:absolute;left:50%;top:12%;transform:translateX(-50%);width:15cqw;height:7.6cqw;border-radius:99px;background:#D8D0C5;box-shadow:inset 0 .5cqw 1cqw rgba(60,40,20,.18),0 .2cqw 0 rgba(255,255,255,.8);transition:background .2s}
+.sw9 .tg i{position:absolute;left:.8cqw;top:.8cqw;width:6cqw;height:6cqw;border-radius:50%;background:#fff;box-shadow:0 .4cqw 1cqw rgba(60,40,20,.25);transition:left .22s cubic-bezier(.3,1.5,.5,1)}
+.sw9.on .tg{background:#34C759}.sw9.on .tg i{left:8.2cqw}
+.sw9 .pl{position:absolute;left:9%;top:52%;display:grid;grid-template-columns:repeat(2,3.2cqw);gap:.5cqw}.sw9 .pl b{height:2.4cqw;border-radius:.3cqw;background:#F8F4EE;box-shadow:0 .15cqw .3cqw rgba(60,40,20,.2)}
+.sw9 .lb{position:absolute;left:0;right:0;top:28%;text-align:center;font-size:2.2cqw;font-weight:800;color:#6B5444}
+.sw9 .lb small{display:block;font-size:1.3cqw;font-weight:600;color:#9A8676;margin-top:.6cqw}
+.sw9 .hd{position:absolute;left:50%;top:58%;font-size:6cqw;transform:translate(1cqw,0) rotate(-8deg);opacity:0;animation:swHand 1.1s .25s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes swHand{0%{opacity:0;transform:translate(4cqw,10cqw) rotate(-8deg)}40%{opacity:1}100%{opacity:1;transform:translate(1.5cqw,-31cqw) rotate(-8deg)}}
+.sw9.on .hd{animation:none;opacity:0}
+@media (prefers-reduced-motion:reduce){.sw9 *{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -707,7 +721,7 @@ section.hx9{overflow-x:hidden}
   <div class="h9">
     <div class="stage s9" id="stage">
       <div class="sbar"><i></i><i></i><i></i><span id="sUrl">morningbrew.kr</span><div class="steps4" id="steps"></div></div>
-      <div class="sscr" id="sscr"><div class="gen" id="gen"></div></div>
+      <div class="sscr" id="sscr"><div class="gen" id="gen"></div><div class="sw9 gone" id="sw9" role="button" tabindex="0" aria-label="홈페이지 켜기"><div class="tg"><i></i></div><div class="lb"></div><div class="pl"><b></b><b></b><b></b><b></b></div><div class="hd">👆</div></div></div>
     </div>
     <aside class="side9">
       <div class="eye">Website Showroom</div>
@@ -1319,7 +1333,15 @@ let DUR=7000;let qi=0,timers=[],raf=0;
 const $=id=>document.getElementById(id);
 $('steps').innerHTML=STEPS.map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
 $('ind9').innerHTML=ORDER.map(([k],i)=>`<button type="button" data-i="${i}">${IND[k].n}</button>`).join('');
-function run(i){
+let swT=0,swGo=null;
+function run(i){clearTimeout(swT);timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);if(window._cup){_cup.stop();window._cup=null}qi=i;
+ const sw=$('sw9'),t=IND[ORDER[i][0]];[...$('ind9').children].forEach((b,j)=>b.classList.toggle('on',j==i));
+ sw.querySelector('.lb').innerHTML=`${t.s} 홈페이지, 켜 볼까요?<small>스위치를 누르세요</small>`;$('sUrl').textContent=t.real||t.en.toLowerCase().replace(/\s/g,'')+'.kr';[...$('steps').children].forEach(b=>b.classList.remove('on','done'));
+ sw.classList.remove('on','gone');const hd=sw.querySelector('.hd');hd.style.animation='none';void hd.offsetWidth;hd.style.animation='';
+ swGo=()=>{if(!swGo)return;swGo=null;clearTimeout(swT);sw.classList.add('on');swT=setTimeout(()=>{sw.classList.add('gone');run0(i)},260)};
+ swT=setTimeout(()=>swGo&&swGo(),1450)}
+$('sw9').onclick=()=>swGo&&swGo();$('sw9').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();swGo&&swGo()}};
+function run0(i){
  timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf);qi=i;
  const [k,sk]=ORDER[i],t=IND[k],st=STYLE[sk],ak=sk==='aki';DUR=sk==='tf'?13000:ak?8600:7000;if(window._cup)_cup.stop();window._cup=null;
  $('steps').innerHTML=(ak?AKSTEPS:sk==='tf'?(k==='cafe'?TFSTEPS:KITSTEPS):STEPS).map((s,i)=>`<b>${i+1} ${s}</b>`).join('')+'<b>완성</b>';
